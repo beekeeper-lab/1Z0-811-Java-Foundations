@@ -350,26 +350,35 @@ def generate_quiz_html(module_num: int, module_slug: str) -> str:
             <div class="quiz-question-number">Question {qid}</div>
             <div class="quiz-question-text">{question_text}</div>
             <ul class="quiz-options">{options_html}</ul>
-            <div class="quiz-feedback"></div>
+            <div class="quiz-feedback-text"></div>
         </div>\n'''
 
     return f'''<h2 id="quiz">Knowledge Check: {title}</h2>
 <div class="quiz-container">
     <div class="quiz-header">
-        <p class="quiz-meta">{total} questions &middot; {passing} correct to pass</p>
+        <p class="quiz-meta">{total} questions &middot; {passing} correct to pass &middot; 45 seconds per question</p>
+    </div>
+    <div class="quiz-status-bar">
+        <span id="quizStatusScore">Score: 0 / 0</span>
+        <span id="quizStatusProgress">0 of {total} answered</span>
+        <span class="quiz-timer" id="quizTimer">45s</span>
+    </div>
+    <div class="quiz-progress-track">
+        <div class="quiz-progress-fill" id="quizProgressFill" style="width:0%"></div>
     </div>
     <script type="application/json" id="quizData">{quiz_data}</script>
     <div id="quizForm">
         {questions_html}
-        <div class="quiz-submit-area">
-            <button class="quiz-submit-btn" id="quizSubmitBtn">Submit Quiz</button>
-        </div>
-        <div class="quiz-results" id="quizResults">
-            <div class="quiz-score" id="quizScoreValue"></div>
-            <div class="quiz-label" id="quizResultLabel"></div>
-            <div class="quiz-detail" id="quizResultDetail"></div>
-            <button class="quiz-retry-btn" id="quizRetryBtn">Try Again</button>
-        </div>
+    </div>
+    <div class="quiz-action-area">
+        <button class="quiz-action-btn" id="quizActionBtn" disabled>Submit Answer</button>
+    </div>
+    <div class="quiz-results" id="quizResults">
+        <div class="quiz-score" id="quizScoreValue"></div>
+        <div class="quiz-pct" id="quizScorePct"></div>
+        <div class="quiz-label" id="quizResultLabel"></div>
+        <div class="quiz-detail" id="quizResultDetail"></div>
+        <button class="quiz-retry-btn" id="quizRetryBtn">Retake Quiz</button>
     </div>
 </div>'''
 
