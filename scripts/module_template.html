@@ -942,7 +942,7 @@
         /* ----- State ----- */
         var currentPage = 1;
         var totalPages = parseInt('${total_pages}', 10) || 1;
-        var playedAudioIds = {};  /* Track which narration blocks have auto-played */
+        /* Audio auto-plays on every page transition (not same-page sidebar clicks) */
 
         /* ----- DOM refs ----- */
         var pages = document.querySelectorAll('.page[data-page]');
@@ -1158,16 +1158,8 @@
         }
 
         function autoPlayNarration() {
-            /* Don't auto-play if something is already playing */
-            if (isAnyAudioPlaying()) return;
-
             var activePage = document.querySelector('.page.active');
             if (!activePage) return;
-
-            var pageKey = 'page-' + activePage.getAttribute('data-page');
-
-            /* Don't auto-play if this page's narration was already played */
-            if (playedAudioIds[pageKey]) return;
 
             var narrationBlock = activePage.querySelector('.narration-block');
             if (!narrationBlock) return;
@@ -1177,8 +1169,6 @@
 
             var playBtn = narrationBlock.querySelector('.narration-play-btn');
             audio.play().then(function() {
-                /* Mark this page's auto-narration as played */
-                playedAudioIds[pageKey] = true;
                 if (playBtn) {
                     playBtn.classList.add('playing');
                     playBtn.innerHTML = '&#9646;&#9646;';
