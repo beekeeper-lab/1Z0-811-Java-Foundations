@@ -254,26 +254,63 @@ def paginate(html: str) -> tuple[str, int]:
 # ── TOC generation ─────────────────────────────────────────────────────────────
 
 def generate_toc(html: str) -> str:
-    """Generate sidebar TOC from H2 and H3 headings."""
+    """Generate sidebar TOC from H2 and H3 headings, grouped by page.
+
+    Each H2 starts a new page group. H3s are nested under their parent H2.
+    Page groups get a visual container so users can see what belongs together.
+    """
+    # Try with id attributes first
     headings = re.findall(r'<h([23])[^>]*id="([^"]*)"[^>]*>(.*?)</h\1>', html)
+    has_ids = True
     if not headings:
-        # Try without id attribute — generate from text
-        headings = re.findall(r'<h([23])[^>]*>(.*?)</h\1>', html)
-        toc_items = []
-        for level, text in headings:
+        has_ids = False
+        raw = re.findall(r'<h([23])[^>]*>(.*?)</h\1>', html)
+        headings = []
+        for level, text in raw:
             clean = re.sub(r'<[^>]+>', '', text)
             slug = re.sub(r'[^a-z0-9]+', '-', clean.lower()).strip('-')
-            indent = "toc-h3" if level == "3" else "toc-h2"
-            toc_items.append(f'<li class="{indent}"><a href="#{slug}">{clean}</a></li>')
-        return f'<ul class="toc-list">{"".join(toc_items)}</ul>'
+            headings.append((level, slug, clean))
 
-    toc_items = []
-    for level, id_attr, text in headings:
-        clean = re.sub(r'<[^>]+>', '', text)
-        indent = "toc-h3" if level == "3" else "toc-h2"
-        toc_items.append(f'<li class="{indent}"><a href="#{id_attr}">{clean}</a></li>')
+    if not headings:
+        return '<ul class="toc-list"></ul>'
 
-    return f'<ul class="toc-list">{"".join(toc_items)}</ul>'
+    # Normalize to (level, id, clean_text)
+    if has_ids:
+        headings = [(lv, id_attr, re.sub(r'<[^>]+>', '', txt)) for lv, id_attr, txt in headings]
+
+    # Group by page: each H2 starts a new group, H3s belong to previous H2
+    page_num = 0
+    groups = []  # list of (page_num, [(level, id, text), ...])
+    current_group = []
+
+    for lv, id_attr, text in headings:
+        if lv == "2":
+            # Close previous group
+            if current_group:
+                groups.append((page_num, current_group))
+            page_num += 1
+            current_group = [("2", id_attr, text)]
+        else:
+            current_group.append(("3", id_attr, text))
+
+    if current_group:
+        groups.append((page_num, current_group))
+
+    # Build HTML with page groups
+    result = '<ul class="toc-list">'
+    for pg, items in groups:
+        result += f'<li class="toc-page-group" data-toc-page="{pg}">'
+        h2 = items[0]
+        result += f'<a href="#{h2[1]}" class="toc-h2-link">{h2[2]}</a>'
+        if len(items) > 1:
+            result += '<ul class="toc-subsections">'
+            for item in items[1:]:
+                result += f'<li><a href="#{item[1]}" class="toc-h3-link">{item[2]}</a></li>'
+            result += '</ul>'
+        result += '</li>'
+    result += '</ul>'
+
+    return result
 
 
 # ── Module navigation ─────────────────────────────────────────────────────────

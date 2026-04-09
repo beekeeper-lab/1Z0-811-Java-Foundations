@@ -119,31 +119,76 @@
             list-style: none;
         }
 
-        .sidebar-toc li a {
+        /* Page group — visual container for each page's headings */
+        .toc-page-group {
+            margin: 0.25rem 0.5rem;
+            padding: 0;
+            border-radius: 6px;
+            border-left: 3px solid var(--border);
+            background: transparent;
+            transition: all 0.2s ease;
+        }
+
+        .toc-page-group.active-group {
+            border-left-color: var(--accent);
+            background: rgba(231, 111, 81, 0.05);
+        }
+
+        [data-theme="dark"] .toc-page-group.active-group {
+            background: rgba(231, 111, 81, 0.08);
+        }
+
+        /* H2 link — the page title */
+        .toc-page-group .toc-h2-link {
             display: block;
-            padding: 0.4rem 1.25rem;
+            padding: 0.5rem 0.75rem;
             font-size: 0.88rem;
+            font-weight: 600;
             color: var(--text);
             text-decoration: none;
-            border-left: 3px solid transparent;
             transition: all 0.2s ease;
             line-height: 1.4;
         }
 
-        .sidebar-toc li a:hover {
-            background: rgba(0, 0, 0, 0.04);
+        .toc-page-group .toc-h2-link:hover {
             color: var(--accent);
         }
 
-        [data-theme="dark"] .sidebar-toc li a:hover {
-            background: rgba(255, 255, 255, 0.04);
+        .toc-page-group.active-group .toc-h2-link {
+            color: var(--accent);
         }
 
-        .sidebar-toc li a.active {
-            border-left-color: var(--accent);
+        /* H3 subsection links — indented under their H2 */
+        .toc-subsections {
+            list-style: none;
+            padding: 0 0 0.35rem 0;
+        }
+
+        .toc-subsections li a {
+            display: block;
+            padding: 0.2rem 0.75rem 0.2rem 1.5rem;
+            font-size: 0.82rem;
+            color: var(--text);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            line-height: 1.4;
+        }
+
+        .toc-subsections li a:hover {
+            opacity: 1;
             color: var(--accent);
+        }
+
+        .toc-page-group.active-group .toc-subsections li a {
+            opacity: 0.85;
+        }
+
+        /* Active individual link within a group */
+        .toc-page-group a.active {
+            color: var(--accent) !important;
+            opacity: 1 !important;
             font-weight: 600;
-            background: rgba(231, 111, 81, 0.08);
         }
 
         /* ===== Hamburger (mobile) ===== */
@@ -1027,14 +1072,19 @@
             var activePage = document.querySelector('.page.active');
             if (!activePage) return;
 
-            // Find headings on the active page
-            var headings = activePage.querySelectorAll('h1, h2, h3');
             var tocLinks = document.querySelectorAll('#toc a');
+            var pageGroups = document.querySelectorAll('.toc-page-group');
 
             // Remove all active classes
             for (var i = 0; i < tocLinks.length; i++) {
                 tocLinks[i].classList.remove('active');
             }
+            for (var g = 0; g < pageGroups.length; g++) {
+                pageGroups[g].classList.remove('active-group');
+            }
+
+            // Find headings on the active page
+            var headings = activePage.querySelectorAll('h1, h2, h3');
 
             // Find matching TOC entries for headings on this page
             for (var j = 0; j < headings.length; j++) {
@@ -1043,14 +1093,21 @@
                     for (var k = 0; k < tocLinks.length; k++) {
                         if (tocLinks[k].getAttribute('href') === '#' + id) {
                             tocLinks[k].classList.add('active');
+                            // Also highlight the parent page group
+                            var group = tocLinks[k].closest('.toc-page-group');
+                            if (group) {
+                                group.classList.add('active-group');
+                            }
                         }
                     }
                 }
             }
 
-            // If none are active, try to activate the first one
-            if (!document.querySelector('#toc a.active') && tocLinks.length > 0) {
-                tocLinks[0].classList.add('active');
+            // If none are active, try to activate the first group
+            if (!document.querySelector('#toc a.active') && pageGroups.length > 0) {
+                pageGroups[0].classList.add('active-group');
+                var firstLink = pageGroups[0].querySelector('a');
+                if (firstLink) firstLink.classList.add('active');
             }
         }
 
