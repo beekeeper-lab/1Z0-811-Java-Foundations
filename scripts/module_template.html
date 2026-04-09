@@ -897,6 +897,7 @@
         /* ----- State ----- */
         var currentPage = 1;
         var totalPages = parseInt('${total_pages}', 10) || 1;
+        var playedAudioIds = {};  /* Track which narration blocks have auto-played */
 
         /* ----- DOM refs ----- */
         var pages = document.querySelectorAll('.page[data-page]');
@@ -965,10 +966,16 @@
         }
 
         /* ----- Pagination ----- */
-        function showPage(num) {
+        function showPage(num, skipAudio) {
             if (num < 1 || num > totalPages) return;
 
-            stopAllAudio();
+            var isNewPage = (num !== currentPage);
+
+            if (isNewPage) {
+                /* Only stop audio when actually changing pages */
+                stopAllAudio();
+            }
+
             currentPage = num;
 
             for (var i = 0; i < pages.length; i++) {
@@ -984,14 +991,16 @@
             prevBtn.disabled = currentPage <= 1;
             nextBtn.disabled = currentPage >= totalPages;
 
-            // Scroll to top of content
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (isNewPage) {
+                // Scroll to top only on actual page change
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
 
             // Update TOC active state
             updateTocActive();
 
-            // Auto-play narration if not muted
-            if (!isMuted) {
+            // Auto-play narration only on new page, if not muted, and not already played
+            if (isNewPage && !isMuted && !skipAudio) {
                 autoPlayNarration();
             }
         }
@@ -1062,12 +1071,18 @@
             var parentPage = targetEl.closest('.page[data-page]');
             if (parentPage) {
                 var pageNum = parseInt(parentPage.getAttribute('data-page'), 10);
-                showPage(pageNum);
+                var isSamePage = (pageNum === currentPage);
 
-                // Scroll to the element after a short delay
-                setTimeout(function() {
+                if (isSamePage) {
+                    /* Same page — just scroll, don't touch audio */
                     targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 100);
+                } else {
+                    /* Different page — navigate (audio auto-plays if not already played) */
+                    showPage(pageNum);
+                    setTimeout(function() {
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                }
             }
 
             // Close sidebar on mobile
@@ -1077,9 +1092,25 @@
         });
 
         /* ----- Narration ----- */
+        function isAnyAudioPlaying() {
+            var audios = document.querySelectorAll('.narration-block audio');
+            for (var i = 0; i < audios.length; i++) {
+                if (!audios[i].paused) return true;
+            }
+            return false;
+        }
+
         function autoPlayNarration() {
+            /* Don't auto-play if something is already playing */
+            if (isAnyAudioPlaying()) return;
+
             var activePage = document.querySelector('.page.active');
             if (!activePage) return;
+
+            var pageKey = 'page-' + activePage.getAttribute('data-page');
+
+            /* Don't auto-play if this page's narration was already played */
+            if (playedAudioIds[pageKey]) return;
 
             var narrationBlock = activePage.querySelector('.narration-block');
             if (!narrationBlock) return;
@@ -1089,6 +1120,8 @@
 
             var playBtn = narrationBlock.querySelector('.narration-play-btn');
             audio.play().then(function() {
+                /* Mark this page's auto-narration as played */
+                playedAudioIds[pageKey] = true;
                 if (playBtn) {
                     playBtn.classList.add('playing');
                     playBtn.innerHTML = '&#9646;&#9646;';
