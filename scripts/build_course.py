@@ -92,6 +92,62 @@ def get_md():
 
 # ── Special block processors ──────────────────────────────────────────────────
 
+# Emoji codepoints used by special markers
+_MARKER_EMOJIS = [
+    "\U0001F3F7\uFE0F",  # 🏷️ tier
+    "\U0001F3AF",         # 🎯 teaching intent
+    "\U0001F399\uFE0F",  # 🎙️ narration
+    "\U0001F504",         # 🔄 cycle anchor
+    "\U0001F4A1",         # 💡 remember
+]
+_MARKER_PATTERN = "|".join(re.escape(e) for e in _MARKER_EMOJIS)
+
+
+def split_merged_blockquotes(html: str) -> str:
+    """Split blockquotes that contain multiple emoji-marker paragraphs.
+
+    Python-Markdown merges adjacent blockquotes (separated by blank lines in
+    source) into a single <blockquote> with multiple <p> children.  The
+    downstream regex processors expect each marker to live in its own
+    <blockquote>.  This function splits them apart.
+    """
+    def _split(m):
+        inner = m.group(1)
+        # Split on </p>\n<p> boundaries
+        paras = re.split(r'(</p>\s*<p>)', inner)
+
+        # Reassemble into individual paragraphs
+        rebuilt = []
+        current = ""
+        for part in paras:
+            if re.match(r'</p>\s*<p>', part):
+                current += "</p>"
+                rebuilt.append(current)
+                current = "<p>"
+            else:
+                current += part
+        if current:
+            rebuilt.append(current)
+
+        # Check if any paragraph starts with a marker emoji
+        has_markers = any(re.search(_MARKER_PATTERN, p) for p in rebuilt)
+        if not has_markers or len(rebuilt) <= 1:
+            return m.group(0)  # Nothing to split
+
+        # Wrap each paragraph in its own blockquote
+        result = ""
+        for p in rebuilt:
+            p = p.strip()
+            if p:
+                result += f"<blockquote>\n{p}\n</blockquote>\n"
+        return result
+
+    return re.sub(
+        r'<blockquote>\s*(.*?)\s*</blockquote>',
+        _split, html, flags=re.DOTALL
+    )
+
+
 def process_tier_badges(html: str) -> str:
     """Convert 🏷️ blockquotes into tier badges."""
     def replace_tier(m):
@@ -344,6 +400,9 @@ def build_module(mod: dict, idx: int, all_modules: list, template: str, embed: b
 
     # Module slug for audio lookup
     module_slug = mod["file"].replace(".md", "")
+
+    # Split merged blockquotes so each emoji marker gets its own <blockquote>
+    html = split_merged_blockquotes(html)
 
     # Process special blocks (order matters)
     html = process_tier_badges(html)
