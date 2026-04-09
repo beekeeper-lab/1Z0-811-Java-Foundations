@@ -1,0 +1,157 @@
+{
+  "quiz_title": "Day 9: Java Operators Part 1",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the result of the expression 10 / 3 in Java?",
+      "options": ["3.333", "3.0", "3", "4"],
+      "answer": "3"
+    },
+    {
+      "id": 2,
+      "question": "What is the result of 10.0 / 3.0 in Java?",
+      "options": ["3", "3.0", "3.3333333333333335", "3.33"],
+      "answer": "3.3333333333333335"
+    },
+    {
+      "id": 3,
+      "question": "What happens when you execute 10 / 0 in Java?",
+      "options": ["It returns 0", "It returns Infinity", "An ArithmeticException is thrown", "The program silently ignores the error"],
+      "answer": "An ArithmeticException is thrown"
+    },
+    {
+      "id": 4,
+      "question": "What is the result of 10.0 / 0.0 in Java?",
+      "options": ["An ArithmeticException is thrown", "0.0", "NaN", "Infinity"],
+      "answer": "Infinity"
+    },
+    {
+      "id": 5,
+      "question": "What does the modulo operator (%) return?",
+      "options": ["The quotient of the division", "The remainder of the division", "The product of two numbers", "The absolute value of the division"],
+      "answer": "The remainder of the division"
+    },
+    {
+      "id": 6,
+      "question": "What is the result of the expression -7 % 3 in Java?",
+      "options": ["2", "-1", "1", "-2"],
+      "answer": "-1"
+    },
+    {
+      "id": 7,
+      "question": "Which expression correctly checks whether an integer n is even?",
+      "options": ["n / 2 == 0", "n % 2 == 0", "n * 2 == 0", "n % 2 == 1"],
+      "answer": "n % 2 == 0"
+    },
+    {
+      "id": 8,
+      "question": "What is the result of the expression 10 / 3.0 in Java?",
+      "options": ["3", "3.0", "3.3333333333333335", "An error occurs"],
+      "answer": "3.3333333333333335"
+    },
+    {
+      "id": 9,
+      "question": "What is the value of y after the following code?\nint x = 10;\nint y = x++;",
+      "options": ["10", "11", "9", "12"],
+      "answer": "10"
+    },
+    {
+      "id": 10,
+      "question": "What is the value of n after the following code?\nint m = 10;\nint n = ++m;",
+      "options": ["10", "11", "9", "12"],
+      "answer": "11"
+    },
+    {
+      "id": 11,
+      "question": "When used as a standalone statement (on its own line), what is the difference between x++ and ++x?",
+      "options": ["x++ increments by 2, ++x increments by 1", "There is no difference in the final value of x", "++x does not change the value of x", "x++ decrements x instead of incrementing it"],
+      "answer": "There is no difference in the final value of x"
+    },
+    {
+      "id": 12,
+      "question": "What does the pre-increment operator (++x) do?",
+      "options": ["Uses the value of x then increments it", "Increments x before the value is used in the expression", "Doubles the value of x", "Increments x by 2"],
+      "answer": "Increments x before the value is used in the expression"
+    },
+    {
+      "id": 13,
+      "question": "What is printed by the following code?\nint counter = 5;\nSystem.out.println(counter++);",
+      "options": ["4", "5", "6", "An error occurs"],
+      "answer": "5"
+    },
+    {
+      "id": 14,
+      "question": "What is printed by the following code?\nint counter2 = 5;\nSystem.out.println(++counter2);",
+      "options": ["4", "5", "6", "An error occurs"],
+      "answer": "6"
+    },
+    {
+      "id": 15,
+      "question": "Why does the statement b = b + 5; fail to compile when b is declared as byte?",
+      "options": ["byte variables cannot be used with the + operator", "The result of b + 5 is promoted to int, which cannot be assigned to byte without a cast", "The value 5 is too large for a byte", "You must use parentheses: b = (b + 5);"],
+      "answer": "The result of b + 5 is promoted to int, which cannot be assigned to byte without a cast"
+    },
+    {
+      "id": 16,
+      "question": "Why does b += 5; compile successfully when b is a byte variable?",
+      "options": ["The += operator does not perform arithmetic", "The += operator skips type checking entirely", "Compound assignment operators include an implicit cast to the target type", "The compiler treats 5 as a byte literal"],
+      "answer": "Compound assignment operators include an implicit cast to the target type"
+    },
+    {
+      "id": 17,
+      "question": "What is the value of score after the following code?\nint score = 100;\nscore += 10;\nscore -= 25;",
+      "options": ["75", "85", "110", "125"],
+      "answer": "85"
+    },
+    {
+      "id": 18,
+      "question": "What is the value of score after the following code?\nint score = 85;\nscore *= 2;\nscore /= 5;",
+      "options": ["17", "34", "170", "42"],
+      "answer": "34"
+    },
+    {
+      "id": 19,
+      "question": "What is the result of 15 % 5 in Java?",
+      "options": ["3", "5", "0", "1"],
+      "answer": "0"
+    },
+    {
+      "id": 20,
+      "question": "Given 250 total minutes, which expressions correctly compute hours and remaining minutes?",
+      "options": ["hours = 250 / 60; minutes = 250 % 60;", "hours = 250 % 60; minutes = 250 / 60;", "hours = 250 * 60; minutes = 250 - 60;", "hours = 250 - 60; minutes = 250 + 60;"],
+      "answer": "hours = 250 / 60; minutes = 250 % 60;"
+    },
+    {
+      "id": 21,
+      "question": "What is the value of result and a after the following code?\nint a = 3;\nint result = a++ + ++a;",
+      "options": ["a = 5, result = 8", "a = 4, result = 7", "a = 5, result = 6", "a = 4, result = 8"],
+      "answer": "a = 5, result = 8"
+    },
+    {
+      "id": 22,
+      "question": "Which of the following is NOT a valid compound assignment operator in Java?",
+      "options": ["+=", "-=", "**=", "%="],
+      "answer": "**="
+    },
+    {
+      "id": 23,
+      "question": "What is the output of the following code?\nString message = \"Hello\";\nmessage += \" \";\nmessage += \"World\";\nmessage += \"!\";\nSystem.out.println(message);",
+      "options": ["Hello World!", "Hello World !", "HelloWorld!", "An error because += cannot be used with String"],
+      "answer": "Hello World!"
+    },
+    {
+      "id": 24,
+      "question": "What is the value of score after the following code?\nint score = 34;\nscore %= 10;",
+      "options": ["3", "4", "34", "0"],
+      "answer": "4"
+    },
+    {
+      "id": 25,
+      "question": "In the expression int y = x--;, what value does y receive?",
+      "options": ["The value of x after decrementing", "The value of x before decrementing", "Zero", "The value of x minus 2"],
+      "answer": "The value of x before decrementing"
+    }
+  ]
+}

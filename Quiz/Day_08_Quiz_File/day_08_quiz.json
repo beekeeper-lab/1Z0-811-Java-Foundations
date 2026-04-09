@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 8: Java Data Types Part 3",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which of the following best describes the String type in Java?",
+      "options": [
+        "String is a primitive data type like int or double",
+        "String is a class in the java.lang package, and strings are objects",
+        "String is a special keyword that behaves like a primitive",
+        "String is an interface that must be implemented before use"
+      ],
+      "answer": "String is a class in the java.lang package, and strings are objects"
+    },
+    {
+      "id": 2,
+      "question": "What does it mean that Java strings are immutable?",
+      "options": [
+        "Strings cannot be assigned to variables",
+        "Once a String object is created, its value cannot be changed",
+        "String variables cannot be reassigned to point to a different object",
+        "Strings can only be created using the new keyword"
+      ],
+      "answer": "Once a String object is created, its value cannot be changed"
+    },
+    {
+      "id": 3,
+      "question": "What is the output of the following code?\n\nString original = \"Hello\";\noriginal.toUpperCase();\nSystem.out.println(original);",
+      "options": [
+        "HELLO",
+        "Hello",
+        "hello",
+        "A compilation error occurs"
+      ],
+      "answer": "Hello"
+    },
+    {
+      "id": 4,
+      "question": "What is the String Pool in Java?",
+      "options": [
+        "A collection of all String methods available in the API",
+        "A special area in memory where Java stores string literals to reuse identical strings",
+        "A thread pool dedicated to processing string operations",
+        "A design pattern for creating strings efficiently"
+      ],
+      "answer": "A special area in memory where Java stores string literals to reuse identical strings"
+    },
+    {
+      "id": 5,
+      "question": "Given the following code, what is the result of a == b?\n\nString a = \"Java\";\nString b = \"Java\";",
+      "options": [
+        "true, because both reference the same object in the String Pool",
+        "false, because == always returns false for strings",
+        "true, because == compares string content",
+        "false, because each declaration creates a new object"
+      ],
+      "answer": "true, because both reference the same object in the String Pool"
+    },
+    {
+      "id": 6,
+      "question": "Given the following code, what is the result of a == c?\n\nString a = \"Java\";\nString c = new String(\"Java\");",
+      "options": [
+        "true, because they contain the same characters",
+        "false, because new String() creates a separate object outside the String Pool",
+        "true, because Java interns all strings automatically",
+        "A compilation error occurs because you cannot compare strings with =="
+      ],
+      "answer": "false, because new String() creates a separate object outside the String Pool"
+    },
+    {
+      "id": 7,
+      "question": "Which method should you use to compare the content of two strings?",
+      "options": [
+        "The == operator",
+        "The compareTo() method",
+        "The .equals() method",
+        "The instanceof operator"
+      ],
+      "answer": "The .equals() method"
+    },
+    {
+      "id": 8,
+      "question": "What is the correct way to parse the String \"42\" into an int?",
+      "options": [
+        "int x = (int) \"42\";",
+        "int x = Integer.parseInt(\"42\");",
+        "int x = String.toInt(\"42\");",
+        "int x = Integer.valueOf(\"42\").intValue(); // but parseInt is the standard way"
+      ],
+      "answer": "int x = Integer.parseInt(\"42\");"
+    },
+    {
+      "id": 9,
+      "question": "What happens when you call Integer.parseInt(\"hello\")?",
+      "options": [
+        "It returns 0",
+        "It returns null",
+        "A NumberFormatException is thrown",
+        "It returns the ASCII value of the first character"
+      ],
+      "answer": "A NumberFormatException is thrown"
+    },
+    {
+      "id": 10,
+      "question": "Which of the following correctly converts an int to a String?",
+      "options": [
+        "String s = (String) 42;",
+        "String s = String.valueOf(42);",
+        "String s = 42.toString();",
+        "String s = String.parse(42);"
+      ],
+      "answer": "String s = String.valueOf(42);"
+    },
+    {
+      "id": 11,
+      "question": "What is the output of the following code?\n\nString phrase = \"I like cats\";\nphrase.replace(\"cats\", \"dogs\");\nSystem.out.println(phrase);",
+      "options": [
+        "I like dogs",
+        "I like cats",
+        "I like catsdogs",
+        "A compilation error occurs"
+      ],
+      "answer": "I like cats"
+    },
+    {
+      "id": 12,
+      "question": "What is the difference between an empty string and a null string?",
+      "options": [
+        "There is no difference; they are the same thing",
+        "An empty string is a valid String object with zero characters; null means the variable does not refer to any object",
+        "A null string has zero characters; an empty string has one space character",
+        "An empty string causes a NullPointerException when accessed"
+      ],
+      "answer": "An empty string is a valid String object with zero characters; null means the variable does not refer to any object"
+    },
+    {
+      "id": 13,
+      "question": "What happens when you call .length() on a null String variable?",
+      "options": [
+        "It returns 0",
+        "It returns -1",
+        "A NullPointerException is thrown",
+        "It returns null"
+      ],
+      "answer": "A NullPointerException is thrown"
+    },
+    {
+      "id": 14,
+      "question": "Which of the following is a valid way to concatenate strings in Java?",
+      "options": [
+        "Using the + operator",
+        "Using the .concat() method",
+        "Using the + operator or the .concat() method",
+        "Using the & operator"
+      ],
+      "answer": "Using the + operator or the .concat() method"
+    },
+    {
+      "id": 15,
+      "question": "What is the output of the following code?\n\nString s = \"\" + 42;\nSystem.out.println(s);",
+      "options": [
+        "42 (as an int)",
+        "42 (as a String)",
+        "A compilation error because you cannot add a string and an int",
+        "0"
+      ],
+      "answer": "42 (as a String)"
+    },
+    {
+      "id": 16,
+      "question": "What does Double.parseDouble(\"3.14\") return?",
+      "options": [
+        "The String \"3.14\"",
+        "The double value 3.14",
+        "The int value 3",
+        "A Double object wrapping 3.14"
+      ],
+      "answer": "The double value 3.14"
+    },
+    {
+      "id": 17,
+      "question": "What happens when you call Integer.parseInt(\"3.14\")?",
+      "options": [
+        "It returns 3 by truncating the decimal portion",
+        "It returns 3.14 as a double",
+        "A NumberFormatException is thrown because \"3.14\" is not a valid integer",
+        "It rounds to 3"
+      ],
+      "answer": "A NumberFormatException is thrown because \"3.14\" is not a valid integer"
+    },
+    {
+      "id": 18,
+      "question": "Given the following code, what are the results of a == d and a == f?\n\nString a = \"Java\";\nString d = \"Ja\" + \"va\";\nString e = \"Ja\";\nString f = e + \"va\";",
+      "options": [
+        "a == d is true, a == f is true",
+        "a == d is false, a == f is false",
+        "a == d is true, a == f is false",
+        "a == d is false, a == f is true"
+      ],
+      "answer": "a == d is true, a == f is false"
+    },
+    {
+      "id": 19,
+      "question": "Why does \"Ja\" + \"va\" produce a string that is == to \"Java\", but a variable-based concatenation does not?",
+      "options": [
+        "Because variable-based concatenation uses a different character encoding",
+        "Because concatenation of two literals is resolved at compile time and placed in the String Pool, while variable-based concatenation happens at runtime and creates a new object",
+        "Because the + operator works differently depending on the number of operands",
+        "Because the JVM always creates new objects for any concatenation"
+      ],
+      "answer": "Because concatenation of two literals is resolved at compile time and placed in the String Pool, while variable-based concatenation happens at runtime and creates a new object"
+    },
+    {
+      "id": 20,
+      "question": "What does Boolean.parseBoolean(\"true\") return?",
+      "options": [
+        "The String \"true\"",
+        "The boolean value true",
+        "1",
+        "A Boolean object"
+      ],
+      "answer": "The boolean value true"
+    },
+    {
+      "id": 21,
+      "question": "Which of the following statements about the == operator and strings is correct?",
+      "options": [
+        "== compares the content of two strings",
+        "== compares the object references (memory addresses) of two strings",
+        "== always returns true if two strings have the same characters",
+        "== cannot be used with String variables"
+      ],
+      "answer": "== compares the object references (memory addresses) of two strings"
+    },
+    {
+      "id": 22,
+      "question": "How do you extract a char from the String \"A\" to store it in a char variable?",
+      "options": [
+        "char c = (char) \"A\";",
+        "char c = \"A\".charAt(0);",
+        "char c = Character.parseChar(\"A\");",
+        "char c = String.toChar(\"A\");"
+      ],
+      "answer": "char c = \"A\".charAt(0);"
+    },
+    {
+      "id": 23,
+      "question": "What is the output of the following code?\n\nint age = 20;\nString message = \"I am \" + age + \" years old.\";\nSystem.out.println(message);",
+      "options": [
+        "I am 20 years old.",
+        "A compilation error because you cannot concatenate a String with an int",
+        "I am age years old.",
+        "I am 20years old."
+      ],
+      "answer": "I am 20 years old."
+    },
+    {
+      "id": 24,
+      "question": "Which method converts the int value 100 to the String \"100\"?",
+      "options": [
+        "String.valueOf(100)",
+        "Integer.parseInt(100)",
+        "String.format(100)",
+        "100.toString()"
+      ],
+      "answer": "String.valueOf(100)"
+    },
+    {
+      "id": 25,
+      "question": "When a String method like toUpperCase() or replace() is called, what happens to the original string?",
+      "options": [
+        "The original string is modified in place",
+        "The original string is unchanged; the method returns a new String object with the result",
+        "The original string is deleted from memory",
+        "The original string is moved to a different location in the String Pool"
+      ],
+      "answer": "The original string is unchanged; the method returns a new String object with the result"
+    }
+  ]
+}

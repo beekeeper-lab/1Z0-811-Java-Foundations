@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 26: Classes and Constructors Part 2",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is a constructor in Java?",
+      "options": [
+        "A method that returns a new instance of a class",
+        "A special method that is automatically called when an object is created with the new keyword",
+        "A static method used to initialize class-level variables",
+        "A method that must be explicitly called after creating an object"
+      ],
+      "answer": "A special method that is automatically called when an object is created with the new keyword"
+    },
+    {
+      "id": 2,
+      "question": "How does a constructor differ from a regular method?",
+      "options": [
+        "A constructor must be declared static",
+        "A constructor can return any type including void",
+        "A constructor has the same name as the class and has no return type, not even void",
+        "A constructor must always accept at least one parameter"
+      ],
+      "answer": "A constructor has the same name as the class and has no return type, not even void"
+    },
+    {
+      "id": 3,
+      "question": "Given the following class, what does Java provide automatically?\n\npublic class Dog {\n    String name;\n    int age;\n}",
+      "options": [
+        "A constructor that initializes name to an empty string and age to 1",
+        "A default no-argument constructor that sets fields to their default values",
+        "A parameterized constructor accepting name and age",
+        "No constructor is provided; the class cannot be instantiated"
+      ],
+      "answer": "A default no-argument constructor that sets fields to their default values"
+    },
+    {
+      "id": 4,
+      "question": "What happens to the default constructor when you define your own parameterized constructor?",
+      "options": [
+        "The default constructor is still available alongside the parameterized one",
+        "The default constructor is automatically updated to call the parameterized constructor",
+        "Java no longer provides the default constructor; you must define it explicitly if needed",
+        "The default constructor becomes private"
+      ],
+      "answer": "Java no longer provides the default constructor; you must define it explicitly if needed"
+    },
+    {
+      "id": 5,
+      "question": "Consider this class:\n\npublic class Widget {\n    String label;\n    int count;\n    double price;\n    boolean active;\n}\n\nWhat are the default values of these fields when a Widget is created?",
+      "options": [
+        "label = \"\", count = 0, price = 0.0, active = false",
+        "label = null, count = 0, price = 0.0, active = false",
+        "label = null, count = 1, price = 0.0, active = true",
+        "All fields are uninitialized and will cause a compilation error"
+      ],
+      "answer": "label = null, count = 0, price = 0.0, active = false"
+    },
+    {
+      "id": 6,
+      "question": "What does the this keyword refer to inside a constructor?",
+      "options": [
+        "The class itself (the static context)",
+        "The superclass of the current object",
+        "The current object being constructed",
+        "The parameter list of the constructor"
+      ],
+      "answer": "The current object being constructed"
+    },
+    {
+      "id": 7,
+      "question": "Why is this.name = name used in a constructor when the parameter has the same name as the instance variable?",
+      "options": [
+        "It is optional; Java can automatically distinguish between them",
+        "this.name refers to the instance variable and name refers to the parameter, resolving the ambiguity",
+        "this.name refers to the parameter and name refers to the instance variable",
+        "It creates a new local variable called name"
+      ],
+      "answer": "this.name refers to the instance variable and name refers to the parameter, resolving the ambiguity"
+    },
+    {
+      "id": 8,
+      "question": "What is constructor overloading?",
+      "options": [
+        "Defining a constructor in a subclass that overrides the parent constructor",
+        "Defining multiple constructors in the same class with different parameter lists",
+        "Defining a constructor that calls itself recursively",
+        "Defining a constructor with the same parameters but a different return type"
+      ],
+      "answer": "Defining multiple constructors in the same class with different parameter lists"
+    },
+    {
+      "id": 9,
+      "question": "What does this() do when used inside a constructor?",
+      "options": [
+        "It refers to the current object",
+        "It calls another constructor in the same class",
+        "It calls the parent class constructor",
+        "It creates a new instance of the class"
+      ],
+      "answer": "It calls another constructor in the same class"
+    },
+    {
+      "id": 10,
+      "question": "Where must the this() call appear inside a constructor?",
+      "options": [
+        "It can appear anywhere in the constructor body",
+        "It must be the last statement in the constructor",
+        "It must be the first statement in the constructor",
+        "It must appear inside a conditional statement"
+      ],
+      "answer": "It must be the first statement in the constructor"
+    },
+    {
+      "id": 11,
+      "question": "What is the output of the following code?\n\npublic class Chain {\n    public Chain() {\n        this(10);\n        System.out.println(\"A\");\n    }\n    public Chain(int x) {\n        this(x, 20);\n        System.out.println(\"B\");\n    }\n    public Chain(int x, int y) {\n        System.out.println(\"C: \" + x + \", \" + y);\n    }\n}\n// In main: Chain c = new Chain();",
+      "options": [
+        "A B C: 10, 20",
+        "C: 10, 20 B A",
+        "C: 10, 20 A B",
+        "A C: 10, 20 B"
+      ],
+      "answer": "C: 10, 20 B A"
+    },
+    {
+      "id": 12,
+      "question": "Does this code compile?\n\npublic class Broken {\n    private int value;\n    public Broken(int value) {\n        this.value = value;\n    }\n}\n// In main: Broken b = new Broken();",
+      "options": [
+        "Yes, Java provides a default no-arg constructor",
+        "Yes, because the field has a default value of 0",
+        "No, because there is no no-arg constructor since a parameterized one was defined",
+        "No, because the field is private"
+      ],
+      "answer": "No, because there is no no-arg constructor since a parameterized one was defined"
+    },
+    {
+      "id": 13,
+      "question": "Does this code compile?\n\npublic class AlsoBroken {\n    public AlsoBroken() {\n        System.out.println(\"Hello\");\n        this(10);\n    }\n    public AlsoBroken(int x) {\n        System.out.println(\"x = \" + x);\n    }\n}",
+      "options": [
+        "Yes, and it prints Hello then x = 10",
+        "Yes, and it prints x = 10 then Hello",
+        "No, because this() must be the first statement in the constructor",
+        "No, because you cannot have two constructors in one class"
+      ],
+      "answer": "No, because this() must be the first statement in the constructor"
+    },
+    {
+      "id": 14,
+      "question": "What is the output?\n\npublic class Confusing {\n    private int x = 10;\n    public Confusing(int x) {\n        System.out.println(\"x = \" + x);\n        System.out.println(\"this.x = \" + this.x);\n    }\n}\n// In main: Confusing c = new Confusing(99);",
+      "options": [
+        "x = 10 and this.x = 99",
+        "x = 99 and this.x = 99",
+        "x = 99 and this.x = 10",
+        "x = 10 and this.x = 10"
+      ],
+      "answer": "x = 99 and this.x = 10"
+    },
+    {
+      "id": 15,
+      "question": "In the Employee example, what is the purpose of the static field nextId?",
+      "options": [
+        "It stores the name of the next employee to be created",
+        "It provides a unique auto-incrementing ID shared across all Employee instances",
+        "It limits the number of Employee objects that can be created",
+        "It stores the ID of the most recently accessed employee"
+      ],
+      "answer": "It provides a unique auto-incrementing ID shared across all Employee instances"
+    },
+    {
+      "id": 16,
+      "question": "Given the Employee class with four overloaded constructors, what is the constructor chaining order when new Employee() is called?",
+      "options": [
+        "Full constructor -> three-arg -> two-arg -> no-arg",
+        "No-arg -> full constructor -> two-arg -> three-arg",
+        "No-arg -> two-arg -> three-arg -> full constructor",
+        "Two-arg -> no-arg -> three-arg -> full constructor"
+      ],
+      "answer": "No-arg -> two-arg -> three-arg -> full constructor"
+    },
+    {
+      "id": 17,
+      "question": "What does this method enable?\n\npublic Book applyDiscount(double percent) {\n    this.price -= this.price * (percent / 100);\n    return this;\n}",
+      "options": [
+        "It creates a new Book object with a discounted price",
+        "It enables method chaining by returning the current object",
+        "It overloads the constructor with a discount parameter",
+        "It converts the price to a different currency"
+      ],
+      "answer": "It enables method chaining by returning the current object"
+    },
+    {
+      "id": 18,
+      "question": "Which of the following is a valid way to call method chaining after applying a discount?",
+      "options": [
+        "Book b = new Book(...); b.applyDiscount(10); b.displayInfo();",
+        "Book b = new Book(...); b.applyDiscount(10).displayInfo();",
+        "Both of the above are valid and produce the same result",
+        "Neither is valid; you cannot chain methods in Java"
+      ],
+      "answer": "Both of the above are valid and produce the same result"
+    },
+    {
+      "id": 19,
+      "question": "In the Temperature class, what exception should be thrown when an invalid scale character is passed to the constructor?",
+      "options": [
+        "NullPointerException",
+        "ArithmeticException",
+        "IllegalArgumentException",
+        "ClassCastException"
+      ],
+      "answer": "IllegalArgumentException"
+    },
+    {
+      "id": 20,
+      "question": "What is the output of the following code?\n\npublic class Gadget {\n    public Gadget() { System.out.println(\"No-arg\"); }\n    public Gadget(String name) { System.out.println(\"String: \" + name); }\n    public Gadget(int count) { System.out.println(\"Int: \" + count); }\n}\n// In main:\nGadget g1 = new Gadget();\nGadget g2 = new Gadget(\"Widget\");\nGadget g3 = new Gadget(5);",
+      "options": [
+        "No-arg, String: Widget, Int: 5",
+        "No-arg, No-arg, No-arg",
+        "String: null, String: Widget, Int: 5",
+        "Compilation error: ambiguous constructors"
+      ],
+      "answer": "No-arg, String: Widget, Int: 5"
+    },
+    {
+      "id": 21,
+      "question": "Which of the following correctly defines a no-arg constructor that delegates to a two-arg constructor using this()?",
+      "options": [
+        "public Dog() { Dog(\"Unknown\", 0); }",
+        "public Dog() { this(\"Unknown\", 0); }",
+        "public void Dog() { this(\"Unknown\", 0); }",
+        "public Dog() { return new Dog(\"Unknown\", 0); }"
+      ],
+      "answer": "public Dog() { this(\"Unknown\", 0); }"
+    },
+    {
+      "id": 22,
+      "question": "What happens if you write a constructor with a return type like void?\n\npublic void MyClass() { }",
+      "options": [
+        "It becomes a valid constructor that returns nothing",
+        "It is treated as a regular method, not a constructor",
+        "It causes a compilation error",
+        "It becomes a constructor that can only be called from within the class"
+      ],
+      "answer": "It is treated as a regular method, not a constructor"
+    },
+    {
+      "id": 23,
+      "question": "In the Temperature class, what is the minimum valid value for Kelvin?",
+      "options": [
+        "-273.15",
+        "-459.67",
+        "0",
+        "There is no minimum for Kelvin"
+      ],
+      "answer": "0"
+    },
+    {
+      "id": 24,
+      "question": "Given the Employee three-arg constructor:\n\npublic Employee(String name, String department, double salary) {\n    this(name, department, salary, name.toLowerCase().replace(\" \", \".\") + \"@company.com\");\n}\n\nWhat email is generated for new Employee(\"Bob Smith\", \"Marketing\", 72000)?",
+      "options": [
+        "Bob.Smith@company.com",
+        "bob.smith@company.com",
+        "bobsmith@company.com",
+        "BOB.SMITH@company.com"
+      ],
+      "answer": "bob.smith@company.com"
+    },
+    {
+      "id": 25,
+      "question": "Which statement about constructors and the new keyword is correct?",
+      "options": [
+        "You can call a constructor directly without using new",
+        "The new keyword allocates memory for the object and then invokes the constructor",
+        "The new keyword is optional when a no-arg constructor exists",
+        "The new keyword calls the constructor first and then allocates memory"
+      ],
+      "answer": "The new keyword allocates memory for the object and then invokes the constructor"
+    }
+  ]
+}

@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 18: Looping Statements Part 2",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the key difference between a while loop and a do-while loop in Java?",
+      "options": [
+        "A while loop can iterate more times than a do-while loop",
+        "A do-while loop checks the condition after the body executes, guaranteeing at least one execution",
+        "A do-while loop does not require a boolean condition",
+        "A while loop always executes its body at least once"
+      ],
+      "answer": "A do-while loop checks the condition after the body executes, guaranteeing at least one execution"
+    },
+    {
+      "id": 2,
+      "question": "What is the output of the following code?\n\nint x = 10;\nwhile (x < 5) {\n    System.out.println(x);\n    x++;\n}\nSystem.out.println(\"Done\");",
+      "options": [
+        "10 11 12 ... (infinite loop)",
+        "10\nDone",
+        "Done",
+        "Compilation error"
+      ],
+      "answer": "Done"
+    },
+    {
+      "id": 3,
+      "question": "What is the output of the following code?\n\nint x = 10;\ndo {\n    System.out.println(x);\n    x++;\n} while (x < 5);\nSystem.out.println(\"Done\");",
+      "options": [
+        "Done",
+        "10\nDone",
+        "Compilation error",
+        "10 11 12 ... (infinite loop)"
+      ],
+      "answer": "10\nDone"
+    },
+    {
+      "id": 4,
+      "question": "Which of the following is the correct syntax for a do-while loop in Java?",
+      "options": [
+        "do { // body } while (condition)",
+        "do { // body } while (condition);",
+        "do (condition) { // body };",
+        "do while (condition) { // body }"
+      ],
+      "answer": "do { // body } while (condition);"
+    },
+    {
+      "id": 5,
+      "question": "What happens if you omit the semicolon after the while condition in a do-while loop?",
+      "options": [
+        "The loop runs normally but skips the first iteration",
+        "A compilation error occurs",
+        "The loop becomes an infinite loop",
+        "The loop behaves like a regular while loop"
+      ],
+      "answer": "A compilation error occurs"
+    },
+    {
+      "id": 6,
+      "question": "What is a sentinel value?",
+      "options": [
+        "A variable that counts how many times a loop iterates",
+        "A special input value that signals the loop to stop",
+        "The initial value assigned to a loop counter",
+        "A boolean flag that starts as true and never changes"
+      ],
+      "answer": "A special input value that signals the loop to stop"
+    },
+    {
+      "id": 7,
+      "question": "In the following code, what is the sentinel value?\n\nint number = scanner.nextInt();\nwhile (number != -1) {\n    sum += number;\n    number = scanner.nextInt();\n}",
+      "options": [
+        "0",
+        "sum",
+        "-1",
+        "number"
+      ],
+      "answer": "-1"
+    },
+    {
+      "id": 8,
+      "question": "When is a while loop generally preferred over a for loop?",
+      "options": [
+        "When you know exactly how many iterations are needed",
+        "When you need the loop to run at least once",
+        "When you don't know in advance how many times the loop should run",
+        "When the loop body contains only one statement"
+      ],
+      "answer": "When you don't know in advance how many times the loop should run"
+    },
+    {
+      "id": 9,
+      "question": "Which loop type is most appropriate for input validation where the user must be prompted at least once?",
+      "options": [
+        "for loop",
+        "while loop",
+        "do-while loop",
+        "enhanced for loop"
+      ],
+      "answer": "do-while loop"
+    },
+    {
+      "id": 10,
+      "question": "What is the output of the following code?\n\nint a = 5;\nwhile (a < 5) {\n    System.out.println(\"while: \" + a);\n    a++;\n}\nSystem.out.println(\"a = \" + a);",
+      "options": [
+        "while: 5\na = 6",
+        "a = 5",
+        "while: 5\nwhile: 6\na = 7",
+        "Compilation error"
+      ],
+      "answer": "a = 5"
+    },
+    {
+      "id": 11,
+      "question": "What is the output of the following code?\n\nint b = 5;\ndo {\n    System.out.println(\"do-while: \" + b);\n    b++;\n} while (b < 5);\nSystem.out.println(\"b = \" + b);",
+      "options": [
+        "b = 5",
+        "do-while: 5\nb = 6",
+        "do-while: 5\ndo-while: 6\nb = 7",
+        "Compilation error"
+      ],
+      "answer": "do-while: 5\nb = 6"
+    },
+    {
+      "id": 12,
+      "question": "What causes an infinite loop?",
+      "options": [
+        "Using a do-while instead of a while loop",
+        "The loop condition never becomes false and no break statement is reached",
+        "Declaring the loop variable inside the loop body",
+        "Using a sentinel value of 0"
+      ],
+      "answer": "The loop condition never becomes false and no break statement is reached"
+    },
+    {
+      "id": 13,
+      "question": "Which of the following while loops will result in an infinite loop?",
+      "options": [
+        "int i = 0; while (i < 10) { i++; }",
+        "int i = 10; while (i > 0) { i--; }",
+        "int i = 0; while (i < 10) { System.out.println(i); }",
+        "int i = 0; while (i < 10) { i += 2; }"
+      ],
+      "answer": "int i = 0; while (i < 10) { System.out.println(i); }"
+    },
+    {
+      "id": 14,
+      "question": "What is the value of sum after this code executes?\n\nint sum = 0;\nint i = 1;\nwhile (i <= 5) {\n    sum += i;\n    i++;\n}",
+      "options": [
+        "10",
+        "15",
+        "5",
+        "20"
+      ],
+      "answer": "15"
+    },
+    {
+      "id": 15,
+      "question": "How many times does the body of this loop execute?\n\nint count = 0;\nint value = 1000;\nwhile (value > 0) {\n    value = value / 2;\n    count++;\n}",
+      "options": [
+        "9",
+        "10",
+        "11",
+        "1000"
+      ],
+      "answer": "11"
+    },
+    {
+      "id": 16,
+      "question": "Why is it important that a sentinel value cannot be confused with valid data?",
+      "options": [
+        "Because the sentinel must be a negative number",
+        "Because the compiler requires sentinel values to be constants",
+        "Because if valid data matches the sentinel, the loop will stop prematurely",
+        "Because sentinel values must always be of type String"
+      ],
+      "answer": "Because if valid data matches the sentinel, the loop will stop prematurely"
+    },
+    {
+      "id": 17,
+      "question": "Which method is used in the Day 18 material to make sentinel checking case-insensitive for String input?",
+      "options": [
+        "toLowerCase()",
+        "equals()",
+        "equalsIgnoreCase()",
+        "compareTo()"
+      ],
+      "answer": "equalsIgnoreCase()"
+    },
+    {
+      "id": 18,
+      "question": "What is the minimum number of times the body of a while loop can execute?",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "It depends on the data type of the condition"
+      ],
+      "answer": "0"
+    },
+    {
+      "id": 19,
+      "question": "What is the minimum number of times the body of a do-while loop can execute?",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "It depends on the condition"
+      ],
+      "answer": "1"
+    },
+    {
+      "id": 20,
+      "question": "In an input validation pattern using a while loop, what must you do before the loop begins?",
+      "options": [
+        "Print the menu options",
+        "Initialize the variable to an invalid value so the loop condition is true on the first check",
+        "Declare the Scanner inside the loop",
+        "Set the loop counter to the maximum number of attempts"
+      ],
+      "answer": "Initialize the variable to an invalid value so the loop condition is true on the first check"
+    },
+    {
+      "id": 21,
+      "question": "Which of the following correctly uses a do-while loop for password validation with a maximum of 3 attempts?",
+      "options": [
+        "do { getPassword(); attempts++; } while (wrong && attempts < 3);",
+        "while (wrong && attempts < 3) { getPassword(); attempts++; }",
+        "do { getPassword(); } while (wrong); if (attempts > 3) lock();",
+        "for (int i = 0; i < 3; i++) { getPassword(); }"
+      ],
+      "answer": "do { getPassword(); attempts++; } while (wrong && attempts < 3);"
+    },
+    {
+      "id": 22,
+      "question": "What is the output of this code?\n\nint n = 1;\ndo {\n    System.out.print(n + \" \");\n    n *= 2;\n} while (n <= 16);",
+      "options": [
+        "1 2 4 8 16",
+        "1 2 4 8",
+        "1 2 4 8 16 32",
+        "2 4 8 16"
+      ],
+      "answer": "1 2 4 8 16"
+    },
+    {
+      "id": 23,
+      "question": "Which of the following is a common prevention strategy for infinite loops?",
+      "options": [
+        "Always use do-while loops instead of while loops",
+        "Ensure the loop body modifies a variable used in the condition so it eventually becomes false",
+        "Declare all loop variables as final",
+        "Always use a for loop instead of a while loop"
+      ],
+      "answer": "Ensure the loop body modifies a variable used in the condition so it eventually becomes false"
+    },
+    {
+      "id": 24,
+      "question": "In a sentinel-controlled loop that calculates the average of user-entered scores, when should the sentinel value be included in the average calculation?",
+      "options": [
+        "Always, because it is part of the input",
+        "Only if the sentinel is a positive number",
+        "Never, because the sentinel signals termination and is not valid data",
+        "Only on the first iteration of the loop"
+      ],
+      "answer": "Never, because the sentinel signals termination and is not valid data"
+    },
+    {
+      "id": 25,
+      "question": "What is the output of this code?\n\nint i = 0;\nwhile (i < 3) {\n    i++;\n    System.out.print(i + \" \");\n}",
+      "options": [
+        "0 1 2",
+        "1 2 3",
+        "0 1 2 3",
+        "1 2 3 4"
+      ],
+      "answer": "1 2 3"
+    }
+  ]
+}

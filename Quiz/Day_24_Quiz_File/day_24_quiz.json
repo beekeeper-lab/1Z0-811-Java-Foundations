@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 24: Arrays and ArrayLists Part 3",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which of the following is true about the size of an array compared to an ArrayList?",
+      "options": [
+        "Both arrays and ArrayLists have a fixed size once created",
+        "Arrays have a fixed size, while ArrayLists can grow and shrink dynamically",
+        "Arrays can grow dynamically, while ArrayLists have a fixed size",
+        "Both arrays and ArrayLists resize automatically when elements are added"
+      ],
+      "answer": "Arrays have a fixed size, while ArrayLists can grow and shrink dynamically"
+    },
+    {
+      "id": 2,
+      "question": "Which data types can an array hold that an ArrayList cannot?",
+      "options": [
+        "String and Object types",
+        "Wrapper class types such as Integer and Double",
+        "Primitive types such as int, double, and boolean",
+        "Arrays can hold all the same types as ArrayList"
+      ],
+      "answer": "Primitive types such as int, double, and boolean"
+    },
+    {
+      "id": 3,
+      "question": "How do you access the third element of an array named 'data'?",
+      "options": [
+        "data.get(3)",
+        "data[3]",
+        "data[2]",
+        "data.get(2)"
+      ],
+      "answer": "data[2]"
+    },
+    {
+      "id": 4,
+      "question": "How do you access the third element of an ArrayList named 'data'?",
+      "options": [
+        "data[2]",
+        "data.get(3)",
+        "data.get(2)",
+        "data.element(2)"
+      ],
+      "answer": "data.get(2)"
+    },
+    {
+      "id": 5,
+      "question": "What is the correct way to get the number of elements in an array versus an ArrayList?",
+      "options": [
+        "arr.length() for arrays and list.size() for ArrayLists",
+        "arr.size() for arrays and list.length for ArrayLists",
+        "arr.length for arrays and list.size() for ArrayLists",
+        "arr.count() for arrays and list.count() for ArrayLists"
+      ],
+      "answer": "arr.length for arrays and list.size() for ArrayLists"
+    },
+    {
+      "id": 6,
+      "question": "Why is 'length' a property (no parentheses) for arrays but 'size()' is a method for ArrayLists?",
+      "options": [
+        "There is no difference; both can be used with or without parentheses",
+        "Arrays use a field because their size is fixed and stored directly, while ArrayList uses a method because it is a class with encapsulated behavior",
+        "It is a Java naming convention with no technical reason behind it",
+        "Arrays use a method too, but the parentheses are optional in Java"
+      ],
+      "answer": "Arrays use a field because their size is fixed and stored directly, while ArrayList uses a method because it is a class with encapsulated behavior"
+    },
+    {
+      "id": 7,
+      "question": "Which of the following correctly converts an array to an ArrayList?",
+      "options": [
+        "ArrayList<String> list = new ArrayList<>(arr);",
+        "ArrayList<String> list = new ArrayList<>(Arrays.asList(arr));",
+        "ArrayList<String> list = ArrayList.fromArray(arr);",
+        "ArrayList<String> list = (ArrayList<String>) arr;"
+      ],
+      "answer": "ArrayList<String> list = new ArrayList<>(Arrays.asList(arr));"
+    },
+    {
+      "id": 8,
+      "question": "Which of the following correctly converts an ArrayList to an array?",
+      "options": [
+        "String[] arr = list.toArray(new String[0]);",
+        "String[] arr = (String[]) list;",
+        "String[] arr = list.convertToArray();",
+        "String[] arr = Arrays.fromList(list);"
+      ],
+      "answer": "String[] arr = list.toArray(new String[0]);"
+    },
+    {
+      "id": 9,
+      "question": "When is an array the better choice over an ArrayList?",
+      "options": [
+        "When you need to frequently add and remove elements",
+        "When you do not know the number of elements in advance",
+        "When working with fixed-size data, primitives, or performance-critical code",
+        "When you need built-in search and sort methods"
+      ],
+      "answer": "When working with fixed-size data, primitives, or performance-critical code"
+    },
+    {
+      "id": 10,
+      "question": "What is the default value stored in each element of a newly created int array?",
+      "options": [
+        "null",
+        "-1",
+        "0",
+        "The array is empty and has no default values"
+      ],
+      "answer": "0"
+    },
+    {
+      "id": 11,
+      "question": "What is the default value stored in each element of a newly created String array?",
+      "options": [
+        "An empty string \"\"",
+        "null",
+        "\"null\"",
+        "The element does not exist until assigned"
+      ],
+      "answer": "null"
+    },
+    {
+      "id": 12,
+      "question": "What exception is thrown when you access an array index that does not exist?",
+      "options": [
+        "IndexOutOfRangeException",
+        "ArrayIndexOutOfBoundsException",
+        "InvalidIndexException",
+        "NullPointerException"
+      ],
+      "answer": "ArrayIndexOutOfBoundsException"
+    },
+    {
+      "id": 13,
+      "question": "What happens when you assign one array variable to another, as in 'int[] b = a;'?",
+      "options": [
+        "A deep copy of the array is created",
+        "Both variables reference the same array object in memory",
+        "Only the first element is copied",
+        "A compile-time error occurs"
+      ],
+      "answer": "Both variables reference the same array object in memory"
+    },
+    {
+      "id": 14,
+      "question": "Which method creates an independent copy of an array?",
+      "options": [
+        "Arrays.clone(original)",
+        "Arrays.copyOf(original, original.length)",
+        "original.copy()",
+        "new int[](original)"
+      ],
+      "answer": "Arrays.copyOf(original, original.length)"
+    },
+    {
+      "id": 15,
+      "question": "What is autoboxing in Java?",
+      "options": [
+        "Converting an object to a primitive type automatically",
+        "Automatically wrapping a primitive value into its corresponding wrapper class object",
+        "Casting one object type to another",
+        "Creating a new ArrayList from an array automatically"
+      ],
+      "answer": "Automatically wrapping a primitive value into its corresponding wrapper class object"
+    },
+    {
+      "id": 16,
+      "question": "Given 'ArrayList<Integer> nums = new ArrayList<>(); nums.add(10); nums.add(20); nums.add(30);', what does nums.remove(1) do?",
+      "options": [
+        "Removes the element with value 1",
+        "Removes the element at index 1, which is 20",
+        "Removes the first element, which is 10",
+        "Throws an IndexOutOfBoundsException"
+      ],
+      "answer": "Removes the element at index 1, which is 20"
+    },
+    {
+      "id": 17,
+      "question": "How do you remove the value 10 (not the element at index 10) from an ArrayList<Integer>?",
+      "options": [
+        "nums.remove(10)",
+        "nums.delete(10)",
+        "nums.remove(Integer.valueOf(10))",
+        "nums.removeValue(10)"
+      ],
+      "answer": "nums.remove(Integer.valueOf(10))"
+    },
+    {
+      "id": 18,
+      "question": "What exception is thrown if you remove elements from an ArrayList using an enhanced for loop while iterating?",
+      "options": [
+        "ArrayIndexOutOfBoundsException",
+        "IllegalStateException",
+        "ConcurrentModificationException",
+        "UnsupportedOperationException"
+      ],
+      "answer": "ConcurrentModificationException"
+    },
+    {
+      "id": 19,
+      "question": "What is the safe way to remove elements from an ArrayList while iterating?",
+      "options": [
+        "Use an enhanced for loop and call remove() inside it",
+        "Use a standard for loop iterating backwards from the last index to zero",
+        "Convert the ArrayList to an array first, then remove from the array",
+        "Use a while loop that always starts at index 0"
+      ],
+      "answer": "Use a standard for loop iterating backwards from the last index to zero"
+    },
+    {
+      "id": 20,
+      "question": "What does the generic type syntax in 'ArrayList<String>' provide?",
+      "options": [
+        "It allows the ArrayList to hold any type of object",
+        "It enforces type safety so only String objects can be added to the list",
+        "It makes the ArrayList immutable",
+        "It specifies the initial capacity of the ArrayList"
+      ],
+      "answer": "It enforces type safety so only String objects can be added to the list"
+    },
+    {
+      "id": 21,
+      "question": "What happens if you use a raw ArrayList without specifying a generic type?",
+      "options": [
+        "The code will not compile",
+        "The ArrayList can hold any type of object but you lose compile-time type checking",
+        "The ArrayList defaults to holding Integer objects",
+        "The program throws a runtime exception when any element is added"
+      ],
+      "answer": "The ArrayList can hold any type of object but you lose compile-time type checking"
+    },
+    {
+      "id": 22,
+      "question": "When you pass an array to a method in Java, what is actually passed?",
+      "options": [
+        "A complete copy of the array",
+        "Only the first element of the array",
+        "A reference to the array, so changes inside the method affect the original",
+        "An immutable view of the array"
+      ],
+      "answer": "A reference to the array, so changes inside the method affect the original"
+    },
+    {
+      "id": 23,
+      "question": "Which of the following correctly sorts an ArrayList<String> named 'items' alphabetically?",
+      "options": [
+        "items.sort()",
+        "Arrays.sort(items)",
+        "Collections.sort(items)",
+        "items.orderBy()"
+      ],
+      "answer": "Collections.sort(items)"
+    },
+    {
+      "id": 24,
+      "question": "Which statement about ArrayList is FALSE?",
+      "options": [
+        "ArrayList can store null values",
+        "ArrayList can hold primitive types directly without wrapper classes",
+        "ArrayList provides a built-in toString() method that prints elements in bracket format",
+        "ArrayList is part of the java.util package"
+      ],
+      "answer": "ArrayList can hold primitive types directly without wrapper classes"
+    },
+    {
+      "id": 25,
+      "question": "You need to store exactly 12 monthly temperature readings and performance is critical. Which is the better choice and why?",
+      "options": [
+        "ArrayList<Double>, because it provides more built-in methods",
+        "A double[] array, because the size is fixed and known, and arrays of primitives are faster than ArrayLists of wrapper objects",
+        "ArrayList<Double>, because it can resize if you add more months later",
+        "It makes no difference; both perform identically in all cases"
+      ],
+      "answer": "A double[] array, because the size is fixed and known, and arrays of primitives are faster than ArrayLists of wrapper objects"
+    }
+  ]
+}

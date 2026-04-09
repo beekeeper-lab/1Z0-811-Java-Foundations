@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 4: Basic Java Elements Part 1",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which naming convention is correct for a Java class?",
+      "options": [
+        "studentRecord",
+        "StudentRecord",
+        "student_record",
+        "STUDENT_RECORD"
+      ],
+      "answer": "StudentRecord"
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is the correct naming convention for a Java method?",
+      "options": [
+        "CalculateTotal()",
+        "calculate_total()",
+        "calculateTotal()",
+        "CALCULATE_TOTAL()"
+      ],
+      "answer": "calculateTotal()"
+    },
+    {
+      "id": 3,
+      "question": "How should a constant be declared in Java?",
+      "options": [
+        "int maxSize = 100;",
+        "final int maxSize = 100;",
+        "final int MAX_SIZE = 100;",
+        "static int MAX_SIZE = 100;"
+      ],
+      "answer": "final int MAX_SIZE = 100;"
+    },
+    {
+      "id": 4,
+      "question": "What naming convention do Java packages follow?",
+      "options": [
+        "PascalCase",
+        "camelCase",
+        "UPPER_SNAKE_CASE",
+        "all lowercase"
+      ],
+      "answer": "all lowercase"
+    },
+    {
+      "id": 5,
+      "question": "Which of the following is a valid single-line comment in Java?",
+      "options": [
+        "# This is a comment",
+        "// This is a comment",
+        "/* This is a comment",
+        "-- This is a comment"
+      ],
+      "answer": "// This is a comment"
+    },
+    {
+      "id": 6,
+      "question": "What symbols are used to begin and end a multi-line comment in Java?",
+      "options": [
+        "// and //",
+        "/* and */",
+        "/** and **/",
+        "<!-- and -->"
+      ],
+      "answer": "/* and */"
+    },
+    {
+      "id": 7,
+      "question": "What distinguishes a Javadoc comment from a regular multi-line comment?",
+      "options": [
+        "Javadoc comments use // instead of /*",
+        "Javadoc comments begin with /** and can generate documentation",
+        "Javadoc comments can only be placed inside methods",
+        "There is no difference; they are interchangeable"
+      ],
+      "answer": "Javadoc comments begin with /** and can generate documentation"
+    },
+    {
+      "id": 8,
+      "question": "Which Javadoc tag is used to document a method parameter?",
+      "options": [
+        "@arg",
+        "@parameter",
+        "@param",
+        "@input"
+      ],
+      "answer": "@param"
+    },
+    {
+      "id": 9,
+      "question": "Which Javadoc tag documents what a method sends back to the caller?",
+      "options": [
+        "@result",
+        "@return",
+        "@output",
+        "@sends"
+      ],
+      "answer": "@return"
+    },
+    {
+      "id": 10,
+      "question": "What happens if you try to use the reserved word 'class' as a variable name?",
+      "options": [
+        "The program compiles but throws a runtime exception",
+        "The compiler issues a warning but allows it",
+        "The program will not compile due to a compilation error",
+        "The variable is created but cannot be assigned a value"
+      ],
+      "answer": "The program will not compile due to a compilation error"
+    },
+    {
+      "id": 11,
+      "question": "Which of the following is NOT a Java reserved word?",
+      "options": [
+        "static",
+        "return",
+        "string",
+        "class"
+      ],
+      "answer": "string"
+    },
+    {
+      "id": 12,
+      "question": "What does the 'final' keyword indicate when applied to a variable?",
+      "options": [
+        "The variable can only be used in the main method",
+        "The variable's value cannot be changed after assignment",
+        "The variable is automatically set to zero",
+        "The variable is deleted after the program ends"
+      ],
+      "answer": "The variable's value cannot be changed after assignment"
+    },
+    {
+      "id": 13,
+      "question": "What does the 'static' keyword mean when applied to a field or method?",
+      "options": [
+        "It cannot be modified at runtime",
+        "It belongs to the class itself, not to any particular instance",
+        "It is only accessible within the same package",
+        "It must be initialized in the constructor"
+      ],
+      "answer": "It belongs to the class itself, not to any particular instance"
+    },
+    {
+      "id": 14,
+      "question": "What does the 'public' access modifier do?",
+      "options": [
+        "Makes the element accessible only within its own class",
+        "Makes the element accessible only within its package",
+        "Makes the element accessible from any other class",
+        "Makes the element accessible only to subclasses"
+      ],
+      "answer": "Makes the element accessible from any other class"
+    },
+    {
+      "id": 15,
+      "question": "Given the code 'String FIRST_NAME = \"Alice\";', which naming convention is violated?",
+      "options": [
+        "Variables should use UPPER_SNAKE_CASE",
+        "Variables should use camelCase, not UPPER_SNAKE_CASE",
+        "Variables should use PascalCase",
+        "Variable names cannot contain underscores"
+      ],
+      "answer": "Variables should use camelCase, not UPPER_SNAKE_CASE"
+    },
+    {
+      "id": 16,
+      "question": "Given the class declaration 'public class bad_conventions', what is the naming violation?",
+      "options": [
+        "Class names cannot contain underscores at all",
+        "Class names should use camelCase",
+        "Class names should use PascalCase (e.g., BadConventions)",
+        "Class names must be all uppercase"
+      ],
+      "answer": "Class names should use PascalCase (e.g., BadConventions)"
+    },
+    {
+      "id": 17,
+      "question": "Which of the following variable declarations follows correct Java naming conventions?",
+      "options": [
+        "double Account_Balance = 1500.75;",
+        "double account_balance = 1500.75;",
+        "double accountBalance = 1500.75;",
+        "double AccountBalance = 1500.75;"
+      ],
+      "answer": "double accountBalance = 1500.75;"
+    },
+    {
+      "id": 18,
+      "question": "Why do Java naming conventions matter even though the compiler does not enforce them?",
+      "options": [
+        "Because code that violates conventions runs slower",
+        "Because they make code readable and consistent for other developers",
+        "Because the JVM will throw a warning at runtime",
+        "Because naming conventions are required by the Java Language Specification"
+      ],
+      "answer": "Because they make code readable and consistent for other developers"
+    },
+    {
+      "id": 19,
+      "question": "Which of the following is an example of an unnecessary (useless) comment?",
+      "options": [
+        "// Calculate weighted average of exam scores",
+        "// int x = 5; -- sets x to 5",
+        "// Apply tax rate to determine amount owed",
+        "// Check if the grade qualifies for the honor roll"
+      ],
+      "answer": "// int x = 5; -- sets x to 5"
+    },
+    {
+      "id": 20,
+      "question": "Where should a Javadoc comment be placed?",
+      "options": [
+        "At the very end of the file",
+        "Inside the method body it documents",
+        "Immediately above the class, method, or field it documents",
+        "On the same line as the code it documents"
+      ],
+      "answer": "Immediately above the class, method, or field it documents"
+    },
+    {
+      "id": 21,
+      "question": "Which of the following lines would cause a compilation error?",
+      "options": [
+        "int score = 95;",
+        "String return = \"hello\";",
+        "double price = 9.99;",
+        "boolean isValid = true;"
+      ],
+      "answer": "String return = \"hello\";"
+    },
+    {
+      "id": 22,
+      "question": "What is the correct convention for declaring a constant that represents a tax rate in Java?",
+      "options": [
+        "double taxRate = 0.08;",
+        "final double tax_rate = 0.08;",
+        "final double TAX_RATE = 0.08;",
+        "FINAL double taxRate = 0.08;"
+      ],
+      "answer": "final double TAX_RATE = 0.08;"
+    },
+    {
+      "id": 23,
+      "question": "Which of the following is a Java reserved word?",
+      "options": [
+        "String",
+        "System",
+        "void",
+        "main"
+      ],
+      "answer": "void"
+    },
+    {
+      "id": 24,
+      "question": "What is the purpose of the 'return' reserved word in Java?",
+      "options": [
+        "It declares a new variable",
+        "It ends the program immediately",
+        "It sends a value back from a method to the caller",
+        "It restarts the current loop iteration"
+      ],
+      "answer": "It sends a value back from a method to the caller"
+    },
+    {
+      "id": 25,
+      "question": "Which statement about Java reserved words is true?",
+      "options": [
+        "Reserved words can be used as variable names if placed in quotes",
+        "Reserved words are case-insensitive, so 'Class' and 'class' are both reserved",
+        "Reserved words have predefined meanings in Java and cannot be used as identifiers",
+        "New reserved words can be created by the programmer using the 'reserve' keyword"
+      ],
+      "answer": "Reserved words have predefined meanings in Java and cannot be used as identifiers"
+    }
+  ]
+}

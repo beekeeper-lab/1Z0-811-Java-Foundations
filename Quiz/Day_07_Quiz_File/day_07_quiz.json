@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 7: Java Data Types Part 2",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the correct promotion hierarchy in Java, from smallest to largest?",
+      "options": [
+        "byte -> short -> int -> long -> float -> double",
+        "byte -> short -> int -> float -> long -> double",
+        "short -> byte -> int -> long -> float -> double",
+        "byte -> char -> int -> long -> float -> double"
+      ],
+      "answer": "byte -> short -> int -> long -> float -> double"
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is an example of a widening conversion?",
+      "options": [
+        "Assigning a double to an int",
+        "Assigning an int to a double",
+        "Assigning a long to a byte",
+        "Assigning a float to an int"
+      ],
+      "answer": "Assigning an int to a double"
+    },
+    {
+      "id": 3,
+      "question": "What is the result of casting (int) 9.99 in Java?",
+      "options": [
+        "10",
+        "9",
+        "9.0",
+        "A compilation error"
+      ],
+      "answer": "9"
+    },
+    {
+      "id": 4,
+      "question": "Why does Java require an explicit cast for narrowing conversions?",
+      "options": [
+        "Because narrowing conversions are always faster",
+        "Because data loss may occur when converting to a smaller type",
+        "Because Java does not support narrowing conversions",
+        "Because the JVM cannot perform narrowing automatically"
+      ],
+      "answer": "Because data loss may occur when converting to a smaller type"
+    },
+    {
+      "id": 5,
+      "question": "What happens when you cast int 130 to a byte?",
+      "options": [
+        "The value stays 130",
+        "The value becomes 0",
+        "The value wraps around due to overflow, producing -126",
+        "A runtime exception is thrown"
+      ],
+      "answer": "The value wraps around due to overflow, producing -126"
+    },
+    {
+      "id": 6,
+      "question": "What is the result of the following code?\n\nbyte a = 10;\nbyte b = 20;\nbyte c = a + b;",
+      "options": [
+        "c is assigned the value 30",
+        "A compilation error because a + b is promoted to int",
+        "A runtime exception occurs",
+        "c is assigned the value 0"
+      ],
+      "answer": "A compilation error because a + b is promoted to int"
+    },
+    {
+      "id": 7,
+      "question": "Which of the following correctly stores the result of adding two byte values?",
+      "options": [
+        "byte c = a + b;",
+        "int c = a + b;",
+        "short c = a + b;",
+        "long c = a + b;"
+      ],
+      "answer": "int c = a + b;"
+    },
+    {
+      "id": 8,
+      "question": "What is the result of 10 / 3 in Java?",
+      "options": [
+        "3.33",
+        "3.0",
+        "3",
+        "4"
+      ],
+      "answer": "3"
+    },
+    {
+      "id": 9,
+      "question": "What is the result of 10 / 3.0 in Java?",
+      "options": [
+        "3",
+        "3.3333333333333335",
+        "3.0",
+        "A compilation error"
+      ],
+      "answer": "3.3333333333333335"
+    },
+    {
+      "id": 10,
+      "question": "Given: int a = 5; double b = 2.0; What type is the result of a + b?",
+      "options": [
+        "int",
+        "float",
+        "double",
+        "long"
+      ],
+      "answer": "double"
+    },
+    {
+      "id": 11,
+      "question": "What does Java do when byte, short, or char values are used in an arithmetic expression?",
+      "options": [
+        "Keeps them as their original type",
+        "Promotes them to long",
+        "Always promotes them to int",
+        "Promotes them to short"
+      ],
+      "answer": "Always promotes them to int"
+    },
+    {
+      "id": 12,
+      "question": "What is the result of casting (char) 65 in Java?",
+      "options": [
+        "65",
+        "'A'",
+        "'a'",
+        "A compilation error"
+      ],
+      "answer": "'A'"
+    },
+    {
+      "id": 13,
+      "question": "Which line compiles successfully?\n\nA) byte d = (byte)(a + b);\nB) byte d = a + b;\nC) byte d = (int)(a + b);\nD) short d = a + b;\n\n(Assume a and b are byte variables)",
+      "options": [
+        "B only",
+        "A only",
+        "C and D",
+        "A and D"
+      ],
+      "answer": "A only"
+    },
+    {
+      "id": 14,
+      "question": "What is the difference between truncation and rounding when converting double to int?",
+      "options": [
+        "They produce the same result",
+        "Truncation removes the decimal portion; rounding adjusts to the nearest integer",
+        "Rounding removes the decimal portion; truncation adjusts to the nearest integer",
+        "Neither is supported in Java"
+      ],
+      "answer": "Truncation removes the decimal portion; rounding adjusts to the nearest integer"
+    },
+    {
+      "id": 15,
+      "question": "What does (int) 89.9 evaluate to in Java?",
+      "options": [
+        "90",
+        "89",
+        "89.0",
+        "A compilation error"
+      ],
+      "answer": "89"
+    },
+    {
+      "id": 16,
+      "question": "How do you perform proper rounding of a double value in Java instead of truncation?",
+      "options": [
+        "Use (int) to cast",
+        "Use Integer.parseInt()",
+        "Use Math.round()",
+        "Use Double.intValue()"
+      ],
+      "answer": "Use Math.round()"
+    },
+    {
+      "id": 17,
+      "question": "What is the type of the expression: char letter = 'A'; letter + 1;?",
+      "options": [
+        "char",
+        "int",
+        "short",
+        "byte"
+      ],
+      "answer": "int"
+    },
+    {
+      "id": 18,
+      "question": "How do you correctly get the character 'B' from char letter = 'A' using arithmetic?",
+      "options": [
+        "char next = letter + 1;",
+        "char next = (char)(letter + 1);",
+        "char next = (int)(letter + 1);",
+        "char next = letter++;  // This always returns 'B'"
+      ],
+      "answer": "char next = (char)(letter + 1);"
+    },
+    {
+      "id": 19,
+      "question": "Given: byte a = 10; short b = 20; long c = 30L; What type is a + b + c?",
+      "options": [
+        "int",
+        "short",
+        "long",
+        "double"
+      ],
+      "answer": "long"
+    },
+    {
+      "id": 20,
+      "question": "Which of the following assignments will cause a compilation error?",
+      "options": [
+        "double d = 42;",
+        "int i = 42;",
+        "float f = 42.0;",
+        "long l = 42;"
+      ],
+      "answer": "float f = 42.0;"
+    },
+    {
+      "id": 21,
+      "question": "Why does the formula (F - 32) * 5 / 9 produce incorrect results for Fahrenheit-to-Celsius conversion when F is an int?",
+      "options": [
+        "The subtraction overflows",
+        "Integer division truncates the result of 5 / 9 or the intermediate division",
+        "Multiplication causes an overflow",
+        "The formula itself is mathematically wrong"
+      ],
+      "answer": "Integer division truncates the result of 5 / 9 or the intermediate division"
+    },
+    {
+      "id": 22,
+      "question": "Which of the following is a widening conversion that can still lose information?",
+      "options": [
+        "int to double",
+        "byte to int",
+        "long to float",
+        "short to long"
+      ],
+      "answer": "long to float"
+    },
+    {
+      "id": 23,
+      "question": "What happens when you try to assign a double value directly to a float variable without a cast?",
+      "options": [
+        "Java automatically narrows the value",
+        "The value is rounded to fit",
+        "A compilation error occurs due to possible loss of precision",
+        "A runtime exception is thrown"
+      ],
+      "answer": "A compilation error occurs due to possible loss of precision"
+    },
+    {
+      "id": 24,
+      "question": "What is the result of casting (long) 3_000_000_000L to int?",
+      "options": [
+        "3000000000",
+        "A negative number due to overflow",
+        "0",
+        "A compilation error"
+      ],
+      "answer": "A negative number due to overflow"
+    },
+    {
+      "id": 25,
+      "question": "Which two approaches correctly produce 3.5 from dividing int p = 7 by int q = 2?",
+      "options": [
+        "p / q and (float) p / q",
+        "(double) p / q and p / (double) q",
+        "p / q and p / (int) q",
+        "(int) p / (int) q and p % q"
+      ],
+      "answer": "(double) p / q and p / (double) q"
+    }
+  ]
+}

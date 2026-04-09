@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 14: Decision Statements Part 1",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the correct syntax for a basic if statement in Java?",
+      "options": [
+        "if condition { // code }",
+        "if (condition) { // code }",
+        "if [condition] { // code }",
+        "if {condition} ( // code )"
+      ],
+      "answer": "if (condition) { // code }"
+    },
+    {
+      "id": 2,
+      "question": "What type of expression must be placed inside the parentheses of an if statement?",
+      "options": [
+        "An integer expression",
+        "A String expression",
+        "A boolean expression",
+        "Any expression that returns a value"
+      ],
+      "answer": "A boolean expression"
+    },
+    {
+      "id": 3,
+      "question": "What happens when the condition in an if statement evaluates to false and there is no else block?",
+      "options": [
+        "The program throws a runtime error",
+        "The code inside the if block executes anyway",
+        "The program skips the if block and continues with the next statement",
+        "The program terminates immediately"
+      ],
+      "answer": "The program skips the if block and continues with the next statement"
+    },
+    {
+      "id": 4,
+      "question": "In an if-else statement, when does the else block execute?",
+      "options": [
+        "When the if condition is true",
+        "When the if condition is false",
+        "Every time the program runs",
+        "Only when the if block throws an exception"
+      ],
+      "answer": "When the if condition is false"
+    },
+    {
+      "id": 5,
+      "question": "In an else-if chain, how does Java determine which block to execute?",
+      "options": [
+        "It evaluates all conditions and executes all blocks where the condition is true",
+        "It evaluates conditions from top to bottom and executes the first block whose condition is true",
+        "It evaluates conditions from bottom to top and executes the last block whose condition is true",
+        "It randomly selects one of the true conditions to execute"
+      ],
+      "answer": "It evaluates conditions from top to bottom and executes the first block whose condition is true"
+    },
+    {
+      "id": 6,
+      "question": "What is the purpose of the else block at the end of an else-if chain?",
+      "options": [
+        "It executes when the first condition is true",
+        "It acts as a default case when none of the previous conditions are true",
+        "It is required by the Java compiler",
+        "It executes after every other block has run"
+      ],
+      "answer": "It acts as a default case when none of the previous conditions are true"
+    },
+    {
+      "id": 7,
+      "question": "What will the following code print?\n\nint x = 5;\nif (x > 10)\n    if (x > 20)\n        System.out.println(\"Greater than 20\");\nelse\n    System.out.println(\"Hello\");",
+      "options": [
+        "Greater than 20",
+        "Hello",
+        "Both lines are printed",
+        "Nothing is printed"
+      ],
+      "answer": "Nothing is printed"
+    },
+    {
+      "id": 8,
+      "question": "In the 'dangling else' problem, which if statement does an else belong to when braces are omitted?",
+      "options": [
+        "The first if statement in the chain",
+        "The outermost if statement",
+        "The nearest (innermost) if statement",
+        "It depends on the indentation of the code"
+      ],
+      "answer": "The nearest (innermost) if statement"
+    },
+    {
+      "id": 9,
+      "question": "What will the following code print?\n\nint score = 85;\nif (score > 90);\n{\n    System.out.println(\"Excellent!\");\n}",
+      "options": [
+        "Nothing is printed",
+        "Excellent!",
+        "A compilation error occurs",
+        "A runtime error occurs"
+      ],
+      "answer": "Excellent!"
+    },
+    {
+      "id": 10,
+      "question": "Why does 'Excellent!' print in the code: if (score > 90); { System.out.println(\"Excellent!\"); } when score is 85?",
+      "options": [
+        "Because 85 is greater than 90",
+        "Because the semicolon after the if condition creates an empty if body, and the block below is independent code that always runs",
+        "Because the compiler ignores the if condition entirely",
+        "Because the curly braces override the if condition"
+      ],
+      "answer": "Because the semicolon after the if condition creates an empty if body, and the block below is independent code that always runs"
+    },
+    {
+      "id": 11,
+      "question": "What will the following code print?\n\nint age = 15;\nif (age >= 18)\n    System.out.println(\"You can vote.\");\n    System.out.println(\"Welcome to adulthood.\");",
+      "options": [
+        "You can vote.",
+        "You can vote.\nWelcome to adulthood.",
+        "Welcome to adulthood.",
+        "Nothing is printed"
+      ],
+      "answer": "Welcome to adulthood."
+    },
+    {
+      "id": 12,
+      "question": "Why does 'Welcome to adulthood.' print in the previous question even though age is 15?",
+      "options": [
+        "Because both println statements are inside the if block",
+        "Because without braces, only the first statement after the if is conditional; the second statement is outside the if and always executes",
+        "Because Java considers indentation when determining scope",
+        "Because the >= operator includes 15"
+      ],
+      "answer": "Because without braces, only the first statement after the if is conditional; the second statement is outside the if and always executes"
+    },
+    {
+      "id": 13,
+      "question": "What is a nested if statement?",
+      "options": [
+        "An if statement that uses the && operator",
+        "An if statement placed inside another if statement's body",
+        "An if statement with multiple else-if clauses",
+        "An if statement that checks the same variable twice"
+      ],
+      "answer": "An if statement placed inside another if statement's body"
+    },
+    {
+      "id": 14,
+      "question": "Which of the following is generally equivalent to a nested if statement: if (a) { if (b) { // code } }?",
+      "options": [
+        "if (a || b) { // code }",
+        "if (a && b) { // code }",
+        "if (a) else if (b) { // code }",
+        "if (!a && !b) { // code }"
+      ],
+      "answer": "if (a && b) { // code }"
+    },
+    {
+      "id": 15,
+      "question": "When should you use multiple separate if statements instead of an else-if chain?",
+      "options": [
+        "When only one condition can be true at a time",
+        "When multiple conditions can be true simultaneously and all matching blocks should execute",
+        "When you want only the first true condition to execute",
+        "When the conditions are mutually exclusive"
+      ],
+      "answer": "When multiple conditions can be true simultaneously and all matching blocks should execute"
+    },
+    {
+      "id": 16,
+      "question": "A person is age 65. Using separate if statements (not else-if), which messages should print?\nif (age >= 18) print \"Can vote\";\nif (age >= 21) print \"Can rent a car\";\nif (age >= 65) print \"Senior citizen\";",
+      "options": [
+        "Only \"Senior citizen\"",
+        "\"Can vote\" and \"Can rent a car\" only",
+        "\"Can vote\", \"Can rent a car\", and \"Senior citizen\"",
+        "Only \"Can vote\""
+      ],
+      "answer": "\"Can vote\", \"Can rent a car\", and \"Senior citizen\""
+    },
+    {
+      "id": 17,
+      "question": "What does the method equalsIgnoreCase() do when comparing Strings in an if condition?",
+      "options": [
+        "Compares two strings for equality, ignoring differences in uppercase and lowercase letters",
+        "Converts both strings to lowercase before the program runs",
+        "Throws an error if the strings have different cases",
+        "Checks if two string references point to the same object"
+      ],
+      "answer": "Compares two strings for equality, ignoring differences in uppercase and lowercase letters"
+    },
+    {
+      "id": 18,
+      "question": "Why is it best practice to always use curly braces with if statements, even for single-statement bodies?",
+      "options": [
+        "The Java compiler requires them in all cases",
+        "It prevents bugs like the dangling else, accidental semicolons, and multi-statement traps",
+        "It makes the program run faster",
+        "It reduces the file size of the compiled class"
+      ],
+      "answer": "It prevents bugs like the dangling else, accidental semicolons, and multi-statement traps"
+    },
+    {
+      "id": 19,
+      "question": "What is a readability risk of deeply nested if statements?",
+      "options": [
+        "They cause the program to run slower",
+        "They make the code harder to follow and maintain",
+        "They are not allowed by the Java compiler beyond 3 levels",
+        "They always produce incorrect results"
+      ],
+      "answer": "They make the code harder to follow and maintain"
+    },
+    {
+      "id": 20,
+      "question": "Given the following else-if chain for grading, what letter grade is assigned for a score of 85?\nif (score >= 90) grade = 'A';\nelse if (score >= 80) grade = 'B';\nelse if (score >= 70) grade = 'C';\nelse if (score >= 60) grade = 'D';\nelse grade = 'F';",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": 21,
+      "question": "In the grading else-if chain, why does the order of conditions matter (e.g., checking >= 90 before >= 80)?",
+      "options": [
+        "It does not matter; Java evaluates all conditions regardless of order",
+        "Because Java executes the first matching block and skips the rest, so more restrictive conditions must come first",
+        "Because the compiler sorts the conditions automatically",
+        "Because lower numbers must always be checked before higher numbers"
+      ],
+      "answer": "Because Java executes the first matching block and skips the rest, so more restrictive conditions must come first"
+    },
+    {
+      "id": 22,
+      "question": "When is nesting if statements preferable to combining conditions with the && operator?",
+      "options": [
+        "Nesting is never preferable to using &&",
+        "When you need to perform different actions at each level of the decision or provide different error messages for each condition",
+        "When you want the code to be shorter",
+        "When the conditions are unrelated to each other"
+      ],
+      "answer": "When you need to perform different actions at each level of the decision or provide different error messages for each condition"
+    },
+    {
+      "id": 23,
+      "question": "What will the following code print?\n\nint temp = 105;\nif (temp > 100) {\n    System.out.println(\"Heat warning!\");\n}",
+      "options": [
+        "Nothing is printed",
+        "Heat warning!",
+        "A compilation error occurs because temp is not a boolean",
+        "Heat warning! is printed twice"
+      ],
+      "answer": "Heat warning!"
+    },
+    {
+      "id": 24,
+      "question": "Which of the following is NOT a valid boolean expression for an if statement's condition?",
+      "options": [
+        "x > 5",
+        "x == 10",
+        "x = 10",
+        "x != 0"
+      ],
+      "answer": "x = 10"
+    },
+    {
+      "id": 25,
+      "question": "What is the output of this code?\n\nint num = 0;\nif (num > 0) {\n    System.out.println(\"Positive\");\n} else if (num < 0) {\n    System.out.println(\"Negative\");\n} else {\n    System.out.println(\"Zero\");\n}",
+      "options": [
+        "Positive",
+        "Negative",
+        "Zero",
+        "Nothing is printed"
+      ],
+      "answer": "Zero"
+    }
+  ]
+}

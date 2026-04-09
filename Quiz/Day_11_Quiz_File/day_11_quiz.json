@@ -1,0 +1,187 @@
+{
+  "quiz_title": "Day 11: String Class Part 1",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What does the length() method of the String class return?",
+      "options": [
+        "The number of words in the string",
+        "The number of characters in the string",
+        "The number of bytes in the string",
+        "The index of the last character"
+      ],
+      "answer": "The number of characters in the string"
+    },
+    {
+      "id": 2,
+      "question": "What is the return type of the charAt() method?",
+      "options": ["String", "int", "char", "boolean"],
+      "answer": "char"
+    },
+    {
+      "id": 3,
+      "question": "What does indexOf(String s) return if the substring is not found?",
+      "options": ["0", "-1", "null", "It throws an exception"],
+      "answer": "-1"
+    },
+    {
+      "id": 4,
+      "question": "What is the result of \"Hello, World!\".substring(7, 12)?",
+      "options": ["\"World!\"", "\"World\"", "\"orld!\"", "\" World\""],
+      "answer": "\"World\""
+    },
+    {
+      "id": 5,
+      "question": "Why do String methods like toUpperCase() return a new String instead of modifying the original?",
+      "options": [
+        "Because String methods are static",
+        "Because Strings in Java are immutable",
+        "Because Java does not support in-place modification of any object",
+        "Because toUpperCase() is inherited from the Object class"
+      ],
+      "answer": "Because Strings in Java are immutable"
+    },
+    {
+      "id": 6,
+      "question": "What does the trim() method remove?",
+      "options": [
+        "All whitespace characters in the string",
+        "Only leading whitespace",
+        "Only trailing whitespace",
+        "Leading and trailing whitespace only"
+      ],
+      "answer": "Leading and trailing whitespace only"
+    },
+    {
+      "id": 7,
+      "question": "What is the output of \"JAVA\".toLowerCase()?",
+      "options": ["\"JAVA\"", "\"java\"", "\"Java\"", "\"jAVA\""],
+      "answer": "\"java\""
+    },
+    {
+      "id": 8,
+      "question": "What does the contains() method return?",
+      "options": ["int", "String", "char", "boolean"],
+      "answer": "boolean"
+    },
+    {
+      "id": 9,
+      "question": "What is the result of \"Hello\".concat(\" World\")?",
+      "options": ["\"Hello World\"", "\"HelloWorld\"", "\"Hello, World\"", "\"Hello\""],
+      "answer": "\"Hello World\""
+    },
+    {
+      "id": 10,
+      "question": "What does \"JAVA PROGRAMMING\".substring(5) return?",
+      "options": ["\"JAVA \"", "\"PROGRAMMING\"", "\"PROGR\"", "\" PROGRAMMING\""],
+      "answer": "\"PROGRAMMING\""
+    },
+    {
+      "id": 11,
+      "question": "What is the indexing scheme used by charAt()?",
+      "options": ["1-based indexing", "0-based indexing", "It depends on the JVM", "Negative indexing"],
+      "answer": "0-based indexing"
+    },
+    {
+      "id": 12,
+      "question": "What does \"Hello\".isEmpty() return?",
+      "options": ["true", "false", "null", "Compilation error"],
+      "answer": "false"
+    },
+    {
+      "id": 13,
+      "question": "In substring(int begin, int end), the end index is:",
+      "options": ["Inclusive", "Exclusive", "Optional and defaults to 0", "Always equal to length()"],
+      "answer": "Exclusive"
+    },
+    {
+      "id": 14,
+      "question": "What is the result of \"Hello\".equals(\"hello\")?",
+      "options": ["true", "false", "Compilation error", "Runtime exception"],
+      "answer": "false"
+    },
+    {
+      "id": 15,
+      "question": "Which method should you use to compare two strings while ignoring case differences?",
+      "options": ["equals()", "compareTo()", "equalsIgnoreCase()", "=="],
+      "answer": "equalsIgnoreCase()"
+    },
+    {
+      "id": 16,
+      "question": "What does \"  Hello  \".trim().toUpperCase() return?",
+      "options": ["\"  HELLO  \"", "\"HELLO\"", "\"Hello\"", "\"  Hello  \""],
+      "answer": "\"HELLO\""
+    },
+    {
+      "id": 17,
+      "question": "Why does method chaining like str.trim().toUpperCase() work with Strings?",
+      "options": [
+        "Because String methods modify the original string and return void",
+        "Because each String method returns a new String, which can have another method called on it",
+        "Because Java automatically converts method calls to loops",
+        "Because String is a primitive type that supports chaining"
+      ],
+      "answer": "Because each String method returns a new String, which can have another method called on it"
+    },
+    {
+      "id": 18,
+      "question": "What does \"banana\".replace('a', 'o') return?",
+      "options": ["\"bonana\"", "\"bonono\"", "\"banana\"", "\"bononn\""],
+      "answer": "\"bonono\""
+    },
+    {
+      "id": 19,
+      "question": "What does \"Hello World\".lastIndexOf(\"l\") return?",
+      "options": ["2", "3", "9", "-1"],
+      "answer": "3"
+    },
+    {
+      "id": 20,
+      "question": "What happens when you call \"Hello\".substring(5, 5)?",
+      "options": [
+        "It returns \"o\"",
+        "It returns an empty string \"\"",
+        "It throws StringIndexOutOfBoundsException",
+        "It returns null"
+      ],
+      "answer": "It returns an empty string \"\""
+    },
+    {
+      "id": 21,
+      "question": "What does \"JavaProgramming\".startsWith(\"Java\") return?",
+      "options": ["true", "false", "\"Java\"", "4"],
+      "answer": "true"
+    },
+    {
+      "id": 22,
+      "question": "What happens when you call \"Hello\".substring(5, 4)?",
+      "options": [
+        "It returns an empty string",
+        "It returns \"o\"",
+        "It throws StringIndexOutOfBoundsException",
+        "It returns null"
+      ],
+      "answer": "It throws StringIndexOutOfBoundsException"
+    },
+    {
+      "id": 23,
+      "question": "What is the return type of the replace() method?",
+      "options": ["void", "char", "boolean", "String"],
+      "answer": "String"
+    },
+    {
+      "id": 24,
+      "question": "Given String s = \"exam\"; what does s.toUpperCase(); leave s equal to?",
+      "options": ["\"EXAM\"", "\"exam\"", "\"Exam\"", "null"],
+      "answer": "\"exam\""
+    },
+    {
+      "id": 25,
+      "question": "What does \"\".isEmpty() return?",
+      "options": ["false", "true", "Compilation error", "NullPointerException"],
+      "answer": "true"
+    }
+  ]
+}

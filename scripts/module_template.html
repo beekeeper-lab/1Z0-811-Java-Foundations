@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${title} — 1Z0-811 Java Foundations</title>
+    <style>
+        /* ===== CSS Custom Properties ===== */
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --sidebar-bg: #f5f5f0;
+            --accent: #e76f51;
+            --accent-light: #f4a261;
+            --link: #2a6db5;
+            --code-bg: #f8f8f8;
+            --border: #e0e0e0;
+            --narration-bg: #fff8f0;
+            --callout-bg: #fffbe6;
+            --teaching-bg: #f0f7ff;
+            --cycle-bg: #f0fff4;
+            --shadow: rgba(0, 0, 0, 0.08);
+            --sidebar-width: 280px;
+        }
+
+        [data-theme="dark"] {
+            --bg: #1a1a2e;
+            --text: #e0e0e0;
+            --sidebar-bg: #16213e;
+            --accent: #e76f51;
+            --accent-light: #f4a261;
+            --link: #64b5f6;
+            --code-bg: #0d1117;
+            --border: #333;
+            --narration-bg: #2a1f1a;
+            --callout-bg: #2a2a1a;
+            --teaching-bg: #1a2a3a;
+            --cycle-bg: #1a2a1a;
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+
+        /* ===== Reset & Base ===== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* ===== Layout ===== */
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* ===== Sidebar ===== */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: var(--sidebar-width);
+            height: 100vh;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--border);
+            overflow-y: auto;
+            z-index: 100;
+            transition: transform 0.3s ease, background 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem 1.25rem 1rem;
+            border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+
+        .sidebar-header h2 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .sidebar-header .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.85rem;
+            color: var(--link);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .sidebar-header .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .sidebar-toc {
+            padding: 1rem 0;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .sidebar-toc ul {
+            list-style: none;
+        }
+
+        .sidebar-toc li a {
+            display: block;
+            padding: 0.4rem 1.25rem;
+            font-size: 0.88rem;
+            color: var(--text);
+            text-decoration: none;
+            border-left: 3px solid transparent;
+            transition: all 0.2s ease;
+            line-height: 1.4;
+        }
+
+        .sidebar-toc li a:hover {
+            background: rgba(0, 0, 0, 0.04);
+            color: var(--accent);
+        }
+
+        [data-theme="dark"] .sidebar-toc li a:hover {
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .sidebar-toc li a.active {
+            border-left-color: var(--accent);
+            color: var(--accent);
+            font-weight: 600;
+            background: rgba(231, 111, 81, 0.08);
+        }
+
+        /* ===== Hamburger (mobile) ===== */
+        .hamburger {
+            display: none;
+            position: fixed;
+            top: 0.75rem;
+            left: 0.75rem;
+            z-index: 200;
+            background: var(--sidebar-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.5rem;
+            cursor: pointer;
+            color: var(--text);
+            font-size: 1.4rem;
+            line-height: 1;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 90;
+        }
+
+        /* ===== Main Content ===== */
+        .main {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* ===== Top Header Bar ===== */
+        .top-bar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            padding: 0.6rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .top-bar-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .module-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .top-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .top-bar-btn {
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.4rem 0.6rem;
+            cursor: pointer;
+            color: var(--text);
+            font-size: 1.1rem;
+            line-height: 1;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .top-bar-btn:hover {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+
+        .top-bar-btn.muted {
+            opacity: 0.5;
+        }
+
+        /* Module navigation dropdown */
+        .module-nav-wrapper {
+            position: relative;
+        }
+
+        .module-nav-trigger {
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.35rem 0.7rem;
+            cursor: pointer;
+            color: var(--text);
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: all 0.2s ease;
+        }
+
+        .module-nav-trigger:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .module-nav-dropdown {
+            display: none;
+            position: absolute;
+            top: calc(100% + 4px);
+            right: 0;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            box-shadow: 0 8px 24px var(--shadow);
+            min-width: 260px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 60;
+        }
+
+        .module-nav-dropdown.open {
+            display: block;
+        }
+
+        .module-nav-dropdown a {
+            display: block;
+            padding: 0.55rem 1rem;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.88rem;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.15s ease;
+        }
+
+        .module-nav-dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        .module-nav-dropdown a:hover {
+            background: rgba(231, 111, 81, 0.08);
+            color: var(--accent);
+        }
+
+        /* ===== Content Area ===== */
+        .content-wrapper {
+            flex: 1;
+            padding: 2rem 2.5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .content {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        /* Page containers */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* ===== Typography ===== */
+        .content h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            line-height: 1.25;
+        }
+
+        .content h2 {
+            font-size: 1.55rem;
+            font-weight: 700;
+            margin-top: 2.2rem;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.35rem;
+            border-bottom: 2px solid var(--border);
+            line-height: 1.3;
+        }
+
+        .content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.8rem;
+            margin-bottom: 0.6rem;
+            line-height: 1.35;
+        }
+
+        .content h4 {
+            font-size: 1.08rem;
+            font-weight: 600;
+            margin-top: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .content p {
+            margin-bottom: 1rem;
+        }
+
+        .content a {
+            color: var(--link);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .content a:hover {
+            border-bottom-color: var(--link);
+        }
+
+        .content ul, .content ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .content li {
+            margin-bottom: 0.35rem;
+        }
+
+        .content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .content table th,
+        .content table td {
+            padding: 0.6rem 0.85rem;
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+
+        .content table th {
+            background: var(--sidebar-bg);
+            font-weight: 600;
+        }
+
+        .content table tr:nth-child(even) {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        [data-theme="dark"] .content table tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* ===== Code ===== */
+        .content code {
+            font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+            font-size: 0.88em;
+            background: var(--code-bg);
+            padding: 0.15em 0.4em;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        .content pre {
+            background: var(--code-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.1rem 1.3rem;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .content pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            font-size: 0.88rem;
+        }
+
+        /* ===== Tier Badges ===== */
+        .tier-badge {
+            display: inline-block;
+            padding: 0.2em 0.7em;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            vertical-align: middle;
+        }
+
+        .tier-badge.start-here {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #b7dfb9;
+        }
+
+        .tier-badge.useful-soon {
+            background: #d6eaf8;
+            color: #1a5276;
+            border: 1px solid #aed6f1;
+        }
+
+        .tier-badge.when-ready {
+            background: #fdebd0;
+            color: #935116;
+            border: 1px solid #f5cba7;
+        }
+
+        .tier-badge.advanced {
+            background: #fadbd8;
+            color: #922b21;
+            border: 1px solid #f5b7b1;
+        }
+
+        [data-theme="dark"] .tier-badge.start-here {
+            background: #1a3a1a;
+            color: #81c784;
+            border-color: #2e5a2e;
+        }
+
+        [data-theme="dark"] .tier-badge.useful-soon {
+            background: #1a2a4a;
+            color: #64b5f6;
+            border-color: #2a3a5a;
+        }
+
+        [data-theme="dark"] .tier-badge.when-ready {
+            background: #3a2a1a;
+            color: #f4a261;
+            border-color: #4a3a2a;
+        }
+
+        [data-theme="dark"] .tier-badge.advanced {
+            background: #3a1a1a;
+            color: #ef9a9a;
+            border-color: #4a2a2a;
+        }
+
+        /* ===== Teaching Intent Block ===== */
+        .teaching-intent {
+            background: var(--teaching-bg);
+            border-left: 4px solid #2a6db5;
+            border-radius: 0 8px 8px 0;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+            transition: background 0.3s ease;
+        }
+
+        .teaching-intent strong:first-child,
+        .teaching-intent .block-label {
+            color: #2a6db5;
+        }
+
+        /* ===== Cycle Anchor Block ===== */
+        .cycle-anchor {
+            background: var(--cycle-bg);
+            border-left: 4px solid #27ae60;
+            border-radius: 0 8px 8px 0;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+            transition: background 0.3s ease;
+        }
+
+        .cycle-anchor strong:first-child,
+        .cycle-anchor .block-label {
+            color: #27ae60;
+        }
+
+        /* ===== Remember Callout ===== */
+        .remember-callout {
+            background: var(--callout-bg);
+            border: 2px solid var(--accent-light);
+            border-radius: 8px;
+            padding: 1.1rem 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .remember-callout::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            border-radius: 6px 6px 0 0;
+        }
+
+        /* ===== Narration Block ===== */
+        .narration-block {
+            background: var(--narration-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.9rem 1.1rem;
+            margin-bottom: 1.5rem;
+            transition: background 0.3s ease;
+        }
+
+        .narration-player {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .narration-play-btn {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            background: none;
+            color: var(--accent);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            margin-top: 0.1rem;
+        }
+
+        .narration-play-btn:hover {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .narration-play-btn.playing {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .narration-text {
+            flex: 1;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            color: var(--text);
+            opacity: 0.85;
+            font-style: italic;
+        }
+
+        .narration-block audio {
+            display: none;
+        }
+
+        /* ===== Pagination Footer ===== */
+        .pagination-bar {
+            border-top: 1px solid var(--border);
+            padding: 1rem 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg);
+            transition: background 0.3s ease;
+        }
+
+        .page-indicator {
+            font-size: 0.88rem;
+            color: var(--text);
+            opacity: 0.7;
+            font-weight: 500;
+        }
+
+        .pagination-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .page-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.5rem 1.1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 0.88rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .page-btn:hover:not(:disabled) {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .page-btn:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+
+        /* ===== Module Navigation Footer ===== */
+        .module-nav-footer {
+            border-top: 1px solid var(--border);
+            padding: 1.2rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            background: var(--sidebar-bg);
+            transition: background 0.3s ease;
+        }
+
+        .module-nav-footer a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.55rem 1.2rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .module-nav-footer a:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* ===== Mobile Responsive ===== */
+        @media (max-width: 900px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .sidebar-overlay.open {
+                display: block;
+            }
+
+            .main {
+                margin-left: 0;
+            }
+
+            .top-bar {
+                padding-left: 3.5rem;
+            }
+
+            .content-wrapper {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .pagination-bar {
+                padding: 1rem 1.25rem;
+            }
+
+            .module-nav-footer {
+                padding: 1rem 1.25rem;
+                flex-direction: column;
+            }
+
+            .module-title {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            body {
+                font-size: 16px;
+            }
+
+            .content h1 {
+                font-size: 1.6rem;
+            }
+
+            .content h2 {
+                font-size: 1.3rem;
+            }
+
+            .pagination-bar {
+                flex-direction: column;
+                gap: 0.6rem;
+            }
+        }
+
+        /* ===== Print Styles ===== */
+        @media print {
+            .sidebar,
+            .hamburger,
+            .sidebar-overlay,
+            .top-bar,
+            .pagination-bar,
+            .module-nav-footer,
+            .narration-block,
+            .top-bar-btn,
+            .module-nav-wrapper {
+                display: none !important;
+            }
+
+            .main {
+                margin-left: 0;
+            }
+
+            .page {
+                display: block !important;
+                page-break-inside: avoid;
+            }
+
+            .content-wrapper {
+                padding: 0;
+            }
+
+            body {
+                background: #fff;
+                color: #000;
+            }
+        }
+
+        /* ===== Scrollbar Styling ===== */
+        .sidebar::-webkit-scrollbar,
+        .module-nav-dropdown::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .sidebar::-webkit-scrollbar-track,
+        .module-nav-dropdown::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb,
+        .module-nav-dropdown::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 3px;
+        }
+
+        /* ===== Selection ===== */
+        ::selection {
+            background: rgba(231, 111, 81, 0.25);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hamburger (mobile only) -->
+    <button class="hamburger" id="hamburger" aria-label="Toggle sidebar">&#9776;</button>
+
+    <!-- Sidebar overlay (mobile only) -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Layout -->
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>1Z0-811 Java Foundations</h2>
+                <a href="index.html" class="back-link">&larr; Back to Index</a>
+            </div>
+            <nav class="sidebar-toc" id="toc">
+                ${toc}
+            </nav>
+        </aside>
+
+        <!-- Main Area -->
+        <main class="main">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="top-bar-left">
+                    <span class="module-title">${title}</span>
+                </div>
+                <div class="top-bar-right">
+                    <!-- Module navigation dropdown -->
+                    <div class="module-nav-wrapper">
+                        <button class="module-nav-trigger" id="moduleNavTrigger" aria-label="Navigate modules">
+                            Modules <span style="font-size:0.7em;">&#9660;</span>
+                        </button>
+                        <div class="module-nav-dropdown" id="moduleNavDropdown">
+                            ${module_nav}
+                        </div>
+                    </div>
+                    <!-- Mute toggle -->
+                    <button class="top-bar-btn" id="muteToggle" aria-label="Toggle narration audio" title="Toggle narration audio">
+                        &#128266;
+                    </button>
+                    <!-- Theme toggle -->
+                    <button class="top-bar-btn" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
+                        &#9790;
+                    </button>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <div class="content-wrapper">
+                <div class="content" id="content">
+                    ${content}
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination-bar" id="paginationBar">
+                <span class="page-indicator" id="pageIndicator">Page 1 of ${total_pages}</span>
+                <div class="pagination-buttons">
+                    <button class="page-btn" id="prevPage" aria-label="Previous page">&larr; Previous</button>
+                    <button class="page-btn" id="nextPage" aria-label="Next page">Next &rarr;</button>
+                </div>
+            </div>
+
+            <!-- Module-to-module navigation -->
+            <div class="module-nav-footer">
+                ${prev_link}
+                ${next_link}
+            </div>
+        </main>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+    (function() {
+        'use strict';
+
+        /* ----- State ----- */
+        var currentPage = 1;
+        var totalPages = parseInt('${total_pages}', 10) || 1;
+
+        /* ----- DOM refs ----- */
+        var pages = document.querySelectorAll('.page[data-page]');
+        var prevBtn = document.getElementById('prevPage');
+        var nextBtn = document.getElementById('nextPage');
+        var indicator = document.getElementById('pageIndicator');
+        var themeBtn = document.getElementById('themeToggle');
+        var muteBtn = document.getElementById('muteToggle');
+        var hamburger = document.getElementById('hamburger');
+        var sidebar = document.getElementById('sidebar');
+        var overlay = document.getElementById('sidebarOverlay');
+        var moduleNavTrigger = document.getElementById('moduleNavTrigger');
+        var moduleNavDropdown = document.getElementById('moduleNavDropdown');
+
+        /* ----- Theme ----- */
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            themeBtn.innerHTML = theme === 'dark' ? '&#9788;' : '&#9790;';
+            localStorage.setItem('java-foundations-theme', theme);
+        }
+
+        var savedTheme = localStorage.getItem('java-foundations-theme') || 'light';
+        applyTheme(savedTheme);
+
+        themeBtn.addEventListener('click', function() {
+            var current = document.documentElement.getAttribute('data-theme');
+            applyTheme(current === 'dark' ? 'light' : 'dark');
+        });
+
+        /* ----- Mute ----- */
+        var isMuted = localStorage.getItem('java-foundations-mute') === 'true';
+
+        function applyMute() {
+            muteBtn.innerHTML = isMuted ? '&#128264;' : '&#128266;';
+            if (isMuted) {
+                muteBtn.classList.add('muted');
+            } else {
+                muteBtn.classList.remove('muted');
+            }
+            localStorage.setItem('java-foundations-mute', isMuted);
+        }
+
+        applyMute();
+
+        muteBtn.addEventListener('click', function() {
+            isMuted = !isMuted;
+            applyMute();
+            // Stop any currently playing audio if muting
+            if (isMuted) {
+                stopAllAudio();
+            }
+        });
+
+        function stopAllAudio() {
+            var audios = document.querySelectorAll('.narration-block audio');
+            for (var i = 0; i < audios.length; i++) {
+                audios[i].pause();
+                audios[i].currentTime = 0;
+            }
+            // Reset all play buttons
+            var btns = document.querySelectorAll('.narration-play-btn');
+            for (var j = 0; j < btns.length; j++) {
+                btns[j].classList.remove('playing');
+                btns[j].innerHTML = '&#9654;';
+            }
+        }
+
+        /* ----- Pagination ----- */
+        function showPage(num) {
+            if (num < 1 || num > totalPages) return;
+
+            stopAllAudio();
+            currentPage = num;
+
+            for (var i = 0; i < pages.length; i++) {
+                var pageNum = parseInt(pages[i].getAttribute('data-page'), 10);
+                if (pageNum === currentPage) {
+                    pages[i].classList.add('active');
+                } else {
+                    pages[i].classList.remove('active');
+                }
+            }
+
+            indicator.textContent = 'Page ' + currentPage + ' of ' + totalPages;
+            prevBtn.disabled = currentPage <= 1;
+            nextBtn.disabled = currentPage >= totalPages;
+
+            // Scroll to top of content
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Update TOC active state
+            updateTocActive();
+
+            // Auto-play narration if not muted
+            if (!isMuted) {
+                autoPlayNarration();
+            }
+        }
+
+        prevBtn.addEventListener('click', function() { showPage(currentPage - 1); });
+        nextBtn.addEventListener('click', function() { showPage(currentPage + 1); });
+
+        /* ----- Keyboard navigation ----- */
+        document.addEventListener('keydown', function(e) {
+            // Don't navigate if user is typing in an input/textarea
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') return;
+
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                showPage(currentPage - 1);
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                showPage(currentPage + 1);
+            }
+        });
+
+        /* ----- TOC active tracking ----- */
+        function updateTocActive() {
+            var activePage = document.querySelector('.page.active');
+            if (!activePage) return;
+
+            // Find headings on the active page
+            var headings = activePage.querySelectorAll('h1, h2, h3');
+            var tocLinks = document.querySelectorAll('#toc a');
+
+            // Remove all active classes
+            for (var i = 0; i < tocLinks.length; i++) {
+                tocLinks[i].classList.remove('active');
+            }
+
+            // Find matching TOC entries for headings on this page
+            for (var j = 0; j < headings.length; j++) {
+                var id = headings[j].getAttribute('id');
+                if (id) {
+                    for (var k = 0; k < tocLinks.length; k++) {
+                        if (tocLinks[k].getAttribute('href') === '#' + id) {
+                            tocLinks[k].classList.add('active');
+                        }
+                    }
+                }
+            }
+
+            // If none are active, try to activate the first one
+            if (!document.querySelector('#toc a.active') && tocLinks.length > 0) {
+                tocLinks[0].classList.add('active');
+            }
+        }
+
+        /* Handle TOC link clicks — navigate to the right page */
+        document.getElementById('toc').addEventListener('click', function(e) {
+            var link = e.target.closest('a');
+            if (!link) return;
+
+            var href = link.getAttribute('href');
+            if (!href || href.charAt(0) !== '#') return;
+
+            e.preventDefault();
+            var targetId = href.substring(1);
+            var targetEl = document.getElementById(targetId);
+            if (!targetEl) return;
+
+            // Find which page this element is on
+            var parentPage = targetEl.closest('.page[data-page]');
+            if (parentPage) {
+                var pageNum = parseInt(parentPage.getAttribute('data-page'), 10);
+                showPage(pageNum);
+
+                // Scroll to the element after a short delay
+                setTimeout(function() {
+                    targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+
+            // Close sidebar on mobile
+            if (window.innerWidth <= 900) {
+                closeSidebar();
+            }
+        });
+
+        /* ----- Narration ----- */
+        function autoPlayNarration() {
+            var activePage = document.querySelector('.page.active');
+            if (!activePage) return;
+
+            var narrationBlock = activePage.querySelector('.narration-block');
+            if (!narrationBlock) return;
+
+            var audio = narrationBlock.querySelector('audio');
+            if (!audio) return;
+
+            var playBtn = narrationBlock.querySelector('.narration-play-btn');
+            audio.play().then(function() {
+                if (playBtn) {
+                    playBtn.classList.add('playing');
+                    playBtn.innerHTML = '&#9646;&#9646;';
+                }
+            }).catch(function() {
+                // Autoplay blocked by browser — that's fine
+            });
+        }
+
+        /* Narration play/pause buttons */
+        document.addEventListener('click', function(e) {
+            var playBtn = e.target.closest('.narration-play-btn');
+            if (!playBtn) return;
+
+            var block = playBtn.closest('.narration-block');
+            if (!block) return;
+
+            var audio = block.querySelector('audio');
+            if (!audio) return;
+
+            if (audio.paused) {
+                stopAllAudio();
+                audio.play().then(function() {
+                    playBtn.classList.add('playing');
+                    playBtn.innerHTML = '&#9646;&#9646;';
+                }).catch(function() {});
+            } else {
+                audio.pause();
+                playBtn.classList.remove('playing');
+                playBtn.innerHTML = '&#9654;';
+            }
+        });
+
+        /* Reset play button when audio ends */
+        document.addEventListener('ended', function(e) {
+            if (e.target.tagName !== 'AUDIO') return;
+            var block = e.target.closest('.narration-block');
+            if (!block) return;
+            var btn = block.querySelector('.narration-play-btn');
+            if (btn) {
+                btn.classList.remove('playing');
+                btn.innerHTML = '&#9654;';
+            }
+        }, true);
+
+        /* ----- Sidebar toggle (mobile) ----- */
+        function openSidebar() {
+            sidebar.classList.add('open');
+            overlay.classList.add('open');
+        }
+
+        function closeSidebar() {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('open');
+        }
+
+        hamburger.addEventListener('click', function() {
+            if (sidebar.classList.contains('open')) {
+                closeSidebar();
+            } else {
+                openSidebar();
+            }
+        });
+
+        overlay.addEventListener('click', closeSidebar);
+
+        /* ----- Module nav dropdown ----- */
+        moduleNavTrigger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            moduleNavDropdown.classList.toggle('open');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!moduleNavDropdown.contains(e.target) && e.target !== moduleNavTrigger) {
+                moduleNavDropdown.classList.remove('open');
+            }
+        });
+
+        /* ----- Module visit tracking ----- */
+        try {
+            var visited = JSON.parse(localStorage.getItem('java-foundations-visited') || '[]');
+            var pageTitle = document.title;
+            if (visited.indexOf(pageTitle) === -1) {
+                visited.push(pageTitle);
+                localStorage.setItem('java-foundations-visited', JSON.stringify(visited));
+            }
+        } catch (e) {
+            // localStorage unavailable
+        }
+
+        /* ----- Initialize ----- */
+        showPage(1);
+    })();
+    </script>
+</body>
+</html>

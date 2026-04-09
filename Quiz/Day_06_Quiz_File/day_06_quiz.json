@@ -1,0 +1,157 @@
+{
+  "quiz_title": "Day 6: Java Data Types Part 1",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "How many primitive data types does Java have?",
+      "options": ["6", "7", "8", "10"],
+      "answer": "8"
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is NOT a primitive data type in Java?",
+      "options": ["int", "boolean", "String", "char"],
+      "answer": "String"
+    },
+    {
+      "id": 3,
+      "question": "What is the size of an int in Java?",
+      "options": ["8 bits", "16 bits", "32 bits", "64 bits"],
+      "answer": "32 bits"
+    },
+    {
+      "id": 4,
+      "question": "What is the range of the byte data type in Java?",
+      "options": ["-256 to 255", "-128 to 127", "0 to 255", "-127 to 128"],
+      "answer": "-128 to 127"
+    },
+    {
+      "id": 5,
+      "question": "Which suffix must be appended to a numeric literal to make it a long value?",
+      "options": ["D", "F", "L", "S"],
+      "answer": "L"
+    },
+    {
+      "id": 6,
+      "question": "Which suffix must be appended to a numeric literal to make it a float value?",
+      "options": ["d", "f", "l", "s"],
+      "answer": "f"
+    },
+    {
+      "id": 7,
+      "question": "What is the size of a double in Java?",
+      "options": ["16 bits", "32 bits", "64 bits", "128 bits"],
+      "answer": "64 bits"
+    },
+    {
+      "id": 8,
+      "question": "What kind of quotes does a char literal use in Java?",
+      "options": ["Double quotes", "Single quotes", "Backticks", "No quotes are needed"],
+      "answer": "Single quotes"
+    },
+    {
+      "id": 9,
+      "question": "What does it mean that Java is a statically typed language?",
+      "options": ["Variables cannot change value once assigned", "Every variable must have a declared type before it can be used", "All variables are automatically initialized", "Variables are always stored on the stack"],
+      "answer": "Every variable must have a declared type before it can be used"
+    },
+    {
+      "id": 10,
+      "question": "What is the difference between declaring a variable and initializing it?",
+      "options": ["There is no difference", "Declaring specifies the type and name; initializing assigns it a value", "Declaring assigns a value; initializing specifies the type", "Declaring creates an object; initializing calls the constructor"],
+      "answer": "Declaring specifies the type and name; initializing assigns it a value"
+    },
+    {
+      "id": 11,
+      "question": "What happens if you try to use a local variable in Java without initializing it?",
+      "options": ["It defaults to 0", "It defaults to null", "You get a compile-time error", "You get a runtime exception"],
+      "answer": "You get a compile-time error"
+    },
+    {
+      "id": 12,
+      "question": "What does the final keyword do when applied to a variable?",
+      "options": ["Makes the variable private", "Prevents the variable from being reassigned after initialization", "Makes the variable static", "Prevents the variable from being printed"],
+      "answer": "Prevents the variable from being reassigned after initialization"
+    },
+    {
+      "id": 13,
+      "question": "Which of the following correctly declares a final constant in Java?",
+      "options": ["constant double PI = 3.14;", "final double PI = 3.14;", "static PI = 3.14;", "const double PI = 3.14;"],
+      "answer": "final double PI = 3.14;"
+    },
+    {
+      "id": 14,
+      "question": "What happens when you try to reassign a value to a final variable?",
+      "options": ["The new value is ignored silently", "A runtime exception is thrown", "A compile-time error occurs", "The variable becomes non-final automatically"],
+      "answer": "A compile-time error occurs"
+    },
+    {
+      "id": 15,
+      "question": "Which of the following is a valid way to declare multiple variables of the same type on one line?",
+      "options": ["int a; int b; int c;", "int a, b, c;", "int a & b & c;", "int(a, b, c);"],
+      "answer": "int a, b, c;"
+    },
+    {
+      "id": 16,
+      "question": "What is the size of a short in Java?",
+      "options": ["8 bits", "16 bits", "32 bits", "64 bits"],
+      "answer": "16 bits"
+    },
+    {
+      "id": 17,
+      "question": "What happens when you add 1 to Byte.MAX_VALUE and cast the result back to byte?",
+      "options": ["You get 128", "You get 0", "You get -128 due to overflow", "A runtime exception is thrown"],
+      "answer": "You get -128 due to overflow"
+    },
+    {
+      "id": 18,
+      "question": "Approximately how many decimal digits of precision does a float provide?",
+      "options": ["3 digits", "7 digits", "15 digits", "20 digits"],
+      "answer": "7 digits"
+    },
+    {
+      "id": 19,
+      "question": "Approximately how many decimal digits of precision does a double provide?",
+      "options": ["7 digits", "10 digits", "15 digits", "20 digits"],
+      "answer": "15 digits"
+    },
+    {
+      "id": 20,
+      "question": "What happens if you try to assign a double value to an int variable without casting?",
+      "options": ["The value is truncated automatically", "A compile-time error occurs", "A runtime exception is thrown", "The int is promoted to double"],
+      "answer": "A compile-time error occurs"
+    },
+    {
+      "id": 21,
+      "question": "Which of the following is the correct way to declare and initialize a long variable?",
+      "options": ["long x = 999999999;", "long x = 999999999L;", "Long x = 999999999l;", "All of the above are valid"],
+      "answer": "All of the above are valid"
+    },
+    {
+      "id": 22,
+      "question": "What are the only two values a boolean variable can hold in Java?",
+      "options": ["0 and 1", "yes and no", "true and false", "TRUE and FALSE"],
+      "answer": "true and false"
+    },
+    {
+      "id": 23,
+      "question": "Why does Java provide multiple integer types (byte, short, int, long) instead of just one?",
+      "options": ["To make the language more confusing", "To allow developers to use memory efficiently based on the range of values needed", "Because each type supports different arithmetic operations", "Because older versions of Java only had byte and short"],
+      "answer": "To allow developers to use memory efficiently based on the range of values needed"
+    },
+    {
+      "id": 24,
+      "question": "Which wrapper class constant would you use to find the maximum value of an int?",
+      "options": ["Int.MAX", "Integer.MAX_VALUE", "int.MAX_VALUE", "Number.MAX_INT"],
+      "answer": "Integer.MAX_VALUE"
+    },
+    {
+      "id": 25,
+      "question": "Is integer overflow a compile-time error or a runtime behavior in Java?",
+      "options": ["It is a compile-time error", "It is a runtime behavior that wraps around silently", "It throws an ArithmeticException at runtime", "It causes the program to terminate immediately"],
+      "answer": "It is a runtime behavior that wraps around silently"
+    }
+  ]
+}

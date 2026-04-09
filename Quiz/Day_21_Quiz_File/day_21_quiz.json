@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 21: Debugging and Exceptions Part 2",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What happens when an exception is thrown inside a try block and a matching catch block exists?",
+      "options": [
+        "The program terminates immediately",
+        "The remaining code in the try block is skipped and execution jumps to the matching catch block",
+        "The remaining code in the try block finishes before the catch block runs",
+        "The catch block runs and then the try block resumes where it left off"
+      ],
+      "answer": "The remaining code in the try block is skipped and execution jumps to the matching catch block"
+    },
+    {
+      "id": 2,
+      "question": "Which exception is thrown when you attempt to divide an integer by zero?",
+      "options": [
+        "NumberFormatException",
+        "IllegalArgumentException",
+        "ArithmeticException",
+        "DivisionByZeroException"
+      ],
+      "answer": "ArithmeticException"
+    },
+    {
+      "id": 3,
+      "question": "What is the output of the following code?\n\ntry {\n    System.out.println(\"A\");\n    int x = 10 / 0;\n    System.out.println(\"B\");\n} catch (ArithmeticException e) {\n    System.out.println(\"C\");\n}\nSystem.out.println(\"D\");",
+      "options": [
+        "A B C D",
+        "A C D",
+        "A C",
+        "A B D"
+      ],
+      "answer": "A C D"
+    },
+    {
+      "id": 4,
+      "question": "Which of the following will cause a NullPointerException?",
+      "options": [
+        "int x = Integer.parseInt(\"123\");",
+        "String s = null; s.length();",
+        "int[] arr = new int[3]; arr[0] = 5;",
+        "double d = 10.0 / 0;"
+      ],
+      "answer": "String s = null; s.length();"
+    },
+    {
+      "id": 5,
+      "question": "When does the finally block execute?",
+      "options": [
+        "Only when an exception is thrown",
+        "Only when no exception is thrown",
+        "Whether or not an exception is thrown",
+        "Only when the catch block does not handle the exception"
+      ],
+      "answer": "Whether or not an exception is thrown"
+    },
+    {
+      "id": 6,
+      "question": "What is the output of the following code?\n\ntry {\n    System.out.println(\"In try\");\n    int[] arr = new int[3];\n    arr[5] = 10;\n} catch (ArrayIndexOutOfBoundsException e) {\n    System.out.println(\"In catch\");\n} finally {\n    System.out.println(\"In finally\");\n}\nSystem.out.println(\"Done\");",
+      "options": [
+        "In try, In catch, Done",
+        "In try, In catch, In finally, Done",
+        "In try, In finally, Done",
+        "In try, In catch, In finally"
+      ],
+      "answer": "In try, In catch, In finally, Done"
+    },
+    {
+      "id": 7,
+      "question": "What happens if an exception is thrown but the catch block specifies the wrong exception type?",
+      "options": [
+        "The catch block runs anyway",
+        "The exception is silently ignored",
+        "The exception is not caught and propagates up the call stack",
+        "The finally block catches it instead"
+      ],
+      "answer": "The exception is not caught and propagates up the call stack"
+    },
+    {
+      "id": 8,
+      "question": "Which line of code would throw a StringIndexOutOfBoundsException?",
+      "options": [
+        "\"hello\".charAt(4);",
+        "\"hello\".charAt(5);",
+        "\"hello\".substring(0, 5);",
+        "\"hello\".length();"
+      ],
+      "answer": "\"hello\".charAt(5);"
+    },
+    {
+      "id": 9,
+      "question": "What is the correct order for multiple catch blocks?",
+      "options": [
+        "The order does not matter",
+        "General exception types first, then more specific ones",
+        "Specific exception types first, then more general ones",
+        "Alphabetical order by exception class name"
+      ],
+      "answer": "Specific exception types first, then more general ones"
+    },
+    {
+      "id": 10,
+      "question": "What happens if you place catch(Exception e) before catch(ArithmeticException e)?",
+      "options": [
+        "The code runs normally and the more specific catch is used",
+        "A runtime error occurs",
+        "A compilation error occurs because the more specific catch is unreachable",
+        "Both catch blocks execute"
+      ],
+      "answer": "A compilation error occurs because the more specific catch is unreachable"
+    },
+    {
+      "id": 11,
+      "question": "Which method call on an exception object returns a human-readable description of the error?",
+      "options": [
+        "e.toString()",
+        "e.getMessage()",
+        "e.getError()",
+        "e.describe()"
+      ],
+      "answer": "e.getMessage()"
+    },
+    {
+      "id": 12,
+      "question": "What is the output of the following code?\n\ntry {\n    System.out.println(\"In try - no error\");\n} catch (Exception e) {\n    System.out.println(\"In catch\");\n} finally {\n    System.out.println(\"In finally\");\n}",
+      "options": [
+        "In try - no error, In catch, In finally",
+        "In try - no error, In finally",
+        "In try - no error",
+        "In finally"
+      ],
+      "answer": "In try - no error, In finally"
+    },
+    {
+      "id": 13,
+      "question": "Which exception is thrown by Integer.parseInt(\"abc\")?",
+      "options": [
+        "ArithmeticException",
+        "IllegalArgumentException",
+        "NumberFormatException",
+        "ClassCastException"
+      ],
+      "answer": "NumberFormatException"
+    },
+    {
+      "id": 14,
+      "question": "What does e.getClass().getSimpleName() return when called on a NullPointerException object?",
+      "options": [
+        "\"Exception\"",
+        "\"java.lang.NullPointerException\"",
+        "\"NullPointerException\"",
+        "\"null\""
+      ],
+      "answer": "\"NullPointerException\""
+    },
+    {
+      "id": 15,
+      "question": "What is the output of the following code?\n\ntry {\n    String s = null;\n    s.length();\n} catch (ArithmeticException e) {\n    System.out.println(\"ArithmeticException\");\n} catch (NullPointerException e) {\n    System.out.println(\"NullPointerException\");\n} catch (Exception e) {\n    System.out.println(\"Generic Exception\");\n}",
+      "options": [
+        "ArithmeticException",
+        "NullPointerException",
+        "Generic Exception",
+        "ArithmeticException followed by NullPointerException"
+      ],
+      "answer": "NullPointerException"
+    },
+    {
+      "id": 16,
+      "question": "Which of the following is true about the finally block?",
+      "options": [
+        "It is required whenever a try block is used",
+        "It runs only if no exception is thrown",
+        "It is commonly used for cleanup tasks like closing files or releasing resources",
+        "It replaces the catch block"
+      ],
+      "answer": "It is commonly used for cleanup tasks like closing files or releasing resources"
+    },
+    {
+      "id": 17,
+      "question": "What exception is thrown when you cast an object to an incompatible type?",
+      "options": [
+        "TypeMismatchException",
+        "InvalidCastException",
+        "ClassCastException",
+        "IllegalTypeException"
+      ],
+      "answer": "ClassCastException"
+    },
+    {
+      "id": 18,
+      "question": "What does it mean for an exception to be \"thrown\" in Java?",
+      "options": [
+        "The program deletes the variable that caused the error",
+        "An exception object is created and the normal flow of execution is disrupted",
+        "The compiler generates a warning message",
+        "The program automatically fixes the error and continues"
+      ],
+      "answer": "An exception object is created and the normal flow of execution is disrupted"
+    },
+    {
+      "id": 19,
+      "question": "What happens to code after a try-catch block when the exception is successfully caught?",
+      "options": [
+        "It is skipped",
+        "It executes normally",
+        "It throws another exception",
+        "It only runs if there is a finally block"
+      ],
+      "answer": "It executes normally"
+    },
+    {
+      "id": 20,
+      "question": "Which of the following will NOT throw an exception?",
+      "options": [
+        "int[] arr = new int[3]; arr[3] = 1;",
+        "Integer.parseInt(\"42\");",
+        "String s = null; s.toUpperCase();",
+        "int x = 10 / 0;"
+      ],
+      "answer": "Integer.parseInt(\"42\");"
+    },
+    {
+      "id": 21,
+      "question": "What is the difference between preventing an error and handling an error?",
+      "options": [
+        "There is no difference; they are the same thing",
+        "Preventing checks conditions before risky code; handling uses try-catch to respond after an exception occurs",
+        "Preventing uses try-catch; handling uses if-else statements",
+        "Preventing stops the program; handling lets it crash gracefully"
+      ],
+      "answer": "Preventing checks conditions before risky code; handling uses try-catch to respond after an exception occurs"
+    },
+    {
+      "id": 22,
+      "question": "What is the result of dividing a double value by zero in Java?",
+      "options": [
+        "ArithmeticException is thrown",
+        "The result is Infinity, and no exception is thrown",
+        "The result is 0.0",
+        "A compilation error occurs"
+      ],
+      "answer": "The result is Infinity, and no exception is thrown"
+    },
+    {
+      "id": 23,
+      "question": "Which approach makes a program \"crash-proof\" when reading user input for a number?",
+      "options": [
+        "Using Scanner.nextInt() without any error handling",
+        "Wrapping Integer.parseInt() in a while loop with try-catch to re-prompt on invalid input",
+        "Converting the input to a char array and checking each character manually",
+        "Using a finally block to read the number"
+      ],
+      "answer": "Wrapping Integer.parseInt() in a while loop with try-catch to re-prompt on invalid input"
+    },
+    {
+      "id": 24,
+      "question": "Given the code below, what is the output?\n\nSystem.out.println(\"Before try\");\ntry {\n    System.out.println(\"In try\");\n    int x = 10 / 2;\n    System.out.println(\"Result: \" + x);\n} catch (ArithmeticException e) {\n    System.out.println(\"In catch\");\n}\nSystem.out.println(\"After try-catch\");",
+      "options": [
+        "Before try, In try, In catch, After try-catch",
+        "Before try, In try, Result: 5, After try-catch",
+        "Before try, In try, Result: 5, In catch, After try-catch",
+        "Before try, In try, After try-catch"
+      ],
+      "answer": "Before try, In try, Result: 5, After try-catch"
+    },
+    {
+      "id": 25,
+      "question": "Which of the following exceptions is caused specifically by accessing an invalid index in an array?",
+      "options": [
+        "IndexOutOfBoundsException",
+        "ArrayIndexOutOfBoundsException",
+        "StringIndexOutOfBoundsException",
+        "NullPointerException"
+      ],
+      "answer": "ArrayIndexOutOfBoundsException"
+    }
+  ]
+}

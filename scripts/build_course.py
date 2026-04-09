@@ -1,0 +1,608 @@
+#!/usr/bin/env python3
+"""
+Build script for 1Z0-811 Java Foundations Course.
+Converts source markdown files into paginated, self-contained HTML pages.
+
+Usage:
+    uv run --with markdown --with pygments python scripts/build_course.py
+    uv run --with markdown --with pygments python scripts/build_course.py --module module-01-what-is-java
+    uv run --with markdown --with pygments python scripts/build_course.py --no-embed
+"""
+
+import argparse
+import base64
+import json
+import os
+import re
+import sys
+from pathlib import Path
+from string import Template
+
+import markdown
+from markdown.extensions.codehilite import CodeHiliteExtension
+from markdown.extensions.fenced_code import FencedCodeExtension
+from markdown.extensions.tables import TableExtension
+from markdown.extensions.toc import TocExtension
+
+
+# ── Project paths ──────────────────────────────────────────────────────────────
+
+ROOT = Path(__file__).resolve().parent.parent
+SOURCE_DIR = ROOT / "source"
+HTML_DIR = ROOT / "html"
+IMAGES_DIR = ROOT / "images"
+AUDIO_DIR = ROOT / "audio"
+TEMPLATE_PATH = ROOT / "scripts" / "module_template.html"
+
+COURSE_TITLE = "1Z0-811 Java Foundations"
+
+
+# ── Module registry ────────────────────────────────────────────────────────────
+
+MODULES = [
+    {"file": "module-01-what-is-java.md", "short": "Day 1", "title": "What Is Java?", "tier": "Start Here", "tier_css": "tier-start-here"},
+    {"file": "module-02-java-basics-part-1.md", "short": "Day 2", "title": "Java Basics Part 1", "tier": "Start Here", "tier_css": "tier-start-here"},
+    {"file": "module-03-java-basics-part-2.md", "short": "Day 3", "title": "Java Basics Part 2", "tier": "Start Here", "tier_css": "tier-start-here"},
+    {"file": "module-04-basic-java-elements-part-1.md", "short": "Day 4", "title": "Basic Java Elements Part 1", "tier": "Start Here", "tier_css": "tier-start-here"},
+    {"file": "module-05-basic-java-elements-part-2.md", "short": "Day 5", "title": "Basic Java Elements Part 2", "tier": "Start Here", "tier_css": "tier-start-here"},
+    {"file": "module-06-java-data-types-part-1.md", "short": "Day 6", "title": "Java Data Types Part 1", "tier": "Useful Soon", "tier_css": "tier-useful-soon"},
+    {"file": "module-07-java-data-types-part-2.md", "short": "Day 7", "title": "Java Data Types Part 2", "tier": "Useful Soon", "tier_css": "tier-useful-soon"},
+    {"file": "module-08-java-data-types-part-3.md", "short": "Day 8", "title": "Java Data Types Part 3", "tier": "Useful Soon", "tier_css": "tier-useful-soon"},
+    {"file": "module-09-java-operators-part-1.md", "short": "Day 9", "title": "Java Operators Part 1", "tier": "Useful Soon", "tier_css": "tier-useful-soon"},
+    {"file": "module-10-java-operators-part-2.md", "short": "Day 10", "title": "Java Operators Part 2", "tier": "Useful Soon", "tier_css": "tier-useful-soon"},
+    {"file": "module-11-string-class-part-1.md", "short": "Day 11", "title": "String Class Part 1", "tier": "Useful Soon", "tier_css": "tier-useful-soon"},
+    {"file": "module-12-string-class-part-2.md", "short": "Day 12", "title": "String Class Part 2", "tier": "Useful Soon", "tier_css": "tier-useful-soon"},
+    {"file": "module-13-random-and-math-classes.md", "short": "Day 13", "title": "Random and Math Classes", "tier": "Useful Soon", "tier_css": "tier-useful-soon"},
+    {"file": "module-14-decision-statements-part-1.md", "short": "Day 14", "title": "Decision Statements Part 1", "tier": "Useful Soon", "tier_css": "tier-useful-soon"},
+    {"file": "module-15-decision-statements-part-2.md", "short": "Day 15", "title": "Decision Statements Part 2", "tier": "Useful Soon", "tier_css": "tier-useful-soon"},
+    {"file": "module-16-decision-statements-part-3.md", "short": "Day 16", "title": "Decision Statements Part 3", "tier": "Useful Soon", "tier_css": "tier-useful-soon"},
+    {"file": "module-17-looping-statements-part-1.md", "short": "Day 17", "title": "Looping Statements Part 1", "tier": "When You're Ready", "tier_css": "tier-when-ready"},
+    {"file": "module-18-looping-statements-part-2.md", "short": "Day 18", "title": "Looping Statements Part 2", "tier": "When You're Ready", "tier_css": "tier-when-ready"},
+    {"file": "module-19-looping-statements-part-3.md", "short": "Day 19", "title": "Looping Statements Part 3", "tier": "When You're Ready", "tier_css": "tier-when-ready"},
+    {"file": "module-20-debugging-and-exceptions-part-1.md", "short": "Day 20", "title": "Debugging and Exceptions Part 1", "tier": "When You're Ready", "tier_css": "tier-when-ready"},
+    {"file": "module-21-debugging-and-exceptions-part-2.md", "short": "Day 21", "title": "Debugging and Exceptions Part 2", "tier": "When You're Ready", "tier_css": "tier-when-ready"},
+    {"file": "module-22-arrays-and-arraylists-part-1.md", "short": "Day 22", "title": "Arrays and ArrayLists Part 1", "tier": "When You're Ready", "tier_css": "tier-when-ready"},
+    {"file": "module-23-arrays-and-arraylists-part-2.md", "short": "Day 23", "title": "Arrays and ArrayLists Part 2", "tier": "When You're Ready", "tier_css": "tier-when-ready"},
+    {"file": "module-24-arrays-and-arraylists-part-3.md", "short": "Day 24", "title": "Arrays and ArrayLists Part 3", "tier": "When You're Ready", "tier_css": "tier-when-ready"},
+    {"file": "module-25-classes-and-constructors-part-1.md", "short": "Day 25", "title": "Classes and Constructors Part 1", "tier": "Advanced", "tier_css": "tier-advanced"},
+    {"file": "module-26-classes-and-constructors-part-2.md", "short": "Day 26", "title": "Classes and Constructors Part 2", "tier": "Advanced", "tier_css": "tier-advanced"},
+    {"file": "module-27-classes-and-constructors-part-3.md", "short": "Day 27", "title": "Classes and Constructors Part 3", "tier": "Advanced", "tier_css": "tier-advanced"},
+    {"file": "module-28-java-methods-part-1.md", "short": "Day 28", "title": "Java Methods Part 1", "tier": "Advanced", "tier_css": "tier-advanced"},
+    {"file": "module-29-java-methods-part-2.md", "short": "Day 29", "title": "Java Methods Part 2", "tier": "Advanced", "tier_css": "tier-advanced"},
+    {"file": "module-30-java-methods-part-3.md", "short": "Day 30", "title": "Java Methods Part 3 — Final Capstone", "tier": "Advanced", "tier_css": "tier-advanced"},
+]
+
+EXTRAS = []
+REFERENCES = []
+
+
+# ── Markdown processor ─────────────────────────────────────────────────────────
+
+def get_md():
+    return markdown.Markdown(
+        extensions=[
+            FencedCodeExtension(),
+            CodeHiliteExtension(css_class="highlight", linenums=False, guess_lang=False),
+            TableExtension(),
+            TocExtension(toc_depth="2-3"),
+            "md_in_html",
+        ]
+    )
+
+
+# ── Special block processors ──────────────────────────────────────────────────
+
+def process_tier_badges(html: str) -> str:
+    """Convert 🏷️ blockquotes into tier badges."""
+    def replace_tier(m):
+        text = m.group(1).strip()
+        css_map = {
+            "Start Here": "tier-start-here",
+            "Useful Soon": "tier-useful-soon",
+            "When You're Ready": "tier-when-ready",
+            "Advanced": "tier-advanced",
+        }
+        css_class = css_map.get(text, "tier-start-here")
+        return f'<span class="tier-badge {css_class}">{text}</span>'
+
+    return re.sub(
+        r'<blockquote>\s*<p>\U0001F3F7\uFE0F\s*(.*?)</p>\s*</blockquote>',
+        replace_tier, html, flags=re.DOTALL
+    )
+
+
+def process_cycle_anchors(html: str) -> str:
+    """Convert 🔄 blockquotes into cycle anchor blocks."""
+    return re.sub(
+        r'<blockquote>\s*<p>\U0001F504\s*(.*?)</p>\s*</blockquote>',
+        r'<div class="cycle-anchor"><p>\1</p></div>',
+        html, flags=re.DOTALL
+    )
+
+
+def process_remember_callouts(html: str) -> str:
+    """Convert 💡 blockquotes into remember-one-thing callouts."""
+    return re.sub(
+        r'<blockquote>\s*<p>\U0001F4A1\s*(.*?)</p>\s*</blockquote>',
+        r'<div class="remember-callout"><p>\1</p></div>',
+        html, flags=re.DOTALL
+    )
+
+
+def process_teaching_intent(html: str) -> str:
+    """Convert 🎯 blockquotes into teaching intent blocks."""
+    return re.sub(
+        r'<blockquote>\s*<p>\U0001F3AF\s*(.*?)</p>\s*</blockquote>',
+        r'<div class="teaching-intent"><p>\1</p></div>',
+        html, flags=re.DOTALL
+    )
+
+
+def process_narration_blocks(html: str, module_slug: str, embed: bool = True) -> str:
+    """Convert 🎙️ blockquotes into narration audio players."""
+    audio_dir = AUDIO_DIR / module_slug
+    manifest_path = audio_dir / "manifest.json"
+    manifest = {}
+    if manifest_path.exists():
+        with open(manifest_path) as f:
+            manifest = json.load(f)
+
+    counter = [0]
+
+    def replace_narration(m):
+        counter[0] += 1
+        text = m.group(1).strip()
+        # Clean HTML tags for display
+        display_text = text
+
+        # Look for matching audio file
+        audio_html = ""
+        audio_files = sorted(audio_dir.glob("*.mp3")) if audio_dir.exists() else []
+        if counter[0] <= len(audio_files):
+            audio_file = audio_files[counter[0] - 1]
+            if embed:
+                with open(audio_file, "rb") as af:
+                    b64 = base64.b64encode(af.read()).decode()
+                audio_html = f'<audio class="narration-audio" preload="none"><source src="data:audio/mpeg;base64,{b64}" type="audio/mpeg"></audio>'
+            else:
+                rel = os.path.relpath(audio_file, ROOT)
+                audio_html = f'<audio class="narration-audio" preload="none"><source src="../{rel}" type="audio/mpeg"></audio>'
+
+        return f'''<div class="narration-block">
+            <button class="narration-play-btn" onclick="toggleNarration(this)" aria-label="Play narration">&#9654;</button>
+            <div class="narration-content">
+                <p class="narration-text">{display_text}</p>
+                {audio_html}
+            </div>
+        </div>'''
+
+    return re.sub(
+        r'<blockquote>\s*<p>\U0001F399\uFE0F\s*(.*?)</p>\s*</blockquote>',
+        replace_narration, html, flags=re.DOTALL
+    )
+
+
+# ── Image embedding ───────────────────────────────────────────────────────────
+
+def embed_images(html: str, embed: bool = True) -> str:
+    """Replace image src paths with base64 data URIs."""
+    if not embed:
+        return html
+
+    def replace_img(m):
+        full_tag = m.group(0)
+        src = m.group(1)
+        # Resolve relative paths
+        if src.startswith("../images/"):
+            img_path = IMAGES_DIR / src.replace("../images/", "")
+        elif src.startswith("images/"):
+            img_path = IMAGES_DIR / src.replace("images/", "")
+        else:
+            img_path = ROOT / src
+
+        if img_path.exists():
+            ext = img_path.suffix.lower()
+            mime = {"png": "image/png", "jpg": "image/jpeg", "jpeg": "image/jpeg",
+                    "gif": "image/gif", "svg": "image/svg+xml", "webp": "image/webp"
+                    }.get(ext.lstrip("."), "image/png")
+            with open(img_path, "rb") as f:
+                b64 = base64.b64encode(f.read()).decode()
+            return full_tag.replace(src, f"data:{mime};base64,{b64}")
+        return full_tag
+
+    return re.sub(r'<img[^>]+src="([^"]+)"', replace_img, html)
+
+
+# ── Pagination ─────────────────────────────────────────────────────────────────
+
+def paginate(html: str) -> tuple[str, int]:
+    """Split HTML at H2 boundaries into navigable pages."""
+    parts = re.split(r'(<h2[^>]*>)', html)
+
+    if len(parts) <= 1:
+        return f'<div class="page" data-page="1">{html}</div>', 1
+
+    pages = []
+    current = parts[0]  # Content before first H2
+
+    if current.strip():
+        pages.append(current)
+
+    i = 1
+    while i < len(parts):
+        if parts[i].startswith("<h2"):
+            if i + 1 < len(parts):
+                content = parts[i] + parts[i + 1]
+            else:
+                content = parts[i]
+            pages.append(content)
+            i += 2
+        else:
+            if pages:
+                pages[-1] += parts[i]
+            else:
+                pages.append(parts[i])
+            i += 1
+
+    result = ""
+    for idx, page in enumerate(pages, 1):
+        result += f'<div class="page" data-page="{idx}">{page}</div>\n'
+
+    return result, len(pages)
+
+
+# ── TOC generation ─────────────────────────────────────────────────────────────
+
+def generate_toc(html: str) -> str:
+    """Generate sidebar TOC from H2 and H3 headings."""
+    headings = re.findall(r'<h([23])[^>]*id="([^"]*)"[^>]*>(.*?)</h\1>', html)
+    if not headings:
+        # Try without id attribute — generate from text
+        headings = re.findall(r'<h([23])[^>]*>(.*?)</h\1>', html)
+        toc_items = []
+        for level, text in headings:
+            clean = re.sub(r'<[^>]+>', '', text)
+            slug = re.sub(r'[^a-z0-9]+', '-', clean.lower()).strip('-')
+            indent = "toc-h3" if level == "3" else "toc-h2"
+            toc_items.append(f'<li class="{indent}"><a href="#{slug}">{clean}</a></li>')
+        return f'<ul class="toc-list">{"".join(toc_items)}</ul>'
+
+    toc_items = []
+    for level, id_attr, text in headings:
+        clean = re.sub(r'<[^>]+>', '', text)
+        indent = "toc-h3" if level == "3" else "toc-h2"
+        toc_items.append(f'<li class="{indent}"><a href="#{id_attr}">{clean}</a></li>')
+
+    return f'<ul class="toc-list">{"".join(toc_items)}</ul>'
+
+
+# ── Module navigation ─────────────────────────────────────────────────────────
+
+def build_module_nav(all_modules: list, current_idx: int) -> str:
+    """Build module-to-module navigation dropdown as a list of links."""
+    items = []
+    for i, mod in enumerate(all_modules):
+        slug = mod["file"].replace(".md", "")
+        active = ' class="active"' if i == current_idx else ""
+        items.append(f'<a href="{slug}.html"{active}>{mod["short"]}: {mod["title"]}</a>')
+
+    return "\n".join(items)
+
+
+# ── Build a single module ─────────────────────────────────────────────────────
+
+def build_module(mod: dict, idx: int, all_modules: list, template: str, embed: bool = True):
+    """Build a single module HTML file."""
+    source_path = SOURCE_DIR / mod["file"]
+    if not source_path.exists():
+        print(f"  SKIP {mod['file']} (not found)")
+        return
+
+    with open(source_path) as f:
+        md_text = f.read()
+
+    # Convert markdown to HTML
+    md_processor = get_md()
+    html = md_processor.convert(md_text)
+
+    # Module slug for audio lookup
+    module_slug = mod["file"].replace(".md", "")
+
+    # Process special blocks (order matters)
+    html = process_tier_badges(html)
+    html = process_cycle_anchors(html)
+    html = process_remember_callouts(html)
+    html = process_teaching_intent(html)
+    html = process_narration_blocks(html, module_slug, embed)
+
+    # Embed images
+    html = embed_images(html, embed)
+
+    # Generate TOC before pagination
+    toc = generate_toc(html)
+
+    # Paginate at H2 boundaries
+    html, total_pages = paginate(html)
+
+    # Navigation links
+    prev_link = ""
+    next_link = ""
+    if idx > 0:
+        prev_slug = all_modules[idx - 1]["file"].replace(".md", "")
+        prev_title = all_modules[idx - 1]["short"]
+        prev_link = f'<a href="{prev_slug}.html" class="nav-btn prev-btn">&larr; {prev_title}</a>'
+    if idx < len(all_modules) - 1:
+        next_slug = all_modules[idx + 1]["file"].replace(".md", "")
+        next_title = all_modules[idx + 1]["short"]
+        next_link = f'<a href="{next_slug}.html" class="nav-btn next-btn">{next_title} &rarr;</a>'
+
+    # Module nav dropdown
+    module_nav = build_module_nav(all_modules, idx)
+
+    # Fill template
+    title = f"{mod['short']}: {mod['title']}"
+    output = Template(template).safe_substitute(
+        title=title,
+        toc=toc,
+        content=html,
+        prev_link=prev_link,
+        next_link=next_link,
+        module_nav=module_nav,
+        total_pages=str(total_pages),
+    )
+
+    # Write output
+    out_path = HTML_DIR / f"{module_slug}.html"
+    with open(out_path, "w") as f:
+        f.write(output)
+
+    print(f"  BUILT {out_path.name} ({total_pages} pages)")
+
+
+# ── Index page ─────────────────────────────────────────────────────────────────
+
+INDEX_TEMPLATE = """<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1Z0-811 Java Foundations</title>
+<style>
+:root {
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --card-bg: #ffffff;
+  --card-border: #e0e0e0;
+  --accent: #e76f51;
+  --accent-light: #f4a261;
+  --header-bg: #1a1a2e;
+  --section-bg: #f8f8f5;
+}
+[data-theme="dark"] {
+  --bg: #1a1a2e;
+  --text: #e0e0e0;
+  --card-bg: #16213e;
+  --card-border: #333;
+  --section-bg: #0f0f23;
+  --header-bg: #0f0f23;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+.hero {
+  background: var(--header-bg);
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+.hero h1 { font-size: 2.5em; margin-bottom: 10px; }
+.hero p { font-size: 1.2em; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+.hero .subtitle { color: var(--accent-light); font-weight: 600; }
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+.tier-section { margin-bottom: 50px; }
+.tier-section h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--accent);
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  color: var(--text);
+  display: block;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+.card .day-label {
+  font-size: 0.85em;
+  color: var(--accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.card h3 { margin: 8px 0 12px; font-size: 1.15em; }
+.card .tier-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.75em;
+  font-weight: 600;
+}
+.tier-start-here { background: #d4edda; color: #155724; }
+.tier-useful-soon { background: #cce5ff; color: #004085; }
+.tier-when-ready { background: #fff3cd; color: #856404; }
+.tier-advanced { background: #f8d7da; color: #721c24; }
+[data-theme="dark"] .tier-start-here { background: #1a3a2a; color: #7dcea0; }
+[data-theme="dark"] .tier-useful-soon { background: #1a2a4a; color: #7db8f0; }
+[data-theme="dark"] .tier-when-ready { background: #3a3a1a; color: #d4a847; }
+[data-theme="dark"] .tier-advanced { background: #3a1a1a; color: #e07070; }
+.stats {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+.stat { text-align: center; }
+.stat .num { font-size: 2em; font-weight: 700; color: var(--accent); }
+.stat .label { font-size: 0.9em; opacity: 0.7; }
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 0.85em;
+  opacity: 0.6;
+}
+@media (max-width: 600px) {
+  .hero h1 { font-size: 1.8em; }
+  .card-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="hero" style="position:relative;">
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+  <h1>1Z0-811 Java Foundations</h1>
+  <p class="subtitle">30-Day Exam Preparation Course</p>
+  <p>A structured, hands-on curriculum covering every topic on the Oracle 1Z0-811 Java Foundations certification exam.</p>
+  <div class="stats">
+    <div class="stat"><div class="num">30</div><div class="label">Days</div></div>
+    <div class="stat"><div class="num">60</div><div class="label">Assignments</div></div>
+    <div class="stat"><div class="num">4</div><div class="label">Tiers</div></div>
+  </div>
+</div>
+<div class="container">
+  ${module_cards}
+</div>
+<footer>
+  1Z0-811 Java Foundations &mdash; Built with the Course Builder Pipeline
+</footer>
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('java-foundations-theme', next);
+}
+(function() {
+  const saved = localStorage.getItem('java-foundations-theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+})();
+</script>
+</body>
+</html>"""
+
+
+def build_index(all_modules: list):
+    """Generate the landing page with module cards organized by tier."""
+    tier_order = ["Start Here", "Useful Soon", "When You're Ready", "Advanced"]
+    tier_descriptions = {
+        "Start Here": "Begin your Java journey here. These modules cover the fundamentals you need before anything else.",
+        "Useful Soon": "Core Java concepts you'll use constantly. Data types, operators, strings, and decision-making.",
+        "When You're Ready": "Intermediate topics that build on the basics. Loops, error handling, and data structures.",
+        "Advanced": "Object-oriented programming in depth. Classes, constructors, methods, and a final capstone project.",
+    }
+
+    sections_html = ""
+    for tier in tier_order:
+        mods = [m for m in all_modules if m.get("tier") == tier]
+        if not mods:
+            continue
+        cards = ""
+        for mod in mods:
+            slug = mod["file"].replace(".md", "")
+            cards += f'''<a href="html/{slug}.html" class="card">
+                <div class="day-label">{mod["short"]}</div>
+                <h3>{mod["title"]}</h3>
+                <span class="tier-badge {mod.get('tier_css', '')}">{tier}</span>
+            </a>\n'''
+        sections_html += f'''<div class="tier-section">
+            <h2>{tier}</h2>
+            <p style="margin-bottom:16px;opacity:0.8;">{tier_descriptions.get(tier, "")}</p>
+            <div class="card-grid">{cards}</div>
+        </div>\n'''
+
+    output = Template(INDEX_TEMPLATE).safe_substitute(module_cards=sections_html)
+    index_path = ROOT / "index.html"
+    with open(index_path, "w") as f:
+        f.write(output)
+    print(f"  BUILT index.html")
+
+
+# ── Main ───────────────────────────────────────────────────────────────────────
+
+def main():
+    parser = argparse.ArgumentParser(description="Build 1Z0-811 Java Foundations course")
+    parser.add_argument("--module", help="Build only this module (slug without .md)")
+    parser.add_argument("--no-embed", action="store_true", help="Link images instead of embedding")
+    args = parser.parse_args()
+
+    embed = not args.no_embed
+
+    # Load template
+    if not TEMPLATE_PATH.exists():
+        print(f"ERROR: Template not found at {TEMPLATE_PATH}")
+        sys.exit(1)
+
+    with open(TEMPLATE_PATH) as f:
+        template = f.read()
+
+    # Create output directory
+    HTML_DIR.mkdir(exist_ok=True)
+
+    all_modules = MODULES + EXTRAS + REFERENCES
+
+    if args.module:
+        # Build single module
+        target = args.module if args.module.endswith(".md") else args.module + ".md"
+        for i, mod in enumerate(all_modules):
+            if mod["file"] == target or mod["file"].replace(".md", "") == args.module:
+                print(f"Building {mod['file']}...")
+                build_module(mod, i, all_modules, template, embed)
+                break
+        else:
+            print(f"ERROR: Module '{args.module}' not found in registry")
+            sys.exit(1)
+    else:
+        # Build all modules
+        print(f"Building {len(all_modules)} modules...")
+        for i, mod in enumerate(all_modules):
+            build_module(mod, i, all_modules, template, embed)
+
+    # Build index page
+    print("Building index page...")
+    build_index(all_modules)
+
+    print(f"\nDone! Open index.html or html/ directory to preview.")
+
+
+if __name__ == "__main__":
+    main()

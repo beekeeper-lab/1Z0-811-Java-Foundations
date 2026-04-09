@@ -1,0 +1,21 @@
+# API keys
+.env
+
+# Generated output (rebuild from source)
+html/
+dist/
+index.html
+
+# Audio files (large, regenerate with generate_narration.py)
+audio/
+
+# Image generation metadata
+images/**/*.json
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db

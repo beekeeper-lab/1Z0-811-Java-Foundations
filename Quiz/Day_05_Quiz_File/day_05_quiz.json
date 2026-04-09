@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 5: Basic Java Elements Part 2",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the primary purpose of packages in Java?",
+      "options": [
+        "To make programs run faster",
+        "To organize related classes into namespaces and avoid naming conflicts",
+        "To encrypt Java source code files",
+        "To automatically compile multiple files at once"
+      ],
+      "answer": "To organize related classes into namespaces and avoid naming conflicts"
+    },
+    {
+      "id": 2,
+      "question": "How does a Java package relate to the file system?",
+      "options": [
+        "Packages are stored in a single compressed file",
+        "Package names map directly to a folder/directory structure on disk",
+        "Packages have no relationship to the file system",
+        "Each package is stored in a separate hard drive partition"
+      ],
+      "answer": "Package names map directly to a folder/directory structure on disk"
+    },
+    {
+      "id": 3,
+      "question": "Given a class in the package com.example.utils, what must be the first non-comment line of that Java file?",
+      "options": [
+        "import com.example.utils;",
+        "package com.example.utils;",
+        "class com.example.utils;",
+        "module com.example.utils;"
+      ],
+      "answer": "package com.example.utils;"
+    },
+    {
+      "id": 4,
+      "question": "What is the difference between 'import java.util.Scanner;' and 'import java.util.*;'?",
+      "options": [
+        "There is no difference; they are identical",
+        "The first imports only the Scanner class; the second imports all classes in java.util",
+        "The first is invalid syntax; only wildcard imports are allowed",
+        "The second imports classes from java.util and all its sub-packages"
+      ],
+      "answer": "The first imports only the Scanner class; the second imports all classes in java.util"
+    },
+    {
+      "id": 5,
+      "question": "Which package is automatically imported into every Java program?",
+      "options": [
+        "java.util",
+        "java.io",
+        "java.lang",
+        "java.text"
+      ],
+      "answer": "java.lang"
+    },
+    {
+      "id": 6,
+      "question": "Which of the following classes does NOT belong to the java.lang package?",
+      "options": [
+        "String",
+        "Math",
+        "Scanner",
+        "System"
+      ],
+      "answer": "Scanner"
+    },
+    {
+      "id": 7,
+      "question": "Why does the java.lang package not require an explicit import statement?",
+      "options": [
+        "Because it contains only deprecated classes",
+        "Because it contains fundamental classes used by virtually every Java program",
+        "Because it is too large to import manually",
+        "Because it was the first package ever created in Java"
+      ],
+      "answer": "Because it contains fundamental classes used by virtually every Java program"
+    },
+    {
+      "id": 8,
+      "question": "Which of the following is a correct way to compile a class located at com/example/app/Main.java from the project root?",
+      "options": [
+        "javac com.example.app.Main",
+        "javac com/example/app/Main.java",
+        "java com/example/app/Main.java",
+        "compile com.example.app.Main.java"
+      ],
+      "answer": "javac com/example/app/Main.java"
+    },
+    {
+      "id": 9,
+      "question": "After compiling a packaged class, which command correctly runs com.example.app.Main?",
+      "options": [
+        "java com/example/app/Main",
+        "java com.example.app.Main",
+        "javac com.example.app.Main",
+        "run com/example/app/Main.class"
+      ],
+      "answer": "java com.example.app.Main"
+    },
+    {
+      "id": 10,
+      "question": "What is the key difference between compiling and running a packaged Java class?",
+      "options": [
+        "Compiling uses the package name with dots; running uses file paths with slashes",
+        "Compiling uses file paths with slashes; running uses the fully qualified class name with dots",
+        "There is no difference; both use the same syntax",
+        "Compiling requires the .class extension; running requires the .java extension"
+      ],
+      "answer": "Compiling uses file paths with slashes; running uses the fully qualified class name with dots"
+    },
+    {
+      "id": 11,
+      "question": "What does Integer.parseInt(\"42\") return?",
+      "options": [
+        "The String \"42\"",
+        "The int value 42",
+        "The double value 42.0",
+        "An Integer object containing null"
+      ],
+      "answer": "The int value 42"
+    },
+    {
+      "id": 12,
+      "question": "What does Integer.MAX_VALUE represent?",
+      "options": [
+        "The maximum number of Integer objects that can be created",
+        "The largest possible value an int can hold (2147483647)",
+        "The maximum length of an integer's string representation",
+        "The maximum number of digits in an int"
+      ],
+      "answer": "The largest possible value an int can hold (2147483647)"
+    },
+    {
+      "id": 13,
+      "question": "Which method converts a String to a double value?",
+      "options": [
+        "Double.toDouble()",
+        "Double.parseDouble()",
+        "Double.convert()",
+        "Double.valueOf().intValue()"
+      ],
+      "answer": "Double.parseDouble()"
+    },
+    {
+      "id": 14,
+      "question": "Which of the following are methods of the Math class? (Choose the best answer.)",
+      "options": [
+        "Math.abs(), Math.max(), Math.sqrt()",
+        "Math.parse(), Math.convert(), Math.format()",
+        "Math.length(), Math.charAt(), Math.toUpperCase()",
+        "Math.println(), Math.print(), Math.read()"
+      ],
+      "answer": "Math.abs(), Math.max(), Math.sqrt()"
+    },
+    {
+      "id": 15,
+      "question": "What does System.currentTimeMillis() return?",
+      "options": [
+        "The current date as a formatted String",
+        "The current time in seconds since midnight",
+        "The current time in milliseconds since January 1, 1970 (Unix epoch)",
+        "The number of milliseconds the program has been running"
+      ],
+      "answer": "The current time in milliseconds since January 1, 1970 (Unix epoch)"
+    },
+    {
+      "id": 16,
+      "question": "Which package does the Scanner class belong to?",
+      "options": [
+        "java.lang",
+        "java.util",
+        "java.io",
+        "java.scanner"
+      ],
+      "answer": "java.util"
+    },
+    {
+      "id": 17,
+      "question": "What problem can occur when mixing scanner.nextInt() and scanner.nextLine()?",
+      "options": [
+        "The program crashes with a NullPointerException",
+        "nextInt() leaves a newline in the buffer, causing nextLine() to read an empty string",
+        "nextLine() converts the input to an integer automatically",
+        "nextInt() cannot be called after nextLine() in the same program"
+      ],
+      "answer": "nextInt() leaves a newline in the buffer, causing nextLine() to read an empty string"
+    },
+    {
+      "id": 18,
+      "question": "What happens if you try to use Scanner without importing it?",
+      "options": [
+        "The program runs but Scanner methods return null",
+        "Java automatically imports it from java.lang",
+        "You get a compilation error: 'cannot find symbol'",
+        "The program compiles but throws a runtime exception"
+      ],
+      "answer": "You get a compilation error: 'cannot find symbol'"
+    },
+    {
+      "id": 19,
+      "question": "Which package contains the LocalDate, LocalTime, and LocalDateTime classes?",
+      "options": [
+        "java.util",
+        "java.time",
+        "java.date",
+        "java.lang"
+      ],
+      "answer": "java.time"
+    },
+    {
+      "id": 20,
+      "question": "Which classes need to be imported to get the ImportDetective program working?\n\nArrayList, Random, LocalDate, DecimalFormat",
+      "options": [
+        "java.util.ArrayList, java.util.Random, java.time.LocalDate, java.text.DecimalFormat",
+        "java.lang.ArrayList, java.lang.Random, java.lang.LocalDate, java.lang.DecimalFormat",
+        "java.util.ArrayList, java.util.Random, java.util.LocalDate, java.util.DecimalFormat",
+        "java.collections.ArrayList, java.math.Random, java.time.LocalDate, java.format.DecimalFormat"
+      ],
+      "answer": "java.util.ArrayList, java.util.Random, java.time.LocalDate, java.text.DecimalFormat"
+    },
+    {
+      "id": 21,
+      "question": "Which package does the DecimalFormat class belong to?",
+      "options": [
+        "java.util",
+        "java.lang",
+        "java.text",
+        "java.format"
+      ],
+      "answer": "java.text"
+    },
+    {
+      "id": 22,
+      "question": "What is the default package in Java?",
+      "options": [
+        "The java.lang package",
+        "The java.util package",
+        "The unnamed package used when no package statement is declared",
+        "The java.default package"
+      ],
+      "answer": "The unnamed package used when no package statement is declared"
+    },
+    {
+      "id": 23,
+      "question": "A class in package com.internship.app needs to use a class in package com.internship.models. What must the app class do?",
+      "options": [
+        "Nothing; classes in sub-packages of com.internship can see each other automatically",
+        "Import the class using an import statement such as 'import com.internship.models.Employee;'",
+        "Move both classes into the same package",
+        "Use the 'extends' keyword to inherit the models package"
+      ],
+      "answer": "Import the class using an import statement such as 'import com.internship.models.Employee;'"
+    },
+    {
+      "id": 24,
+      "question": "Which of the following is a valid String method from the java.lang.String class?",
+      "options": [
+        "String.parseInt()",
+        "String.sqrt()",
+        "\"hello\".toUpperCase()",
+        "\"hello\".parseDouble()"
+      ],
+      "answer": "\"hello\".toUpperCase()"
+    },
+    {
+      "id": 25,
+      "question": "Does a wildcard import like 'import java.util.*;' also import classes from sub-packages such as java.util.stream?",
+      "options": [
+        "Yes, wildcard imports include all sub-packages recursively",
+        "No, wildcard imports only import classes directly in that package, not sub-packages",
+        "Yes, but only if you also import the parent package java.*",
+        "It depends on the Java version being used"
+      ],
+      "answer": "No, wildcard imports only import classes directly in that package, not sub-packages"
+    }
+  ]
+}

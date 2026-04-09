@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 22: Arrays and ArrayLists Part 1",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which of the following correctly declares and creates an int array of size 5 in Java?",
+      "options": [
+        "int numbers[5];",
+        "int[] numbers = new int[5];",
+        "int[] numbers = new int(5);",
+        "array<int> numbers = new array<int>(5);"
+      ],
+      "answer": "int[] numbers = new int[5];"
+    },
+    {
+      "id": 2,
+      "question": "What is the default value of elements in a newly created int[] array?",
+      "options": [
+        "null",
+        "-1",
+        "0",
+        "undefined"
+      ],
+      "answer": "0"
+    },
+    {
+      "id": 3,
+      "question": "What is the default value of elements in a newly created String[] array?",
+      "options": [
+        "\"\"",
+        "null",
+        "0",
+        "\"null\""
+      ],
+      "answer": "null"
+    },
+    {
+      "id": 4,
+      "question": "What is the default value of elements in a newly created boolean[] array?",
+      "options": [
+        "true",
+        "null",
+        "0",
+        "false"
+      ],
+      "answer": "false"
+    },
+    {
+      "id": 5,
+      "question": "What is the default value of elements in a newly created double[] array?",
+      "options": [
+        "0",
+        "0.0",
+        "null",
+        "NaN"
+      ],
+      "answer": "0.0"
+    },
+    {
+      "id": 6,
+      "question": "Which of the following uses literal initialization to create an array?",
+      "options": [
+        "int[] nums = new int[]{1, 2, 3};",
+        "int[] nums = {1, 2, 3};",
+        "int[] nums = new int[3]; nums = {1, 2, 3};",
+        "int[] nums = (1, 2, 3);"
+      ],
+      "answer": "int[] nums = {1, 2, 3};"
+    },
+    {
+      "id": 7,
+      "question": "Given int[] arr = {10, 20, 30, 40, 50}; what does arr[0] return?",
+      "options": [
+        "50",
+        "20",
+        "10",
+        "An error because arrays start at index 1"
+      ],
+      "answer": "10"
+    },
+    {
+      "id": 8,
+      "question": "Given int[] arr = {10, 20, 30, 40, 50}; which expression accesses the last element?",
+      "options": [
+        "arr[arr.length]",
+        "arr[arr.length - 1]",
+        "arr[arr.length()]",
+        "arr.last()"
+      ],
+      "answer": "arr[arr.length - 1]"
+    },
+    {
+      "id": 9,
+      "question": "How do you get the number of elements in an array named data?",
+      "options": [
+        "data.length()",
+        "data.size()",
+        "data.length",
+        "data.count()"
+      ],
+      "answer": "data.length"
+    },
+    {
+      "id": 10,
+      "question": "Why does the array length use arr.length instead of arr.length()?",
+      "options": [
+        "It is a bug in Java that was never fixed",
+        "length is a public field (property), not a method",
+        "length() is only for ArrayList, not arrays",
+        "Both arr.length and arr.length() work the same way"
+      ],
+      "answer": "length is a public field (property), not a method"
+    },
+    {
+      "id": 11,
+      "question": "What exception is thrown when you access an array index that does not exist?",
+      "options": [
+        "IndexOutOfRangeException",
+        "ArrayIndexOutOfBoundsException",
+        "InvalidIndexException",
+        "NullPointerException"
+      ],
+      "answer": "ArrayIndexOutOfBoundsException"
+    },
+    {
+      "id": 12,
+      "question": "Given int[] arr = {10, 20, 30}; what happens when you execute System.out.println(arr[3]);?",
+      "options": [
+        "It prints 0",
+        "It prints null",
+        "It throws ArrayIndexOutOfBoundsException",
+        "It prints 30"
+      ],
+      "answer": "It throws ArrayIndexOutOfBoundsException"
+    },
+    {
+      "id": 13,
+      "question": "Given int[] arr = {10, 20, 30}; what happens when you execute System.out.println(arr[-1]);?",
+      "options": [
+        "It prints 30 (the last element)",
+        "It prints 10 (the first element)",
+        "It throws ArrayIndexOutOfBoundsException",
+        "It prints -1"
+      ],
+      "answer": "It throws ArrayIndexOutOfBoundsException"
+    },
+    {
+      "id": 14,
+      "question": "Which loop is best suited for iterating through an array when you need the index of each element?",
+      "options": [
+        "Enhanced for loop",
+        "while loop with iterator",
+        "Standard for loop",
+        "do-while loop"
+      ],
+      "answer": "Standard for loop"
+    },
+    {
+      "id": 15,
+      "question": "What is the correct syntax for an enhanced for loop over int[] scores?",
+      "options": [
+        "for (int i = 0; i < scores.length; i++)",
+        "for (int score : scores)",
+        "for (scores : int score)",
+        "foreach (int score in scores)"
+      ],
+      "answer": "for (int score : scores)"
+    },
+    {
+      "id": 16,
+      "question": "What is true about arrays in Java?",
+      "options": [
+        "Arrays can grow or shrink after creation",
+        "Arrays are primitive types",
+        "Arrays are objects with a fixed size once created",
+        "Arrays do not have a length property"
+      ],
+      "answer": "Arrays are objects with a fixed size once created"
+    },
+    {
+      "id": 17,
+      "question": "Given int[] a = {1, 2, 3}; int[] b = a; b[0] = 99; what is the value of a[0]?",
+      "options": [
+        "1",
+        "99",
+        "0",
+        "It causes a compilation error"
+      ],
+      "answer": "99"
+    },
+    {
+      "id": 18,
+      "question": "Why does assigning one array variable to another (int[] b = a;) NOT create a copy?",
+      "options": [
+        "Java arrays are immutable",
+        "Both variables point to (reference) the same array object in memory",
+        "The assignment operator copies only the first element",
+        "Java does not support the assignment operator for arrays"
+      ],
+      "answer": "Both variables point to (reference) the same array object in memory"
+    },
+    {
+      "id": 19,
+      "question": "Which of the following is a valid way to create a true copy of an array?",
+      "options": [
+        "int[] copy = original;",
+        "int[] copy = Arrays.copyOf(original, original.length);",
+        "int[] copy = original.clone;",
+        "int[] copy = new int[original];"
+      ],
+      "answer": "int[] copy = Arrays.copyOf(original, original.length);"
+    },
+    {
+      "id": 20,
+      "question": "When an array is passed to a method in Java, what is passed?",
+      "options": [
+        "A copy of the entire array",
+        "A reference to the array object",
+        "The first element only",
+        "A read-only version of the array"
+      ],
+      "answer": "A reference to the array object"
+    },
+    {
+      "id": 21,
+      "question": "Given the method: public static void doubleAll(int[] arr) { for (int i = 0; i < arr.length; i++) { arr[i] *= 2; } } After calling doubleAll(myArray), what happens to myArray?",
+      "options": [
+        "myArray is unchanged because Java passes arrays by value",
+        "myArray is unchanged because the method creates a local copy",
+        "All elements in myArray are doubled because the method received a reference",
+        "The code does not compile"
+      ],
+      "answer": "All elements in myArray are doubled because the method received a reference"
+    },
+    {
+      "id": 22,
+      "question": "In bubble sort, what does each pass through the array accomplish?",
+      "options": [
+        "It finds the minimum element and places it at the beginning",
+        "It compares adjacent elements and swaps them if they are in the wrong order",
+        "It divides the array into two halves and merges them",
+        "It selects a pivot element and partitions the array"
+      ],
+      "answer": "It compares adjacent elements and swaps them if they are in the wrong order"
+    },
+    {
+      "id": 23,
+      "question": "Which import statement is needed to use Arrays.copyOf() and Arrays.sort()?",
+      "options": [
+        "import java.lang.Arrays;",
+        "import java.util.Arrays;",
+        "import java.io.Arrays;",
+        "No import is needed; Arrays is in java.lang"
+      ],
+      "answer": "import java.util.Arrays;"
+    },
+    {
+      "id": 24,
+      "question": "A program uses a large array and a separate counter variable to track how many elements are actually filled. What limitation of arrays does this approach work around?",
+      "options": [
+        "Arrays cannot store integer values",
+        "Arrays do not support indexing",
+        "Arrays have a fixed size and cannot grow dynamically",
+        "Arrays cannot be passed to methods"
+      ],
+      "answer": "Arrays have a fixed size and cannot grow dynamically"
+    },
+    {
+      "id": 25,
+      "question": "What is the correct standard for loop condition to iterate through every element of an array named arr without going out of bounds?",
+      "options": [
+        "i <= arr.length",
+        "i < arr.length",
+        "i < arr.length - 1",
+        "i <= arr.length - 1 && i >= 1"
+      ],
+      "answer": "i < arr.length"
+    }
+  ]
+}

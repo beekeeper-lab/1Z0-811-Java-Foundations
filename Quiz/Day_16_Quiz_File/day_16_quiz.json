@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 16: Decision Statements Part 3",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What does the == operator compare when used with two object references in Java?",
+      "options": [
+        "The content of the objects",
+        "The memory addresses (references) of the objects",
+        "The hash codes of the objects",
+        "The string representations of the objects"
+      ],
+      "answer": "The memory addresses (references) of the objects"
+    },
+    {
+      "id": 2,
+      "question": "What is the output of the following code?\n\nString s1 = \"Java\";\nString s2 = \"Java\";\nSystem.out.println(s1 == s2);",
+      "options": [
+        "false",
+        "true",
+        "A compilation error",
+        "A NullPointerException"
+      ],
+      "answer": "true"
+    },
+    {
+      "id": 3,
+      "question": "What is the output of the following code?\n\nString s1 = new String(\"Java\");\nString s2 = new String(\"Java\");\nSystem.out.println(s1 == s2);",
+      "options": [
+        "true",
+        "false",
+        "A compilation error",
+        "It depends on the JVM implementation"
+      ],
+      "answer": "false"
+    },
+    {
+      "id": 4,
+      "question": "Why does == return true for two String literals with the same content?",
+      "options": [
+        "The == operator always compares String content",
+        "Java automatically calls .equals() for Strings",
+        "Both literals reference the same object in the String Pool",
+        "The compiler converts == to .equals() for Strings"
+      ],
+      "answer": "Both literals reference the same object in the String Pool"
+    },
+    {
+      "id": 5,
+      "question": "What is the output of the following code?\n\nString s1 = \"Java\";\nString s2 = \"Ja\" + \"va\";\nSystem.out.println(s1 == s2);",
+      "options": [
+        "false",
+        "true",
+        "A compilation error",
+        "A runtime exception"
+      ],
+      "answer": "true"
+    },
+    {
+      "id": 6,
+      "question": "What is the output of the following code?\n\nString part = \"Ja\";\nString s1 = \"Java\";\nString s2 = part + \"va\";\nSystem.out.println(s1 == s2);",
+      "options": [
+        "true",
+        "false",
+        "A compilation error",
+        "A NullPointerException"
+      ],
+      "answer": "false"
+    },
+    {
+      "id": 7,
+      "question": "Why does runtime String concatenation using a variable produce a different result with == than concatenation of two literals?",
+      "options": [
+        "Variables always create new String objects at runtime, bypassing the String Pool",
+        "The + operator works differently with variables",
+        "Literal concatenation is evaluated at compile time and placed in the String Pool, while variable concatenation creates a new object at runtime",
+        "Runtime concatenation uses a different character encoding"
+      ],
+      "answer": "Literal concatenation is evaluated at compile time and placed in the String Pool, while variable concatenation creates a new object at runtime"
+    },
+    {
+      "id": 8,
+      "question": "What does the equals() method return when comparing two Strings?",
+      "options": [
+        "An int indicating their relative order",
+        "A boolean indicating whether their content is identical",
+        "A boolean indicating whether they reference the same object",
+        "A String containing either \"true\" or \"false\""
+      ],
+      "answer": "A boolean indicating whether their content is identical"
+    },
+    {
+      "id": 9,
+      "question": "What is the output of the following code?\n\nString s1 = \"Hello\";\nString s2 = \"hello\";\nSystem.out.println(s1.equalsIgnoreCase(s2));",
+      "options": [
+        "false",
+        "true",
+        "0",
+        "A compilation error"
+      ],
+      "answer": "true"
+    },
+    {
+      "id": 10,
+      "question": "What does \"Apple\".compareTo(\"Banana\") return?",
+      "options": [
+        "A positive integer",
+        "Zero",
+        "A negative integer",
+        "A boolean value true"
+      ],
+      "answer": "A negative integer"
+    },
+    {
+      "id": 11,
+      "question": "What does the compareTo() method return when two Strings are equal?",
+      "options": [
+        "true",
+        "1",
+        "-1",
+        "0"
+      ],
+      "answer": "0"
+    },
+    {
+      "id": 12,
+      "question": "What happens when you execute the following code?\n\nString nullStr = null;\nSystem.out.println(nullStr.equals(\"test\"));",
+      "options": [
+        "It prints false",
+        "It prints true",
+        "A NullPointerException is thrown",
+        "A compilation error occurs"
+      ],
+      "answer": "A NullPointerException is thrown"
+    },
+    {
+      "id": 13,
+      "question": "Why is \"test\".equals(nullStr) considered safer than nullStr.equals(\"test\")?",
+      "options": [
+        "It runs faster",
+        "The literal can never be null, so calling .equals() on it will not throw a NullPointerException",
+        "It produces a different result",
+        "The compiler requires literals to be on the left"
+      ],
+      "answer": "The literal can never be null, so calling .equals() on it will not throw a NullPointerException"
+    },
+    {
+      "id": 14,
+      "question": "What is the output of the following code?\n\nint a = 10;\ndouble b = 10.0;\nSystem.out.println(a == b);",
+      "options": [
+        "false because they are different types",
+        "A compilation error",
+        "true because of widening conversion",
+        "A runtime exception"
+      ],
+      "answer": "true because of widening conversion"
+    },
+    {
+      "id": 15,
+      "question": "What does \"HELLO\".compareTo(\"hello\") return?",
+      "options": [
+        "0 because the letters are the same",
+        "A positive integer because uppercase comes after lowercase",
+        "A negative integer because uppercase letters have lower Unicode values",
+        "A compilation error"
+      ],
+      "answer": "A negative integer because uppercase letters have lower Unicode values"
+    },
+    {
+      "id": 16,
+      "question": "Which decision structure is most appropriate for mapping a numeric month (1-12) to its name?",
+      "options": [
+        "A single if statement",
+        "A ternary operator",
+        "A switch statement",
+        "Nested if statements"
+      ],
+      "answer": "A switch statement"
+    },
+    {
+      "id": 17,
+      "question": "Which decision structure is best suited for checking a single condition that requires one action if true and no action if false?",
+      "options": [
+        "if-else",
+        "A single if statement",
+        "switch",
+        "Ternary operator"
+      ],
+      "answer": "A single if statement"
+    },
+    {
+      "id": 18,
+      "question": "When should you use an else-if chain instead of a switch statement?",
+      "options": [
+        "When you have exactly two conditions",
+        "When conditions involve ranges or complex boolean expressions rather than matching a single value against discrete options",
+        "When you want the code to run faster",
+        "When you are comparing Strings"
+      ],
+      "answer": "When conditions involve ranges or complex boolean expressions rather than matching a single value against discrete options"
+    },
+    {
+      "id": 19,
+      "question": "What is the correct way to validate that a user-entered account type matches \"checking\" regardless of case?",
+      "options": [
+        "if (type == \"checking\")",
+        "if (type.equals(\"checking\"))",
+        "if (type.equalsIgnoreCase(\"checking\"))",
+        "if (type.compareTo(\"checking\") == 1)"
+      ],
+      "answer": "if (type.equalsIgnoreCase(\"checking\"))"
+    },
+    {
+      "id": 20,
+      "question": "A year is a leap year if it is divisible by 4, except if divisible by 100, unless also divisible by 400. Which decision structure is most appropriate?",
+      "options": [
+        "A switch statement",
+        "A ternary operator",
+        "Nested if statements or an if-else chain with compound boolean expressions",
+        "A single if statement"
+      ],
+      "answer": "Nested if statements or an if-else chain with compound boolean expressions"
+    },
+    {
+      "id": 21,
+      "question": "Which of the following correctly uses the ternary operator to assign \"Even\" or \"Odd\" to a String variable?",
+      "options": [
+        "String result = (num % 2 == 0) : \"Even\" ? \"Odd\";",
+        "String result = (num % 2 == 0) ? \"Even\" : \"Odd\";",
+        "String result = if (num % 2 == 0) \"Even\" else \"Odd\";",
+        "String result = (num % 2 == 0) ?? \"Even\" :: \"Odd\";"
+      ],
+      "answer": "String result = (num % 2 == 0) ? \"Even\" : \"Odd\";"
+    },
+    {
+      "id": 22,
+      "question": "Given the following code, what does compareTo() help determine?\n\nif (word.toUpperCase().compareTo(\"N\") < 0) {\n    System.out.println(\"First half\");\n}",
+      "options": [
+        "Whether the word is null",
+        "Whether the word starts with a letter in the first half of the alphabet (A-M)",
+        "Whether the word is longer than the String \"N\"",
+        "Whether the word equals \"N\""
+      ],
+      "answer": "Whether the word starts with a letter in the first half of the alphabet (A-M)"
+    },
+    {
+      "id": 23,
+      "question": "In a bank account simulator, which decision structure is most appropriate for handling a menu with options 1 through 6?",
+      "options": [
+        "Nested if statements",
+        "A ternary operator",
+        "A switch statement",
+        "A single if statement"
+      ],
+      "answer": "A switch statement"
+    },
+    {
+      "id": 24,
+      "question": "What is the correct way to check if a String variable name is not empty after removing leading and trailing whitespace?",
+      "options": [
+        "if (name != \"\")",
+        "if (!name.trim().isEmpty())",
+        "if (name.length > 0)",
+        "if (name.trim() == true)"
+      ],
+      "answer": "if (!name.trim().isEmpty())"
+    },
+    {
+      "id": 25,
+      "question": "When using compareTo() to sort three names alphabetically, what does a negative return value from name1.compareTo(name2) indicate?",
+      "options": [
+        "name1 is shorter than name2",
+        "name1 comes after name2 alphabetically",
+        "name1 and name2 are equal",
+        "name1 comes before name2 alphabetically"
+      ],
+      "answer": "name1 comes before name2 alphabetically"
+    }
+  ]
+}

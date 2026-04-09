@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 30: Java Methods Part 3",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which of the following is required for two methods to be considered overloaded?",
+      "options": [
+        "They must have different return types",
+        "They must have different parameter lists",
+        "They must have different parameter names",
+        "They must be in different classes"
+      ],
+      "answer": "They must have different parameter lists"
+    },
+    {
+      "id": 2,
+      "question": "Given the methods:\npublic static int add(int a, int b) { return a + b; }\npublic static double add(double a, double b) { return a + b; }\nWhat is the result of calling add(3, 5)?",
+      "options": [
+        "8.0",
+        "8",
+        "Compilation error — ambiguous call",
+        "Runtime error"
+      ],
+      "answer": "8"
+    },
+    {
+      "id": 3,
+      "question": "Which change alone does NOT create a valid method overload?",
+      "options": [
+        "Changing the number of parameters",
+        "Changing the types of parameters",
+        "Changing only the return type",
+        "Changing the order of parameter types"
+      ],
+      "answer": "Changing only the return type"
+    },
+    {
+      "id": 4,
+      "question": "Given only this method exists:\npublic static void print(double d) { System.out.println(d); }\nWhat happens when you call print(5)?",
+      "options": [
+        "Compilation error — no int version exists",
+        "Runtime error — type mismatch",
+        "The int 5 is promoted to double 5.0 and the method executes",
+        "The method prints the character '5'"
+      ],
+      "answer": "The int 5 is promoted to double 5.0 and the method executes"
+    },
+    {
+      "id": 5,
+      "question": "Which of the following pairs of methods will cause a compilation error if placed in the same class?",
+      "options": [
+        "void show(int x) and void show(double x)",
+        "int getValue() and double getValue()",
+        "void show(int x) and void show(int x, int y)",
+        "void show(String s) and void show(int x)"
+      ],
+      "answer": "int getValue() and double getValue()"
+    },
+    {
+      "id": 6,
+      "question": "Given:\npublic static void test(int x) { System.out.println(\"int\"); }\npublic static void test(double x) { System.out.println(\"double\"); }\nWhat is printed when test(5L) is called?",
+      "options": [
+        "int",
+        "double",
+        "Compilation error",
+        "Runtime error"
+      ],
+      "answer": "double"
+    },
+    {
+      "id": 7,
+      "question": "Given:\npublic static void test(int x) { System.out.println(\"int\"); }\npublic static void test(double x) { System.out.println(\"double\"); }\nWhat is printed when test('A') is called?",
+      "options": [
+        "double",
+        "int",
+        "Compilation error — char is not int or double",
+        "A"
+      ],
+      "answer": "int"
+    },
+    {
+      "id": 8,
+      "question": "How does method overloading relate to constructor overloading?",
+      "options": [
+        "They are unrelated features",
+        "Constructor overloading follows the same rules — same name, different parameter lists",
+        "Only constructors can be overloaded, not regular methods",
+        "Constructors must have different return types to be overloaded"
+      ],
+      "answer": "Constructor overloading follows the same rules — same name, different parameter lists"
+    },
+    {
+      "id": 9,
+      "question": "Which Java class is a well-known example of heavy method overloading?",
+      "options": [
+        "Math — the random() method has 10 overloads",
+        "PrintStream — println() accepts String, int, double, boolean, etc.",
+        "Scanner — nextInt() has overloads for every type",
+        "String — the length() method has 5 overloads"
+      ],
+      "answer": "PrintStream — println() accepts String, int, double, boolean, etc."
+    },
+    {
+      "id": 10,
+      "question": "Given:\npublic static void process(int x) { System.out.println(\"int\"); }\npublic static void process(Integer x) { System.out.println(\"Integer\"); }\nWhat is printed when process(5) is called?",
+      "options": [
+        "Integer",
+        "int",
+        "Compilation error — ambiguous",
+        "Both \"int\" and \"Integer\" are printed"
+      ],
+      "answer": "int"
+    },
+    {
+      "id": 11,
+      "question": "What is printed when process(Integer.valueOf(5)) is called, given the same two methods from the previous question?",
+      "options": [
+        "int",
+        "Integer",
+        "Compilation error",
+        "Runtime error"
+      ],
+      "answer": "Integer"
+    },
+    {
+      "id": 12,
+      "question": "In a static method, which of the following can you directly access without an object reference?",
+      "options": [
+        "Instance variables of the class",
+        "Static variables of the class",
+        "Both instance and static variables",
+        "Neither instance nor static variables"
+      ],
+      "answer": "Static variables of the class"
+    },
+    {
+      "id": 13,
+      "question": "Given:\npublic class Box {\n    private int width;\n    public int getWidth() { return width; }\n    public void setWidth(int width) { this.width = width; }\n}\nWhat happens if you try b.width = 20 from main in another class?",
+      "options": [
+        "It compiles and sets the width to 20",
+        "Compilation error — width is private",
+        "Runtime error — cannot access private fields",
+        "It compiles but the value is not actually changed"
+      ],
+      "answer": "Compilation error — width is private"
+    },
+    {
+      "id": 14,
+      "question": "What is the purpose of the 'this' keyword in the setter: public void setWidth(int width) { this.width = width; }?",
+      "options": [
+        "It creates a new instance of the class",
+        "It distinguishes the instance variable from the parameter with the same name",
+        "It makes the variable public",
+        "It is required syntax for all setters in Java"
+      ],
+      "answer": "It distinguishes the instance variable from the parameter with the same name"
+    },
+    {
+      "id": 15,
+      "question": "Which of the following is a valid set of overloaded methods?",
+      "options": [
+        "void run(int x) and int run(int x)",
+        "void run(int x) and void run(int y)",
+        "void run(int x) and void run(double x)",
+        "void run(int x) and void run(int x)"
+      ],
+      "answer": "void run(int x) and void run(double x)"
+    },
+    {
+      "id": 16,
+      "question": "When designing overloaded formatCurrency methods, which set of signatures is a valid overloading chain?",
+      "options": [
+        "formatCurrency(double), formatCurrency(double, String), formatCurrency(double, String, int)",
+        "formatCurrency(double), formatCurrency(double), formatCurrency(double)",
+        "formatCurrency(double amount), formatCurrency(double value), formatCurrency(double price)",
+        "String formatCurrency(double), int formatCurrency(double), void formatCurrency(double)"
+      ],
+      "answer": "formatCurrency(double), formatCurrency(double, String), formatCurrency(double, String, int)"
+    },
+    {
+      "id": 17,
+      "question": "Given overloaded repeat methods:\nString repeat(String text, int times)\nString repeat(char c, int times)\nString repeat(String text, int times, String separator)\nWhich method is called by repeat('*', 5)?",
+      "options": [
+        "repeat(String text, int times) because char is promoted to String",
+        "repeat(char c, int times)",
+        "repeat(String text, int times, String separator) with default separator",
+        "Compilation error — char cannot match any overload"
+      ],
+      "answer": "repeat(char c, int times)"
+    },
+    {
+      "id": 18,
+      "question": "Given overloaded max methods:\nint max(int a, int b)\ndouble max(double a, double b)\nint max(int a, int b, int c)\nint max(int[] arr)\nWhat is the return type of max(3.14, 2.71)?",
+      "options": [
+        "int",
+        "double",
+        "float",
+        "Compilation error — doubles cannot be compared"
+      ],
+      "answer": "double"
+    },
+    {
+      "id": 19,
+      "question": "Why should a utility class like Formatter include a private constructor?",
+      "options": [
+        "To allow subclasses to override its methods",
+        "To prevent instantiation since all methods are static",
+        "To enable method overloading",
+        "To make the class abstract"
+      ],
+      "answer": "To prevent instantiation since all methods are static"
+    },
+    {
+      "id": 20,
+      "question": "Given:\npublic static void test(int x) { System.out.println(\"int\"); }\npublic static void test(double x) { System.out.println(\"double\"); }\npublic static void test(String x) { System.out.println(\"String\"); }\nWhat is printed when test(5.0f) is called?",
+      "options": [
+        "int",
+        "double",
+        "String",
+        "Compilation error — no float version"
+      ],
+      "answer": "double"
+    },
+    {
+      "id": 21,
+      "question": "In the Student class capstone, which design principle is demonstrated by making fields private and providing getters and setters?",
+      "options": [
+        "Polymorphism",
+        "Encapsulation",
+        "Inheritance",
+        "Abstraction"
+      ],
+      "answer": "Encapsulation"
+    },
+    {
+      "id": 22,
+      "question": "In the capstone Student class, the studentId field is auto-assigned using a static counter. What does this static counter ensure?",
+      "options": [
+        "Each student gets a random unique ID",
+        "Each student gets a sequentially unique ID shared across all instances",
+        "Each student's ID resets when a new object is created",
+        "The ID is the same for all students"
+      ],
+      "answer": "Each student gets a sequentially unique ID shared across all instances"
+    },
+    {
+      "id": 23,
+      "question": "The capstone Student class has three overloaded displayInfo methods:\ndisplayInfo()\ndisplayInfo(boolean brief)\ndisplayInfo(String format)\nWhich concept from Day 30 does this directly demonstrate?",
+      "options": [
+        "Constructor chaining",
+        "Method overloading",
+        "Static method access",
+        "Type casting"
+      ],
+      "answer": "Method overloading"
+    },
+    {
+      "id": 24,
+      "question": "The capstone Course class has overloaded enroll methods that accept a single Student, a Student array, and an ArrayList<Student>. What is the primary benefit of this overloading?",
+      "options": [
+        "It makes the code run faster",
+        "It allows callers to enroll students using whichever data structure they have",
+        "It prevents compilation errors in the main method",
+        "It is required by Java when using ArrayLists"
+      ],
+      "answer": "It allows callers to enroll students using whichever data structure they have"
+    },
+    {
+      "id": 25,
+      "question": "Which of the following correctly describes what happens when Java cannot find an exact parameter match for an overloaded method call?",
+      "options": [
+        "Java throws a RuntimeException",
+        "Java automatically widens (promotes) the argument type to find a matching method",
+        "Java converts the argument to a String and looks for a String overload",
+        "Java picks the first method defined in the source file"
+      ],
+      "answer": "Java automatically widens (promotes) the argument type to find a matching method"
+    }
+  ]
+}

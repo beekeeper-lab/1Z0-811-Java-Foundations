@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 23: Arrays and ArrayLists Part 2",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which import statement is required to use the ArrayList class?",
+      "options": [
+        "import java.util.ArrayList;",
+        "import java.lang.ArrayList;",
+        "import java.io.ArrayList;",
+        "import java.collections.ArrayList;"
+      ],
+      "answer": "import java.util.ArrayList;"
+    },
+    {
+      "id": 2,
+      "question": "What is the key difference between an array and an ArrayList?",
+      "options": [
+        "An array can hold objects but an ArrayList cannot",
+        "An ArrayList is resizable while an array has a fixed size",
+        "An array uses generics but an ArrayList does not",
+        "An ArrayList can hold primitives but an array cannot"
+      ],
+      "answer": "An ArrayList is resizable while an array has a fixed size"
+    },
+    {
+      "id": 3,
+      "question": "Which of the following is a valid declaration of an ArrayList that holds integers?",
+      "options": [
+        "ArrayList<int> nums = new ArrayList<>();",
+        "ArrayList<Integer> nums = new ArrayList<>();",
+        "ArrayList(Integer) nums = new ArrayList();",
+        "ArrayList[Integer] nums = new ArrayList[];"
+      ],
+      "answer": "ArrayList<Integer> nums = new ArrayList<>();"
+    },
+    {
+      "id": 4,
+      "question": "What does autoboxing mean in the context of ArrayList?",
+      "options": [
+        "Automatically converting an ArrayList to an array",
+        "Automatically converting a primitive value to its corresponding wrapper object",
+        "Automatically sorting the elements in an ArrayList",
+        "Automatically resizing the ArrayList when it is full"
+      ],
+      "answer": "Automatically converting a primitive value to its corresponding wrapper object"
+    },
+    {
+      "id": 5,
+      "question": "Given: ArrayList<Integer> nums = new ArrayList<>(); nums.add(42); — what happens during the add call?",
+      "options": [
+        "A compile error because 42 is a primitive",
+        "The int 42 is autoboxed to Integer.valueOf(42) and added",
+        "The int 42 is stored directly without conversion",
+        "A ClassCastException is thrown at runtime"
+      ],
+      "answer": "The int 42 is autoboxed to Integer.valueOf(42) and added"
+    },
+    {
+      "id": 6,
+      "question": "What does the method add(int index, E element) do on an ArrayList?",
+      "options": [
+        "Replaces the element at the given index",
+        "Inserts the element at the given index, shifting subsequent elements to the right",
+        "Adds the element at the end and returns the index",
+        "Throws an exception if the index is not the last position"
+      ],
+      "answer": "Inserts the element at the given index, shifting subsequent elements to the right"
+    },
+    {
+      "id": 7,
+      "question": "Given: ArrayList<String> list = new ArrayList<>(); list.add(\"A\"); list.add(\"B\"); list.add(\"C\"); — what does list.set(1, \"X\") do?",
+      "options": [
+        "Inserts \"X\" at index 1, resulting in [A, X, B, C]",
+        "Replaces the element at index 1, resulting in [A, X, C]",
+        "Adds \"X\" at the end, resulting in [A, B, C, X]",
+        "Removes index 1 and adds \"X\" at the end"
+      ],
+      "answer": "Replaces the element at index 1, resulting in [A, X, C]"
+    },
+    {
+      "id": 8,
+      "question": "What does the size() method return for an ArrayList?",
+      "options": [
+        "The maximum capacity of the ArrayList",
+        "The number of elements currently in the ArrayList",
+        "The number of null elements in the ArrayList",
+        "The index of the last element"
+      ],
+      "answer": "The number of elements currently in the ArrayList"
+    },
+    {
+      "id": 9,
+      "question": "What does the contains(Object o) method return?",
+      "options": [
+        "The index of the object if found, -1 otherwise",
+        "The object itself if found, null otherwise",
+        "true if the ArrayList contains the specified element, false otherwise",
+        "The number of times the object appears in the ArrayList"
+      ],
+      "answer": "true if the ArrayList contains the specified element, false otherwise"
+    },
+    {
+      "id": 10,
+      "question": "What does the isEmpty() method return when called on a newly created ArrayList with no elements added?",
+      "options": [
+        "false",
+        "true",
+        "null",
+        "0"
+      ],
+      "answer": "true"
+    },
+    {
+      "id": 11,
+      "question": "What is the result of calling clear() on an ArrayList?",
+      "options": [
+        "It deletes the ArrayList object from memory",
+        "It sets the ArrayList reference to null",
+        "It removes all elements from the ArrayList, making it empty",
+        "It resets all elements to their default values"
+      ],
+      "answer": "It removes all elements from the ArrayList, making it empty"
+    },
+    {
+      "id": 12,
+      "question": "Given: ArrayList<Integer> nums = new ArrayList<>(); nums.add(10); nums.add(20); nums.add(30); — what does nums.remove(1) do?",
+      "options": [
+        "Removes the element with value 1",
+        "Removes the element at index 1, which is 20",
+        "Removes the first element (10) from the list",
+        "Removes all elements equal to 1"
+      ],
+      "answer": "Removes the element at index 1, which is 20"
+    },
+    {
+      "id": 13,
+      "question": "Given an ArrayList<Integer> containing [10, 20, 30], how do you remove the element with value 10 (not index 10)?",
+      "options": [
+        "nums.remove(10);",
+        "nums.removeValue(10);",
+        "nums.remove(Integer.valueOf(10));",
+        "nums.delete(10);"
+      ],
+      "answer": "nums.remove(Integer.valueOf(10));"
+    },
+    {
+      "id": 14,
+      "question": "Which wrapper class corresponds to the primitive type double?",
+      "options": [
+        "Decimal",
+        "Float",
+        "Double",
+        "Number"
+      ],
+      "answer": "Double"
+    },
+    {
+      "id": 15,
+      "question": "What happens when you use a raw ArrayList without specifying a generic type?",
+      "options": [
+        "The code will not compile",
+        "The ArrayList can hold any object type but loses type safety and may produce compiler warnings",
+        "The ArrayList automatically becomes ArrayList<Object> with full type safety",
+        "A runtime exception is thrown when adding elements"
+      ],
+      "answer": "The ArrayList can hold any object type but loses type safety and may produce compiler warnings"
+    },
+    {
+      "id": 16,
+      "question": "What happens when you attempt to remove elements from an ArrayList using an enhanced for loop while iterating?",
+      "options": [
+        "The elements are removed successfully",
+        "A ConcurrentModificationException is thrown",
+        "The loop silently skips elements",
+        "An ArrayIndexOutOfBoundsException is thrown"
+      ],
+      "answer": "A ConcurrentModificationException is thrown"
+    },
+    {
+      "id": 17,
+      "question": "Which approach correctly avoids index-shifting problems when removing elements from an ArrayList during iteration?",
+      "options": [
+        "Iterating forwards with an enhanced for loop",
+        "Using a while loop that always increments the index",
+        "Iterating backwards with a standard for loop",
+        "Converting the ArrayList to an array first and iterating that"
+      ],
+      "answer": "Iterating backwards with a standard for loop"
+    },
+    {
+      "id": 18,
+      "question": "What is unboxing in Java?",
+      "options": [
+        "Converting a String to a primitive type",
+        "Converting a wrapper object to its corresponding primitive value",
+        "Removing an element from an ArrayList",
+        "Extracting an array from an ArrayList"
+      ],
+      "answer": "Converting a wrapper object to its corresponding primitive value"
+    },
+    {
+      "id": 19,
+      "question": "Given: ArrayList<String> list = new ArrayList<>(); list.add(\"Hello\"); list.add(null); list.add(\"World\"); — what does list.get(1) return?",
+      "options": [
+        "An empty string \"\"",
+        "The string \"null\"",
+        "null",
+        "It throws a NullPointerException"
+      ],
+      "answer": "null"
+    },
+    {
+      "id": 20,
+      "question": "Given: ArrayList<String> list = new ArrayList<>(); list.add(\"Hello\"); list.add(null); — what happens when you call list.get(1).length()?",
+      "options": [
+        "It returns 0",
+        "It returns 4",
+        "It throws a NullPointerException",
+        "It returns -1"
+      ],
+      "answer": "It throws a NullPointerException"
+    },
+    {
+      "id": 21,
+      "question": "Which method from java.util.Collections can be used to sort an ArrayList alphabetically?",
+      "options": [
+        "Collections.order(list)",
+        "Collections.sort(list)",
+        "Collections.arrange(list)",
+        "list.sort()"
+      ],
+      "answer": "Collections.sort(list)"
+    },
+    {
+      "id": 22,
+      "question": "What is the correct enhanced for loop syntax to iterate over an ArrayList<String> called names?",
+      "options": [
+        "for (names : String name) { }",
+        "for (String name : names) { }",
+        "for (name in names) { }",
+        "for (int i : names.size()) { }"
+      ],
+      "answer": "for (String name : names) { }"
+    },
+    {
+      "id": 23,
+      "question": "What does System.out.println(fruits) print when fruits is an ArrayList<String> containing \"Apple\", \"Banana\", \"Cherry\"?",
+      "options": [
+        "[Apple, Banana, Cherry]",
+        "Apple Banana Cherry",
+        "ArrayList@7a81197d",
+        "{Apple, Banana, Cherry}"
+      ],
+      "answer": "[Apple, Banana, Cherry]"
+    },
+    {
+      "id": 24,
+      "question": "What does the indexOf(Object o) method return if the specified element is NOT found in the ArrayList?",
+      "options": [
+        "null",
+        "0",
+        "-1",
+        "It throws a NoSuchElementException"
+      ],
+      "answer": "-1"
+    },
+    {
+      "id": 25,
+      "question": "Which of the following is true about the generic type syntax in ArrayList<String>?",
+      "options": [
+        "It specifies that the ArrayList can hold any type including String",
+        "It restricts the ArrayList to hold only String objects, providing compile-time type safety",
+        "It causes the ArrayList to convert all elements to Strings automatically",
+        "It is optional syntax that has no effect on the behavior of the ArrayList"
+      ],
+      "answer": "It restricts the ArrayList to hold only String objects, providing compile-time type safety"
+    }
+  ]
+}

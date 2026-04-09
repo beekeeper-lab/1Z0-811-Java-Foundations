@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 17: Looping Statements Part 1",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What are the three parts of a standard for loop header in Java?",
+      "options": [
+        "declaration, evaluation, increment",
+        "initialization, condition, update",
+        "setup, test, change",
+        "start, stop, step"
+      ],
+      "answer": "initialization, condition, update"
+    },
+    {
+      "id": 2,
+      "question": "How many times does the initialization section of a for loop execute?",
+      "options": [
+        "Once before each iteration",
+        "Once at the very start of the loop",
+        "Once after the first iteration",
+        "It depends on the condition"
+      ],
+      "answer": "Once at the very start of the loop"
+    },
+    {
+      "id": 3,
+      "question": "When is the condition in a for loop checked?",
+      "options": [
+        "After each iteration only",
+        "Before each iteration, including the first",
+        "Only once at the start",
+        "After the update step only"
+      ],
+      "answer": "Before each iteration, including the first"
+    },
+    {
+      "id": 4,
+      "question": "What is the output of: for (int i = 0; i < 5; i++) { System.out.print(i + \" \"); }",
+      "options": [
+        "1 2 3 4 5",
+        "0 1 2 3 4",
+        "0 1 2 3 4 5",
+        "1 2 3 4"
+      ],
+      "answer": "0 1 2 3 4"
+    },
+    {
+      "id": 5,
+      "question": "How many iterations does the loop execute: for (int i = 0; i <= 5; i++)?",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "answer": "6"
+    },
+    {
+      "id": 6,
+      "question": "How many iterations does the loop execute: for (int i = 1; i < 5; i++)?",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "answer": "4"
+    },
+    {
+      "id": 7,
+      "question": "What is the correct order of execution in a standard for loop?",
+      "options": [
+        "initialization, body, condition, update",
+        "initialization, condition, body, update",
+        "condition, initialization, body, update",
+        "initialization, update, condition, body"
+      ],
+      "answer": "initialization, condition, body, update"
+    },
+    {
+      "id": 8,
+      "question": "What does for (;;) { } represent in Java?",
+      "options": [
+        "A compilation error",
+        "An infinite loop",
+        "A loop that runs once",
+        "A loop with no body"
+      ],
+      "answer": "An infinite loop"
+    },
+    {
+      "id": 9,
+      "question": "What happens when you try to access the loop variable after the for loop ends?\n\nfor (int i = 0; i < 5; i++) { }\nSystem.out.println(i);",
+      "options": [
+        "It prints 5",
+        "It prints 4",
+        "It prints 0",
+        "It causes a compilation error"
+      ],
+      "answer": "It causes a compilation error"
+    },
+    {
+      "id": 10,
+      "question": "Which of the following is the correct syntax for an enhanced for loop?",
+      "options": [
+        "for (int i = 0; i < arr.length; i++)",
+        "for (int x : arr)",
+        "for each (int x in arr)",
+        "foreach (int x : arr)"
+      ],
+      "answer": "for (int x : arr)"
+    },
+    {
+      "id": 11,
+      "question": "What does the enhanced for loop read as in plain English?\n\nfor (String name : names)",
+      "options": [
+        "for name equals names",
+        "for each name in names",
+        "for name at index of names",
+        "for String equals name in names"
+      ],
+      "answer": "for each name in names"
+    },
+    {
+      "id": 12,
+      "question": "What is a key limitation of the enhanced for loop compared to the standard for loop?",
+      "options": [
+        "It cannot iterate over arrays",
+        "It does not provide access to the index",
+        "It can only be used with Strings",
+        "It runs slower than a standard for loop"
+      ],
+      "answer": "It does not provide access to the index"
+    },
+    {
+      "id": 13,
+      "question": "What happens when you modify the loop variable inside an enhanced for loop iterating over an int array?",
+      "options": [
+        "The original array element is modified",
+        "The original array element is NOT modified",
+        "A runtime exception is thrown",
+        "A compilation error occurs"
+      ],
+      "answer": "The original array element is NOT modified"
+    },
+    {
+      "id": 14,
+      "question": "What is the output of the following code?\n\nint[] nums = {1, 2, 3};\nfor (int n : nums) { n = n * 2; }\nSystem.out.println(nums[0]);",
+      "options": [
+        "2",
+        "1",
+        "0",
+        "Compilation error"
+      ],
+      "answer": "1"
+    },
+    {
+      "id": 15,
+      "question": "Which of the following is a valid for loop that counts down from 10 to 1?",
+      "options": [
+        "for (int i = 10; i > 0; i--)",
+        "for (int i = 10; i >= 0; i++)",
+        "for (int i = 1; i <= 10; i--)",
+        "for (int i = 10; i < 0; i--)"
+      ],
+      "answer": "for (int i = 10; i > 0; i--)"
+    },
+    {
+      "id": 16,
+      "question": "What is the output of this code?\n\nfor (int i = 0, j = 10; i < j; i++, j--) {\n    System.out.print(i + \" \");\n}",
+      "options": [
+        "0 1 2 3 4",
+        "0 1 2 3 4 5",
+        "0 1 2 3",
+        "0 1 2 3 4 5 6 7 8 9"
+      ],
+      "answer": "0 1 2 3 4"
+    },
+    {
+      "id": 17,
+      "question": "Which of the following correctly prints even numbers from 2 to 20?",
+      "options": [
+        "for (int i = 0; i <= 20; i++)",
+        "for (int i = 2; i <= 20; i += 2)",
+        "for (int i = 2; i < 20; i++)",
+        "for (int i = 1; i <= 10; i *= 2)"
+      ],
+      "answer": "for (int i = 2; i <= 20; i += 2)"
+    },
+    {
+      "id": 18,
+      "question": "What is the result of this code?\n\nint sum = 0;\nfor (int i = 1; i <= 10; sum += i, i++) ;\nSystem.out.println(sum);",
+      "options": [
+        "45",
+        "55",
+        "10",
+        "Compilation error"
+      ],
+      "answer": "55"
+    },
+    {
+      "id": 19,
+      "question": "What does the semicolon at the end of a for loop header indicate?\n\nfor (int i = 0; i < 5; i++) ;",
+      "options": [
+        "The loop has a syntax error",
+        "The loop has an empty body",
+        "The loop will not execute",
+        "The loop will run infinitely"
+      ],
+      "answer": "The loop has an empty body"
+    },
+    {
+      "id": 20,
+      "question": "Which loop type should you use when you need to modify array elements during iteration?",
+      "options": [
+        "Enhanced for loop",
+        "Standard for loop",
+        "Either one works equally",
+        "Neither can modify array elements"
+      ],
+      "answer": "Standard for loop"
+    },
+    {
+      "id": 21,
+      "question": "What is the valid way to loop through characters of a String using an enhanced for loop?",
+      "options": [
+        "for (char c : myString)",
+        "for (char c : myString.toCharArray())",
+        "for (String c : myString.chars())",
+        "for (char c in myString)"
+      ],
+      "answer": "for (char c : myString.toCharArray())"
+    },
+    {
+      "id": 22,
+      "question": "Which of the following for loops will print the uppercase letters A through Z?",
+      "options": [
+        "for (char c = 'A'; c <= 'Z'; c++)",
+        "for (char c = 'a'; c <= 'z'; c++)",
+        "for (int c = 65; c < 90; c++)",
+        "for (String c = \"A\"; c <= \"Z\"; c++)"
+      ],
+      "answer": "for (char c = 'A'; c <= 'Z'; c++)"
+    },
+    {
+      "id": 23,
+      "question": "What is an off-by-one error?",
+      "options": [
+        "A loop that skips every other element",
+        "A loop that iterates one time too many or too few",
+        "A loop that starts at index 1 instead of 0",
+        "A loop that uses the wrong data type"
+      ],
+      "answer": "A loop that iterates one time too many or too few"
+    },
+    {
+      "id": 24,
+      "question": "What is the output of the following code?\n\nint count = 0;\nfor (;;) {\n    if (count >= 3) break;\n    count++;\n}\nSystem.out.println(count);",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "The loop runs infinitely"
+      ],
+      "answer": "3"
+    },
+    {
+      "id": 25,
+      "question": "Which statement about the enhanced for loop is TRUE?",
+      "options": [
+        "It can iterate backward through an array",
+        "It automatically provides an index variable",
+        "It works with arrays and collections",
+        "It allows you to remove elements during iteration"
+      ],
+      "answer": "It works with arrays and collections"
+    }
+  ]
+}

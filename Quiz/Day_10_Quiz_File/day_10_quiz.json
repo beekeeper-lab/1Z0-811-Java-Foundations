@@ -1,0 +1,217 @@
+{
+  "quiz_title": "Day 10: Java Operators Part 2",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which of the following is a relational operator in Java?",
+      "options": ["&&", "==", "!", "="],
+      "answer": "=="
+    },
+    {
+      "id": 2,
+      "question": "What is the result of the expression: 10 != 10?",
+      "options": ["true", "false", "10", "Compilation error"],
+      "answer": "false"
+    },
+    {
+      "id": 3,
+      "question": "What is the key difference between == and = in Java?",
+      "options": [
+        "== is for assignment and = is for comparison",
+        "== is for comparison and = is for assignment",
+        "They are interchangeable",
+        "== works only with strings and = works with all types"
+      ],
+      "answer": "== is for comparison and = is for assignment"
+    },
+    {
+      "id": 4,
+      "question": "What does the following code print?\n\ndouble x = 0.1 + 0.2;\ndouble y = 0.3;\nSystem.out.println(x == y);",
+      "options": ["true", "false", "0.3", "Compilation error"],
+      "answer": "false"
+    },
+    {
+      "id": 5,
+      "question": "Why can char values be compared using relational operators like < and >?",
+      "options": [
+        "Because char is a subclass of String",
+        "Because char values have underlying numeric Unicode values",
+        "Because Java automatically converts chars to Strings before comparison",
+        "Because all Java types support relational operators"
+      ],
+      "answer": "Because char values have underlying numeric Unicode values"
+    },
+    {
+      "id": 6,
+      "question": "What is the result of: 'A' == 65?",
+      "options": ["true", "false", "Compilation error", "Runtime exception"],
+      "answer": "true"
+    },
+    {
+      "id": 7,
+      "question": "What does the && operator return?",
+      "options": [
+        "true if either operand is true",
+        "true only if both operands are true",
+        "true if both operands are false",
+        "The value of the left operand"
+      ],
+      "answer": "true only if both operands are true"
+    },
+    {
+      "id": 8,
+      "question": "What is the result of: true || false?",
+      "options": ["true", "false", "null", "Compilation error"],
+      "answer": "true"
+    },
+    {
+      "id": 9,
+      "question": "What does the ! (logical NOT) operator do?",
+      "options": [
+        "Performs bitwise negation",
+        "Flips true to false and false to true",
+        "Checks if a value is not null",
+        "Compares two values for inequality"
+      ],
+      "answer": "Flips true to false and false to true"
+    },
+    {
+      "id": 10,
+      "question": "What is short-circuit evaluation?",
+      "options": [
+        "Java evaluates both sides of a logical operator regardless of the result",
+        "Java stops evaluating a logical expression as soon as the result is determined",
+        "Java skips the entire expression if a variable is null",
+        "Java converts boolean expressions to integers before evaluating"
+      ],
+      "answer": "Java stops evaluating a logical expression as soon as the result is determined"
+    },
+    {
+      "id": 11,
+      "question": "What does the following code print?\n\nint x = 0;\nboolean result = (x != 0) && (10 / x > 2);\nSystem.out.println(result);",
+      "options": [
+        "true",
+        "false",
+        "ArithmeticException is thrown",
+        "Compilation error"
+      ],
+      "answer": "false"
+    },
+    {
+      "id": 12,
+      "question": "What does the following code print?\n\nint a = 5;\nboolean test = (a > 10) && (++a > 5);\nSystem.out.println(a);",
+      "options": ["5", "6", "true", "false"],
+      "answer": "5"
+    },
+    {
+      "id": 13,
+      "question": "What does the following code print?\n\nint b = 5;\nboolean test = (b < 10) || (++b > 5);\nSystem.out.println(b);",
+      "options": ["5", "6", "true", "false"],
+      "answer": "5"
+    },
+    {
+      "id": 14,
+      "question": "In the expression (x == 0) || (10 / x > 2) where x is 0, why does no exception occur?",
+      "options": [
+        "Because Java catches all ArithmeticExceptions automatically",
+        "Because the left side is true, so the right side is never evaluated due to short-circuit evaluation",
+        "Because dividing by zero returns 0 in Java",
+        "Because || always evaluates both sides but ignores exceptions"
+      ],
+      "answer": "Because the left side is true, so the right side is never evaluated due to short-circuit evaluation"
+    },
+    {
+      "id": 15,
+      "question": "What is the correct syntax of the ternary operator in Java?",
+      "options": [
+        "condition : valueIfTrue ? valueIfFalse",
+        "condition ? valueIfTrue : valueIfFalse",
+        "condition ?? valueIfTrue :: valueIfFalse",
+        "if condition then valueIfTrue else valueIfFalse"
+      ],
+      "answer": "condition ? valueIfTrue : valueIfFalse"
+    },
+    {
+      "id": 16,
+      "question": "What does the following code print?\n\nint score = 75;\nString result = (score >= 60) ? \"Pass\" : \"Fail\";\nSystem.out.println(result);",
+      "options": ["Pass", "Fail", "75", "Compilation error"],
+      "answer": "Pass"
+    },
+    {
+      "id": 17,
+      "question": "What is the value of max after this code executes?\n\nint a = 10, b = 20;\nint max = (a > b) ? a : b;",
+      "options": ["10", "20", "true", "false"],
+      "answer": "20"
+    },
+    {
+      "id": 18,
+      "question": "Why are nested ternary operators generally discouraged?",
+      "options": [
+        "They cause compilation errors",
+        "They are slower than if/else chains",
+        "They reduce readability and are hard to maintain",
+        "They are not supported in Java"
+      ],
+      "answer": "They reduce readability and are hard to maintain"
+    },
+    {
+      "id": 19,
+      "question": "What is the result of: 2 + 3 * 4?",
+      "options": ["20", "14", "24", "9"],
+      "answer": "14"
+    },
+    {
+      "id": 20,
+      "question": "What is the result of: (2 + 3) * 4?",
+      "options": ["20", "14", "24", "9"],
+      "answer": "20"
+    },
+    {
+      "id": 21,
+      "question": "In Java operator precedence, which operator has higher precedence: && or ||?",
+      "options": [
+        "|| has higher precedence than &&",
+        "&& has higher precedence than ||",
+        "They have equal precedence",
+        "Precedence depends on the data types used"
+      ],
+      "answer": "&& has higher precedence than ||"
+    },
+    {
+      "id": 22,
+      "question": "What is the result of: true || false && false?",
+      "options": ["true", "false", "Compilation error", "null"],
+      "answer": "true"
+    },
+    {
+      "id": 23,
+      "question": "What is the value of g after this code executes?\n\nint g = 2;\ng += 3 * 2;",
+      "options": ["10", "8", "12", "6"],
+      "answer": "8"
+    },
+    {
+      "id": 24,
+      "question": "In Java's operator precedence, which of the following has the HIGHEST precedence?",
+      "options": [
+        "Assignment operators (=, +=)",
+        "Parentheses ()",
+        "Logical OR (||)",
+        "Ternary operator (?:)"
+      ],
+      "answer": "Parentheses ()"
+    },
+    {
+      "id": 25,
+      "question": "What is the result of: boolean c = 10 > 5 + 3;?",
+      "options": [
+        "true, because 10 > 5 is evaluated first",
+        "true, because 10 > 8 is true",
+        "false, because 5 + 3 is evaluated first giving 8, and 10 > 8 is true",
+        "true, because 5 + 3 is evaluated first giving 8, and 10 > 8 is true"
+      ],
+      "answer": "true, because 5 + 3 is evaluated first giving 8, and 10 > 8 is true"
+    }
+  ]
+}

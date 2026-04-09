@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 29: Java Methods Part 2",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the primary purpose of an accessor (getter) method in Java?",
+      "options": [
+        "To modify a private field's value",
+        "To return the value of a private field without exposing the field directly",
+        "To validate input before storing it in a field",
+        "To make a field static so it can be accessed without an object"
+      ],
+      "answer": "To return the value of a private field without exposing the field directly"
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is a correctly named mutator method for a field called 'email'?",
+      "options": [
+        "public String getEmail()",
+        "public void email(String email)",
+        "public void setEmail(String email)",
+        "public String setEmail()"
+      ],
+      "answer": "public void setEmail(String email)"
+    },
+    {
+      "id": 3,
+      "question": "Why do accessor and mutator methods support encapsulation?",
+      "options": [
+        "They allow fields to be declared public",
+        "They prevent the class from being instantiated",
+        "They control access to private fields and allow validation of changes",
+        "They automatically synchronize access across multiple threads"
+      ],
+      "answer": "They control access to private fields and allow validation of changes"
+    },
+    {
+      "id": 4,
+      "question": "A class has a private field 'price'. The setter should reject negative values. Which implementation is correct?",
+      "options": [
+        "public void setPrice(double price) { this.price = price; }",
+        "public void setPrice(double price) { if (price < 0) throw new IllegalArgumentException(\"Price cannot be negative\"); this.price = price; }",
+        "public double setPrice(double price) { return this.price = price; }",
+        "public static void setPrice(double price) { price = price; }"
+      ],
+      "answer": "public void setPrice(double price) { if (price < 0) throw new IllegalArgumentException(\"Price cannot be negative\"); this.price = price; }"
+    },
+    {
+      "id": 5,
+      "question": "When should a field have a getter but NO setter?",
+      "options": [
+        "When the field is declared public",
+        "When the field is a static variable",
+        "When the field is read-only, such as a final field set in the constructor",
+        "When the field holds a String value"
+      ],
+      "answer": "When the field is read-only, such as a final field set in the constructor"
+    },
+    {
+      "id": 6,
+      "question": "What does the 'static' keyword mean when applied to a method?",
+      "options": [
+        "The method can only be called once",
+        "The method belongs to the class rather than to any specific instance",
+        "The method cannot have parameters",
+        "The method is automatically called when the class is loaded"
+      ],
+      "answer": "The method belongs to the class rather than to any specific instance"
+    },
+    {
+      "id": 7,
+      "question": "How should a static method be called?",
+      "options": [
+        "By creating an instance and calling object.method()",
+        "By using the class name, such as ClassName.method()",
+        "By importing the method into the main class",
+        "By declaring the method inside the main method"
+      ],
+      "answer": "By using the class name, such as ClassName.method()"
+    },
+    {
+      "id": 8,
+      "question": "Why can a static method NOT use the 'this' keyword?",
+      "options": [
+        "The 'this' keyword is deprecated in modern Java",
+        "Static methods run before any objects exist, so there is no current instance to refer to",
+        "The 'this' keyword is only available in constructors",
+        "Static methods can use 'this' but only with special syntax"
+      ],
+      "answer": "Static methods run before any objects exist, so there is no current instance to refer to"
+    },
+    {
+      "id": 9,
+      "question": "Which of the following is a well-known static method from the Java standard library?",
+      "options": [
+        "\"hello\".length()",
+        "Math.sqrt(25)",
+        "scanner.nextInt()",
+        "list.add(\"item\")"
+      ],
+      "answer": "Math.sqrt(25)"
+    },
+    {
+      "id": 10,
+      "question": "A static method in a class tries to access an instance variable directly. What happens?",
+      "options": [
+        "The code compiles and runs normally",
+        "The code compiles but throws a NullPointerException at runtime",
+        "The code fails to compile with a 'non-static variable cannot be referenced from a static context' error",
+        "The code compiles but the instance variable returns its default value"
+      ],
+      "answer": "The code fails to compile with a 'non-static variable cannot be referenced from a static context' error"
+    },
+    {
+      "id": 11,
+      "question": "Which type of method should be used when the method does NOT need any instance data and performs a general utility operation?",
+      "options": [
+        "An instance method",
+        "A static method",
+        "A constructor",
+        "An abstract method"
+      ],
+      "answer": "A static method"
+    },
+    {
+      "id": 12,
+      "question": "Why must the 'main' method in Java be declared as static?",
+      "options": [
+        "Because main methods cannot accept parameters",
+        "Because the JVM needs to call it without creating an instance of the class first",
+        "Because main is a reserved keyword that requires static",
+        "Because main must return an integer exit code"
+      ],
+      "answer": "Because the JVM needs to call it without creating an instance of the class first"
+    },
+    {
+      "id": 13,
+      "question": "Why do utility classes like StringUtils typically have a private constructor?",
+      "options": [
+        "To allow subclasses to override the constructor",
+        "To improve the performance of static method calls",
+        "To prevent instantiation since all methods are static and no object is needed",
+        "To make the class abstract without using the abstract keyword"
+      ],
+      "answer": "To prevent instantiation since all methods are static and no object is needed"
+    },
+    {
+      "id": 14,
+      "question": "Consider a class GameCharacter with a static field 'totalCharacters' and an instance field 'name'. Which statement is true?",
+      "options": [
+        "Each GameCharacter object has its own copy of totalCharacters",
+        "The totalCharacters field is shared by all instances of GameCharacter",
+        "The name field is shared by all instances of GameCharacter",
+        "Static fields cannot be of type int"
+      ],
+      "answer": "The totalCharacters field is shared by all instances of GameCharacter"
+    },
+    {
+      "id": 15,
+      "question": "What is the correct return type for a getter method that returns a boolean field called 'isActive'?",
+      "options": [
+        "void",
+        "String",
+        "boolean",
+        "int"
+      ],
+      "answer": "boolean"
+    },
+    {
+      "id": 16,
+      "question": "A getPassword() method returns '********' instead of the actual password. What principle does this demonstrate?",
+      "options": [
+        "Polymorphism",
+        "Encapsulation and data hiding — the getter controls what information is exposed",
+        "Inheritance — the password class overrides the return value",
+        "Abstraction — the password does not actually exist"
+      ],
+      "answer": "Encapsulation and data hiding — the getter controls what information is exposed"
+    },
+    {
+      "id": 17,
+      "question": "Given: static int totalBattles = 0; Two different objects each call a method that increments totalBattles by 1. What is the value of totalBattles after both calls?",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "It depends on which object called it last"
+      ],
+      "answer": "2"
+    },
+    {
+      "id": 18,
+      "question": "Which of the following can a static method access?",
+      "options": [
+        "Instance fields and instance methods only",
+        "Static fields and static methods only",
+        "Both static and instance fields and methods",
+        "Neither static nor instance fields"
+      ],
+      "answer": "Static fields and static methods only"
+    },
+    {
+      "id": 19,
+      "question": "Which of the following can an instance method access?",
+      "options": [
+        "Instance fields and instance methods only",
+        "Static fields and static methods only",
+        "Both static and instance fields and methods",
+        "Only fields passed as parameters"
+      ],
+      "answer": "Both static and instance fields and methods"
+    },
+    {
+      "id": 20,
+      "question": "A setter for 'username' requires the name to be 3-20 characters, start with a letter, and contain no spaces. Which input would pass all validation checks?",
+      "options": [
+        "\"ab\"",
+        "\"John Doe\"",
+        "\"player1\"",
+        "\"3rdUser\""
+      ],
+      "answer": "\"player1\""
+    },
+    {
+      "id": 21,
+      "question": "What exception type is most appropriate to throw when a setter receives an invalid argument?",
+      "options": [
+        "NullPointerException",
+        "ArrayIndexOutOfBoundsException",
+        "IllegalArgumentException",
+        "ClassCastException"
+      ],
+      "answer": "IllegalArgumentException"
+    },
+    {
+      "id": 22,
+      "question": "A static method compareInventories(Inventory a, Inventory b) compares two Inventory objects. Why is this method static rather than instance?",
+      "options": [
+        "Because it takes parameters",
+        "Because it does not operate on a single instance's data — it compares two separate objects at the class level",
+        "Because it returns void",
+        "Because static methods are faster than instance methods"
+      ],
+      "answer": "Because it does not operate on a single instance's data — it compares two separate objects at the class level"
+    },
+    {
+      "id": 23,
+      "question": "A field is declared as 'private final String accountId' and assigned in the constructor. Which methods should this field have?",
+      "options": [
+        "Both a getter and a setter",
+        "Only a setter",
+        "Only a getter, because a final field cannot be reassigned after construction",
+        "Neither a getter nor a setter"
+      ],
+      "answer": "Only a getter, because a final field cannot be reassigned after construction"
+    },
+    {
+      "id": 24,
+      "question": "What is the result of calling StringUtils.truncate(\"Hello World\", 5) if the method truncates to maxLength and appends '...' when the original string is longer?",
+      "options": [
+        "\"Hello World\"",
+        "\"Hello...\"",
+        "\"Hello\"",
+        "\"He...\""
+      ],
+      "answer": "\"Hello...\""
+    },
+    {
+      "id": 25,
+      "question": "A class ArrayUtils has a static method 'sum(int[] arr)'. What should this method do if the array passed to it is null?",
+      "options": [
+        "Return 0 silently",
+        "Return -1 as an error code",
+        "Throw an exception or handle the edge case with validation",
+        "Access the array anyway and let the JVM handle it"
+      ],
+      "answer": "Throw an exception or handle the edge case with validation"
+    }
+  ]
+}

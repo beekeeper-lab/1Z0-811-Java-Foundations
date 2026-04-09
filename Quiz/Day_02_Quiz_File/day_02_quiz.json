@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 2: Java Basics Part 1",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What does JDK stand for?",
+      "options": [
+        "Java Development Kit",
+        "Java Deployment Kit",
+        "Java Design Kit",
+        "Java Debug Kit"
+      ],
+      "answer": "Java Development Kit"
+    },
+    {
+      "id": 2,
+      "question": "What does the JRE provide?",
+      "options": [
+        "A compiler to convert .java files into .class files",
+        "The runtime environment needed to run compiled Java programs",
+        "A text editor for writing Java source code",
+        "A debugger for stepping through Java programs"
+      ],
+      "answer": "The runtime environment needed to run compiled Java programs"
+    },
+    {
+      "id": 3,
+      "question": "Which of the following is true about the relationship between the JDK and the JRE?",
+      "options": [
+        "The JRE contains the JDK",
+        "The JDK and JRE are completely separate installations",
+        "The JDK contains the JRE plus development tools",
+        "The JDK replaces the JRE and they cannot coexist"
+      ],
+      "answer": "The JDK contains the JRE plus development tools"
+    },
+    {
+      "id": 4,
+      "question": "Which component does a developer need to compile and run Java programs?",
+      "options": [
+        "Only the JRE",
+        "Only the JVM",
+        "The JDK",
+        "Only the javac compiler"
+      ],
+      "answer": "The JDK"
+    },
+    {
+      "id": 5,
+      "question": "What is the primary role of the JVM?",
+      "options": [
+        "To compile Java source code into machine code",
+        "To execute Java bytecode on any supported platform",
+        "To edit and format Java source files",
+        "To package Java programs into JAR files"
+      ],
+      "answer": "To execute Java bytecode on any supported platform"
+    },
+    {
+      "id": 6,
+      "question": "Java's 'write once, run anywhere' capability is made possible by which component?",
+      "options": [
+        "The javac compiler",
+        "The JDK",
+        "The Java Virtual Machine (JVM)",
+        "The System.out.println method"
+      ],
+      "answer": "The Java Virtual Machine (JVM)"
+    },
+    {
+      "id": 7,
+      "question": "What is the correct signature for the main method in a Java application?",
+      "options": [
+        "public void main(String[] args)",
+        "public static void main(String[] args)",
+        "static void main(String args)",
+        "public static int main(String[] args)"
+      ],
+      "answer": "public static void main(String[] args)"
+    },
+    {
+      "id": 8,
+      "question": "In the main method signature, what does the keyword 'static' mean?",
+      "options": [
+        "The method cannot be changed after compilation",
+        "The method belongs to the class itself, not to an instance",
+        "The method runs only once during the program's lifetime",
+        "The method is stored in a fixed memory location"
+      ],
+      "answer": "The method belongs to the class itself, not to an instance"
+    },
+    {
+      "id": 9,
+      "question": "In the main method signature, what does 'void' indicate?",
+      "options": [
+        "The method accepts no parameters",
+        "The method is empty and contains no code",
+        "The method does not return a value",
+        "The method cannot throw exceptions"
+      ],
+      "answer": "The method does not return a value"
+    },
+    {
+      "id": 10,
+      "question": "What does 'String[] args' represent in the main method?",
+      "options": [
+        "A list of Java keywords",
+        "An array of command-line arguments passed to the program",
+        "A required set of configuration strings",
+        "The names of other methods in the class"
+      ],
+      "answer": "An array of command-line arguments passed to the program"
+    },
+    {
+      "id": 11,
+      "question": "What command is used to compile a Java source file named HelloWorld.java?",
+      "options": [
+        "java HelloWorld.java",
+        "javac HelloWorld",
+        "javac HelloWorld.java",
+        "compile HelloWorld.java"
+      ],
+      "answer": "javac HelloWorld.java"
+    },
+    {
+      "id": 12,
+      "question": "After compiling a Java source file, what type of file is produced?",
+      "options": [
+        "A .exe file",
+        "A .class file containing bytecode",
+        "A .jar file",
+        "A .obj file containing machine code"
+      ],
+      "answer": "A .class file containing bytecode"
+    },
+    {
+      "id": 13,
+      "question": "What command runs a compiled Java program called MyApp?",
+      "options": [
+        "java MyApp.class",
+        "javac MyApp",
+        "java MyApp",
+        "run MyApp.class"
+      ],
+      "answer": "java MyApp"
+    },
+    {
+      "id": 14,
+      "question": "In Java, why must the file name match the public class name?",
+      "options": [
+        "It is a convention but not enforced by the compiler",
+        "The Java compiler requires it and will produce an error if they do not match",
+        "It only matters when using packages",
+        "It is required by the operating system, not by Java"
+      ],
+      "answer": "The Java compiler requires it and will produce an error if they do not match"
+    },
+    {
+      "id": 15,
+      "question": "Given a file named Calculator.java, which class declaration is correct?",
+      "options": [
+        "public class calculator { }",
+        "public class CALCULATOR { }",
+        "public class Calculator { }",
+        "public Class Calculator { }"
+      ],
+      "answer": "public class Calculator { }"
+    },
+    {
+      "id": 16,
+      "question": "What happens if you omit a semicolon at the end of a System.out.println statement?",
+      "options": [
+        "The program compiles but produces no output",
+        "A compile-time error occurs",
+        "A runtime error occurs",
+        "The compiler automatically inserts the semicolon"
+      ],
+      "answer": "A compile-time error occurs"
+    },
+    {
+      "id": 17,
+      "question": "Which of the following is a compile-time error?",
+      "options": [
+        "Dividing a number by zero",
+        "Accessing an array index that does not exist",
+        "Missing a closing curly brace in a class definition",
+        "Passing no command-line arguments when the program expects one"
+      ],
+      "answer": "Missing a closing curly brace in a class definition"
+    },
+    {
+      "id": 18,
+      "question": "Which of the following is a runtime error?",
+      "options": [
+        "Forgetting a semicolon at the end of a statement",
+        "Misspelling the keyword 'class' as 'Class'",
+        "Accessing args[0] when no command-line arguments are provided",
+        "Using a lowercase 'm' instead of uppercase 'M' in the keyword 'main'"
+      ],
+      "answer": "Accessing args[0] when no command-line arguments are provided"
+    },
+    {
+      "id": 19,
+      "question": "What is the output of the following code?\n\nSystem.out.println(\"Result: \" + (10 + 20));",
+      "options": [
+        "Result: 10 + 20",
+        "Result: 1020",
+        "Result: 30",
+        "A compile-time error occurs"
+      ],
+      "answer": "Result: 30"
+    },
+    {
+      "id": 20,
+      "question": "A Java program compiles successfully but does not run, producing the error 'Main method not found'. What is the most likely cause?",
+      "options": [
+        "The file name does not match the class name",
+        "The main method is spelled with an uppercase 'M' as Main",
+        "The class is missing the public keyword",
+        "The program has no import statements"
+      ],
+      "answer": "The main method is spelled with an uppercase 'M' as Main"
+    },
+    {
+      "id": 21,
+      "question": "What does the keyword 'public' mean in the main method signature?",
+      "options": [
+        "The method can only be called from within the same class",
+        "The method is accessible from anywhere",
+        "The method is visible only within the same package",
+        "The method can be overridden by subclasses"
+      ],
+      "answer": "The method is accessible from anywhere"
+    },
+    {
+      "id": 22,
+      "question": "How can you check the number of command-line arguments passed to a Java program?",
+      "options": [
+        "args.size()",
+        "args.count()",
+        "args.length",
+        "args.length()"
+      ],
+      "answer": "args.length"
+    },
+    {
+      "id": 23,
+      "question": "Which statement correctly prints the boolean value true to the console?",
+      "options": [
+        "System.out.println(\"Learning Java: \" + true);",
+        "System.out.println(\"Learning Java: \" + \"true\");",
+        "Both A and B produce the same output",
+        "Neither A nor B will compile"
+      ],
+      "answer": "Both A and B produce the same output"
+    },
+    {
+      "id": 24,
+      "question": "An end user who only wants to run Java applications (not develop them) needs which of the following?",
+      "options": [
+        "The JDK",
+        "The JRE",
+        "The javac compiler",
+        "An IDE such as IntelliJ or Eclipse"
+      ],
+      "answer": "The JRE"
+    },
+    {
+      "id": 25,
+      "question": "What is the minimum structure required for a valid Java application that can be compiled and run?",
+      "options": [
+        "A class with any method defined inside it",
+        "A class with a public static void main(String[] args) method",
+        "A file containing only System.out.println statements",
+        "A class with a constructor and at least one field"
+      ],
+      "answer": "A class with a public static void main(String[] args) method"
+    }
+  ]
+}

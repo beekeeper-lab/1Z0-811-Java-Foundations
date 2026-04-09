@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 20: Debugging and Exceptions Part 1",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which type of error prevents a Java program from compiling?",
+      "options": [
+        "Logic error",
+        "Syntax error",
+        "Runtime error",
+        "Semantic error"
+      ],
+      "answer": "Syntax error"
+    },
+    {
+      "id": 2,
+      "question": "A Java program compiles and runs without crashing, but produces incorrect output. What type of error does it contain?",
+      "options": [
+        "Syntax error",
+        "Compilation error",
+        "Logic error",
+        "Runtime error"
+      ],
+      "answer": "Logic error"
+    },
+    {
+      "id": 3,
+      "question": "What exception is thrown when you attempt to access an array index that does not exist?",
+      "options": [
+        "NullPointerException",
+        "IndexOutOfRangeException",
+        "ArrayIndexOutOfBoundsException",
+        "IllegalArgumentException"
+      ],
+      "answer": "ArrayIndexOutOfBoundsException"
+    },
+    {
+      "id": 4,
+      "question": "In a Java stack trace, which line should you read first to find where the error originated?",
+      "options": [
+        "The very first line, which names the exception",
+        "The very last line of the trace",
+        "The line immediately after 'Exception in thread'",
+        "The top 'at' line directly below the exception message"
+      ],
+      "answer": "The top 'at' line directly below the exception message"
+    },
+    {
+      "id": 5,
+      "question": "What is the result of the following code?\n\nint total = 100;\nint count = 0;\nint avg = total / count;",
+      "options": [
+        "avg is set to 0",
+        "A compile-time error occurs",
+        "An ArithmeticException is thrown at runtime",
+        "avg is set to Infinity"
+      ],
+      "answer": "An ArithmeticException is thrown at runtime"
+    },
+    {
+      "id": 6,
+      "question": "Which of the following is a syntax error?",
+      "options": [
+        "Using > instead of >= in a comparison",
+        "Dividing by zero",
+        "Missing a semicolon at the end of a statement",
+        "Accessing a null reference"
+      ],
+      "answer": "Missing a semicolon at the end of a statement"
+    },
+    {
+      "id": 7,
+      "question": "What exception is thrown when you call a method on a null reference in Java?",
+      "options": [
+        "NullPointerException",
+        "IllegalStateException",
+        "ClassCastException",
+        "ArithmeticException"
+      ],
+      "answer": "NullPointerException"
+    },
+    {
+      "id": 8,
+      "question": "What is the output of the following code?\n\nint a = 80, b = 90, c = 85;\ndouble average = a + b + c / 3;\nSystem.out.println(average);",
+      "options": [
+        "85.0",
+        "198.0",
+        "85.33",
+        "255.0"
+      ],
+      "answer": "198.0"
+    },
+    {
+      "id": 9,
+      "question": "Which debugging technique involves explaining your code step by step to an inanimate object or another person?",
+      "options": [
+        "Trace debugging",
+        "Rubber duck debugging",
+        "Breakpoint analysis",
+        "Unit testing"
+      ],
+      "answer": "Rubber duck debugging"
+    },
+    {
+      "id": 10,
+      "question": "What happens when Integer.parseInt(\"twelve\") is executed?",
+      "options": [
+        "It returns 12",
+        "It returns 0",
+        "A NumberFormatException is thrown",
+        "A compile-time error occurs"
+      ],
+      "answer": "A NumberFormatException is thrown"
+    },
+    {
+      "id": 11,
+      "question": "A for loop intended to count down from 5 to 1 uses i++ instead of i--. What type of error is this?",
+      "options": [
+        "Syntax error",
+        "Runtime error",
+        "Logic error",
+        "Compilation error"
+      ],
+      "answer": "Logic error"
+    },
+    {
+      "id": 12,
+      "question": "What is the consequence of a recursive method that lacks a base case?",
+      "options": [
+        "The method returns 0",
+        "A compile-time error occurs",
+        "A StackOverflowError is thrown at runtime",
+        "The method runs once and stops"
+      ],
+      "answer": "A StackOverflowError is thrown at runtime"
+    },
+    {
+      "id": 13,
+      "question": "Which of the following is NOT a common debugging strategy?",
+      "options": [
+        "Adding print statements to trace execution flow",
+        "Reading compiler error messages carefully",
+        "Deleting code until the program compiles",
+        "Testing with edge cases and boundary values"
+      ],
+      "answer": "Deleting code until the program compiles"
+    },
+    {
+      "id": 14,
+      "question": "What is the bug in this code?\n\nif (gpa >= 3.5) {\n    System.out.println(\"Honor roll!\");\nelse {\n    System.out.println(\"Keep working hard!\");\n}",
+      "options": [
+        "The else keyword is misspelled",
+        "The closing brace } is missing before else",
+        "gpa should be compared with ==",
+        "The if statement needs parentheses around the body"
+      ],
+      "answer": "The closing brace } is missing before else"
+    },
+    {
+      "id": 15,
+      "question": "In Java, what does the for-each loop syntax look like for iterating over an int array called scores?",
+      "options": [
+        "for (int score ; scores)",
+        "for (int score : scores)",
+        "for (int score in scores)",
+        "for (int score of scores)"
+      ],
+      "answer": "for (int score : scores)"
+    },
+    {
+      "id": 16,
+      "question": "What is the error in this loop condition?\n\nfor (int i = 0; i <= 3, i++)",
+      "options": [
+        "The loop variable should start at 1",
+        "The comma should be a semicolon separating the condition and update",
+        "The <= should be <",
+        "The i++ should be ++i"
+      ],
+      "answer": "The comma should be a semicolon separating the condition and update"
+    },
+    {
+      "id": 17,
+      "question": "Why does scores.length() cause a compile-time error when scores is an int array?",
+      "options": [
+        "Arrays do not have a length() method; the correct syntax is scores.length",
+        "The method should be called scores.size()",
+        "length() only works on String arrays",
+        "You must cast scores to Object first"
+      ],
+      "answer": "Arrays do not have a length() method; the correct syntax is scores.length"
+    },
+    {
+      "id": 18,
+      "question": "What type of error is it when a program uses values[i] < max instead of values[i] > max to find the maximum value in an array?",
+      "options": [
+        "Syntax error",
+        "Runtime error",
+        "Logic error",
+        "Compilation error"
+      ],
+      "answer": "Logic error"
+    },
+    {
+      "id": 19,
+      "question": "What is wrong with initializing a factorial variable to 0 before multiplying in a loop?\n\nint factorial = 0;\nfor (int i = 1; i <= n; i++) {\n    factorial *= i;\n}",
+      "options": [
+        "The loop should start at 0",
+        "Multiplying any number by 0 always gives 0, so the result is always 0",
+        "The variable should be declared as long",
+        "The *= operator is not valid in Java"
+      ],
+      "answer": "Multiplying any number by 0 always gives 0, so the result is always 0"
+    },
+    {
+      "id": 20,
+      "question": "An array has 5 elements. What happens when a for loop uses the condition i <= numbers.length instead of i < numbers.length?",
+      "options": [
+        "The loop skips the last element",
+        "The loop runs correctly",
+        "An ArrayIndexOutOfBoundsException is thrown on the last iteration",
+        "A compile-time error occurs"
+      ],
+      "answer": "An ArrayIndexOutOfBoundsException is thrown on the last iteration"
+    },
+    {
+      "id": 21,
+      "question": "Which of the following correctly checks if a number is between 10 and 20 (inclusive)?",
+      "options": [
+        "if (number > 10 && number > 20)",
+        "if (number >= 10 || number <= 20)",
+        "if (number >= 10 && number <= 20)",
+        "if (number > 10 || number < 20)"
+      ],
+      "answer": "if (number >= 10 && number <= 20)"
+    },
+    {
+      "id": 22,
+      "question": "What is wrong with the following statement?\n\nif (grades[i] > classAverage); {\n    aboveAverage++;\n}",
+      "options": [
+        "The comparison operator should be >=",
+        "The semicolon after the if condition creates an empty if body, so the block always executes",
+        "grades[i] should be cast to double",
+        "The curly braces are unnecessary"
+      ],
+      "answer": "The semicolon after the if condition creates an empty if body, so the block always executes"
+    },
+    {
+      "id": 23,
+      "question": "What kind of error results from integer division when a decimal result is expected?\n\ndouble classAverage = sum / grades.length;",
+      "options": [
+        "Syntax error — the types are incompatible",
+        "Runtime error — division by zero",
+        "Logic error — integer division truncates the decimal portion",
+        "No error — Java automatically produces a double result"
+      ],
+      "answer": "Logic error — integer division truncates the decimal portion"
+    },
+    {
+      "id": 24,
+      "question": "In a prime-number checker, what is the bug if isPrime is set to true (instead of false) when num % i == 0?",
+      "options": [
+        "The program will not compile",
+        "The program crashes with an ArithmeticException",
+        "Composite numbers are incorrectly identified as prime",
+        "The loop will run forever"
+      ],
+      "answer": "Composite numbers are incorrectly identified as prime"
+    },
+    {
+      "id": 25,
+      "question": "Which approach is most effective for finding logic errors that do not produce exceptions or crashes?",
+      "options": [
+        "Reading compiler warnings",
+        "Adding print statements to trace variable values during execution",
+        "Checking for missing semicolons",
+        "Running the program with a larger heap size"
+      ],
+      "answer": "Adding print statements to trace variable values during execution"
+    }
+  ]
+}

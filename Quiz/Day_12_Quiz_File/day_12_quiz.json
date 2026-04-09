@@ -1,0 +1,227 @@
+{
+  "quiz_title": "Day 12: String Class Part 2",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What does System.out.printf() do differently from System.out.println()?",
+      "options": [
+        "printf() automatically adds a newline at the end",
+        "printf() uses format specifiers to control how values are displayed",
+        "printf() can only print strings, not numbers",
+        "printf() is faster than println()"
+      ],
+      "answer": "printf() uses format specifiers to control how values are displayed"
+    },
+    {
+      "id": 2,
+      "question": "Which format specifier is used to print an integer with printf()?",
+      "options": ["%i", "%d", "%int", "%n"],
+      "answer": "%d"
+    },
+    {
+      "id": 3,
+      "question": "What is the output of: System.out.printf(\"%f\", 3.14);",
+      "options": ["3.14", "3.140000", "3", "3.14f"],
+      "answer": "3.140000"
+    },
+    {
+      "id": 4,
+      "question": "Which format specifier prints a floating-point number rounded to 2 decimal places?",
+      "options": ["%2f", "%.2f", "%f2", "%2.f"],
+      "answer": "%.2f"
+    },
+    {
+      "id": 5,
+      "question": "What does the format specifier %s represent?",
+      "options": ["A short integer", "A string", "A single character", "A signed number"],
+      "answer": "A string"
+    },
+    {
+      "id": 6,
+      "question": "What is the difference between %n and \\n in a printf format string?",
+      "options": [
+        "%n prints the number of characters written so far",
+        "%n is a platform-independent newline while \\n always uses the Unix newline character",
+        "They are identical in behavior",
+        "%n prints the letter n while \\n prints a newline"
+      ],
+      "answer": "%n is a platform-independent newline while \\n always uses the Unix newline character"
+    },
+    {
+      "id": 7,
+      "question": "Which format specifier is used to display a single character?",
+      "options": ["%s", "%c", "%ch", "%char"],
+      "answer": "%c"
+    },
+    {
+      "id": 8,
+      "question": "What is the output of: System.out.printf(\"%b\", true);",
+      "options": ["1", "TRUE", "true", "T"],
+      "answer": "true"
+    },
+    {
+      "id": 9,
+      "question": "What does the format specifier %10d do?",
+      "options": [
+        "Prints the integer multiplied by 10",
+        "Right-aligns the integer in a field 10 characters wide",
+        "Left-aligns the integer in a field 10 characters wide",
+        "Prints the integer with 10 decimal places"
+      ],
+      "answer": "Right-aligns the integer in a field 10 characters wide"
+    },
+    {
+      "id": 10,
+      "question": "What does the - flag do in %-15s?",
+      "options": [
+        "Subtracts 15 from the string length",
+        "Left-aligns the string in a field 15 characters wide",
+        "Right-aligns the string in a field 15 characters wide",
+        "Truncates the string to 15 characters"
+      ],
+      "answer": "Left-aligns the string in a field 15 characters wide"
+    },
+    {
+      "id": 11,
+      "question": "What is the output of: System.out.printf(\"%05d\", 42);",
+      "options": ["42000", "00042", "   42", "42   "],
+      "answer": "00042"
+    },
+    {
+      "id": 12,
+      "question": "What is the key difference between System.out.printf() and String.format()?",
+      "options": [
+        "printf() returns a String while String.format() prints to the console",
+        "String.format() returns a String while printf() prints to the console",
+        "String.format() does not support format specifiers",
+        "printf() can only format numbers, not strings"
+      ],
+      "answer": "String.format() returns a String while printf() prints to the console"
+    },
+    {
+      "id": 13,
+      "question": "Which of the following correctly uses String.format()?",
+      "options": [
+        "String s = String.format(\"Hello, %s!\", name);",
+        "String s = format(\"Hello, %s!\", name);",
+        "String s = String.printf(\"Hello, %s!\", name);",
+        "String s = new Format(\"Hello, %s!\", name);"
+      ],
+      "answer": "String s = String.format(\"Hello, %s!\", name);"
+    },
+    {
+      "id": 14,
+      "question": "What does the escape sequence \\t produce?",
+      "options": ["A newline", "A tab character", "A literal backslash", "The letter t"],
+      "answer": "A tab character"
+    },
+    {
+      "id": 15,
+      "question": "How do you print a literal backslash character in a Java string?",
+      "options": ["\\", "\\\\", "/", "\\b"],
+      "answer": "\\\\"
+    },
+    {
+      "id": 16,
+      "question": "Which escape sequence allows you to include a double quote inside a string literal?",
+      "options": ["''", "\\\"", "\"\"", "\\q"],
+      "answer": "\\\""
+    },
+    {
+      "id": 17,
+      "question": "What is the output of: System.out.println(\"Line1\\nLine2\");",
+      "options": [
+        "Line1\\nLine2",
+        "Line1nLine2",
+        "Line1 on one line and Line2 on the next line",
+        "Line1 Line2"
+      ],
+      "answer": "Line1 on one line and Line2 on the next line"
+    },
+    {
+      "id": 18,
+      "question": "What does the following code print?\n\nSystem.out.printf(\"%-15s %3d %8.2f%n\", \"Alice\", 95, 92.50);",
+      "options": [
+        "Alice followed by right-aligned 95 and right-aligned 92.50 with proper spacing",
+        "Alice15 3,95 8,92.50",
+        "An error because you cannot mix format specifiers",
+        "Alice, 95, 92.50 with no formatting"
+      ],
+      "answer": "Alice followed by right-aligned 95 and right-aligned 92.50 with proper spacing"
+    },
+    {
+      "id": 19,
+      "question": "Why are escape sequences necessary in Java?",
+      "options": [
+        "They make the code run faster",
+        "They allow you to represent special characters that cannot be typed directly in a string literal",
+        "They are required by the Java compiler for all strings",
+        "They convert strings to uppercase"
+      ],
+      "answer": "They allow you to represent special characters that cannot be typed directly in a string literal"
+    },
+    {
+      "id": 20,
+      "question": "What is the output of: System.out.printf(\"%,.2f\", 1234.5);",
+      "options": ["1234.50", "1,234.50", "1234.5", "$1,234.50"],
+      "answer": "1,234.50"
+    },
+    {
+      "id": 21,
+      "question": "Which of the following correctly prints the path C:\\Users\\Documents in Java?",
+      "options": [
+        "System.out.println(\"C:\\Users\\Documents\");",
+        "System.out.println(\"C:\\\\Users\\\\Documents\");",
+        "System.out.println(\"C:/Users/Documents\");",
+        "System.out.println(\"C:Users:Documents\");"
+      ],
+      "answer": "System.out.println(\"C:\\\\Users\\\\Documents\");"
+    },
+    {
+      "id": 22,
+      "question": "What happens if the number of format specifiers in printf does not match the number of arguments?",
+      "options": [
+        "The extra specifiers are ignored",
+        "A compilation error occurs",
+        "A runtime exception is thrown",
+        "Default values are used for missing arguments"
+      ],
+      "answer": "A runtime exception is thrown"
+    },
+    {
+      "id": 23,
+      "question": "When is String.format() more useful than printf()?",
+      "options": [
+        "When you want to print directly to the console",
+        "When you need to store the formatted result in a variable for later use",
+        "When you are formatting integers only",
+        "When you want automatic newlines"
+      ],
+      "answer": "When you need to store the formatted result in a variable for later use"
+    },
+    {
+      "id": 24,
+      "question": "What does the escape sequence \\' represent in Java?",
+      "options": [
+        "A literal single quote",
+        "A literal double quote",
+        "An apostrophe that terminates the string",
+        "A backslash followed by a quote"
+      ],
+      "answer": "A literal single quote"
+    },
+    {
+      "id": 25,
+      "question": "What is the output of: System.out.printf(\"%10.2f\", 3.14159);",
+      "options": [
+        "3.14159",
+        "3.14 with leading spaces to fill a 10-character-wide field",
+        "0000003.14",
+        "3.14159000"
+      ],
+      "answer": "3.14 with leading spaces to fill a 10-character-wide field"
+    }
+  ]
+}

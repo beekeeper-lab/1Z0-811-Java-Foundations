@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 3: Java Basics Part 2",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is a class in Java?",
+      "options": [
+        "A running instance of a program",
+        "A blueprint or template for creating objects",
+        "A method that returns a value",
+        "A variable that stores multiple values"
+      ],
+      "answer": "A blueprint or template for creating objects"
+    },
+    {
+      "id": 2,
+      "question": "What is an object in Java?",
+      "options": [
+        "A synonym for a class",
+        "A file that contains Java code",
+        "A specific instance created from a class",
+        "A keyword used to define methods"
+      ],
+      "answer": "A specific instance created from a class"
+    },
+    {
+      "id": 3,
+      "question": "Which keyword is used to create a new object in Java?",
+      "options": [
+        "create",
+        "object",
+        "this",
+        "new"
+      ],
+      "answer": "new"
+    },
+    {
+      "id": 4,
+      "question": "What are instance variables in a class also called?",
+      "options": [
+        "Methods",
+        "Fields",
+        "Parameters",
+        "Constants"
+      ],
+      "answer": "Fields"
+    },
+    {
+      "id": 5,
+      "question": "Which of the following is NOT one of the four pillars of Object-Oriented Programming?",
+      "options": [
+        "Encapsulation",
+        "Compilation",
+        "Inheritance",
+        "Polymorphism"
+      ],
+      "answer": "Compilation"
+    },
+    {
+      "id": 6,
+      "question": "What does encapsulation mean in OOP?",
+      "options": [
+        "The ability of a class to inherit from multiple parent classes",
+        "Bundling data and the methods that operate on that data together, while restricting direct access",
+        "Running the same method in different ways",
+        "Hiding the implementation of an entire program from the user"
+      ],
+      "answer": "Bundling data and the methods that operate on that data together, while restricting direct access"
+    },
+    {
+      "id": 7,
+      "question": "What does inheritance mean in OOP?",
+      "options": [
+        "A class can acquire the fields and methods of another class",
+        "A class can only be instantiated once",
+        "Objects must share the same data values",
+        "Methods can only be defined in the main class"
+      ],
+      "answer": "A class can acquire the fields and methods of another class"
+    },
+    {
+      "id": 8,
+      "question": "What does polymorphism mean in OOP?",
+      "options": [
+        "Each object must have a unique class",
+        "A program can only use one data type at a time",
+        "The ability for objects of different classes to respond to the same method call in different ways",
+        "Variables can only store one type of data"
+      ],
+      "answer": "The ability for objects of different classes to respond to the same method call in different ways"
+    },
+    {
+      "id": 9,
+      "question": "What does abstraction mean in OOP?",
+      "options": [
+        "Making all fields and methods public",
+        "Showing only essential details and hiding the complex implementation",
+        "Creating as many objects as possible from one class",
+        "Writing code without any comments"
+      ],
+      "answer": "Showing only essential details and hiding the complex implementation"
+    },
+    {
+      "id": 10,
+      "question": "Given the following code, what does 'myDog.name = \"Buddy\";' do?\n\nDog myDog = new Dog();\nmyDog.name = \"Buddy\";",
+      "options": [
+        "Creates a new Dog class called Buddy",
+        "Declares a local variable named Buddy",
+        "Assigns the value \"Buddy\" to the name field of the myDog object",
+        "Calls the name method on the myDog object"
+      ],
+      "answer": "Assigns the value \"Buddy\" to the name field of the myDog object"
+    },
+    {
+      "id": 11,
+      "question": "What is a constructor in Java?",
+      "options": [
+        "A method that deletes an object from memory",
+        "A special method that is called when a new object is created",
+        "A keyword used to import other classes",
+        "A field that stores the name of the class"
+      ],
+      "answer": "A special method that is called when a new object is created"
+    },
+    {
+      "id": 12,
+      "question": "How many objects can you create from a single class?",
+      "options": [
+        "Only one",
+        "Exactly two",
+        "A maximum of ten",
+        "As many as needed"
+      ],
+      "answer": "As many as needed"
+    },
+    {
+      "id": 13,
+      "question": "Which operator is used to access fields and methods of an object?",
+      "options": [
+        "The double colon (::)",
+        "The arrow (->)",
+        "The dot (.)",
+        "The hash (#)"
+      ],
+      "answer": "The dot (.)"
+    },
+    {
+      "id": 14,
+      "question": "Given:\n\npublic class Book {\n    String title;\n    int pages;\n}\n\nWhat type of member is 'pages'?",
+      "options": [
+        "A method",
+        "A constructor",
+        "A field (instance variable)",
+        "A class name"
+      ],
+      "answer": "A field (instance variable)"
+    },
+    {
+      "id": 15,
+      "question": "What is the output of the following code?\n\npublic void isLong() {\n    if (pages > 300) {\n        System.out.println(\"This is a long book.\");\n    } else {\n        System.out.println(\"This is a short read.\");\n    }\n}\n\nAssume pages is 250.",
+      "options": [
+        "This is a long book.",
+        "This is a short read.",
+        "250",
+        "Nothing is printed"
+      ],
+      "answer": "This is a short read."
+    },
+    {
+      "id": 16,
+      "question": "If two objects are created from the same class, what is true about their fields?",
+      "options": [
+        "They must always have the same values",
+        "Each object holds its own independent copy of the fields",
+        "Changing one object's field automatically changes the other's",
+        "Only the first object created can have field values assigned"
+      ],
+      "answer": "Each object holds its own independent copy of the fields"
+    },
+    {
+      "id": 17,
+      "question": "What is the difference between a field and a method?",
+      "options": [
+        "A field stores data; a method performs an action",
+        "A field performs an action; a method stores data",
+        "Fields and methods are the same thing",
+        "A field is only used in the main method; a method is used in all classes"
+      ],
+      "answer": "A field stores data; a method performs an action"
+    },
+    {
+      "id": 18,
+      "question": "Which of the following correctly creates a Student object?",
+      "options": [
+        "Student s1 = Student();",
+        "new Student s1 = Student();",
+        "Student s1 = new Student();",
+        "Student s1 = create Student();"
+      ],
+      "answer": "Student s1 = new Student();"
+    },
+    {
+      "id": 19,
+      "question": "In the Dog class example, what does the bark() method do?",
+      "options": [
+        "Returns the dog's name as a String",
+        "Sets the dog's name field",
+        "Prints the dog's name followed by 'says: Woof!'",
+        "Creates a new Dog object"
+      ],
+      "answer": "Prints the dog's name followed by 'says: Woof!'"
+    },
+    {
+      "id": 20,
+      "question": "Which OOP pillar is most directly demonstrated by creating a class with fields and methods that operate on those fields?",
+      "options": [
+        "Polymorphism",
+        "Inheritance",
+        "Abstraction",
+        "Encapsulation"
+      ],
+      "answer": "Encapsulation"
+    },
+    {
+      "id": 21,
+      "question": "What is the return type of a method declared as 'public void describe()'?",
+      "options": [
+        "String",
+        "int",
+        "It does not return a value",
+        "boolean"
+      ],
+      "answer": "It does not return a value"
+    },
+    {
+      "id": 22,
+      "question": "Which of the following is true about Java as an OOP language?",
+      "options": [
+        "Java does not support classes",
+        "Java uses classes as blueprints to create objects",
+        "Java only allows one object per program",
+        "Java does not support methods inside classes"
+      ],
+      "answer": "Java uses classes as blueprints to create objects"
+    },
+    {
+      "id": 23,
+      "question": "Given:\n\nStudent s = new Student();\ns.gpa = 3.8;\n\nIf honorsCheck() prints the honor roll message when GPA is 3.5 or higher, what will be printed?",
+      "options": [
+        "The student is in good standing.",
+        "The student's GPA is 3.8.",
+        "The student is on the honor roll.",
+        "Nothing is printed because gpa is a double."
+      ],
+      "answer": "The student is on the honor roll."
+    },
+    {
+      "id": 24,
+      "question": "Where must the main method be placed in order to run a Java program that uses a separate class like Book?",
+      "options": [
+        "Inside the Book class as a regular method",
+        "In a separate class such as BookMain with the signature 'public static void main(String[] args)'",
+        "The main method is not needed when using objects",
+        "Inside every method of the Book class"
+      ],
+      "answer": "In a separate class such as BookMain with the signature 'public static void main(String[] args)'"
+    },
+    {
+      "id": 25,
+      "question": "Why is Object-Oriented Programming a popular approach to software development?",
+      "options": [
+        "It forces all code to be written in a single file",
+        "It eliminates the need for variables",
+        "It organizes code into reusable, modular structures that model real-world entities",
+        "It makes programs run faster than any other paradigm"
+      ],
+      "answer": "It organizes code into reusable, modular structures that model real-world entities"
+    }
+  ]
+}

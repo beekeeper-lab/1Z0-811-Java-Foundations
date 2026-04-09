@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 27: Classes and Constructors Part 3",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is composition in object-oriented programming?",
+      "options": [
+        "A class inheriting behavior from a parent class",
+        "A class containing objects of other classes as fields",
+        "A class implementing multiple interfaces",
+        "A class that cannot be instantiated"
+      ],
+      "answer": "A class containing objects of other classes as fields"
+    },
+    {
+      "id": 2,
+      "question": "Given the classes Address and Person, where Person has a field 'private Address homeAddress', what type of relationship does this represent?",
+      "options": [
+        "An \"is-a\" relationship",
+        "A \"has-a\" relationship",
+        "A \"uses-a\" relationship",
+        "An inheritance relationship"
+      ],
+      "answer": "A \"has-a\" relationship"
+    },
+    {
+      "id": 3,
+      "question": "What does the @Override annotation indicate when placed above a toString() method?",
+      "options": [
+        "The method is being defined for the first time",
+        "The method replaces a method inherited from a superclass",
+        "The method is private and cannot be called externally",
+        "The method will be called automatically at object creation"
+      ],
+      "answer": "The method replaces a method inherited from a superclass"
+    },
+    {
+      "id": 4,
+      "question": "If two Person objects share a reference to the same Address object, what happens when the Address is modified through one Person?",
+      "options": [
+        "Only that Person's address changes",
+        "A copy of the Address is automatically created",
+        "Both Person objects see the change because they reference the same object",
+        "A NullPointerException is thrown"
+      ],
+      "answer": "Both Person objects see the change because they reference the same object"
+    },
+    {
+      "id": 5,
+      "question": "Which line correctly accesses a nested composed object's method?\n\nperson.getAddress().getCity()\nperson.Address.getCity()\nperson.homeAddress.city\nperson->getAddress()->getCity()",
+      "options": [
+        "person.getAddress().getCity()",
+        "person.Address.getCity()",
+        "person.homeAddress.city",
+        "person->getAddress()->getCity()"
+      ],
+      "answer": "person.getAddress().getCity()"
+    },
+    {
+      "id": 6,
+      "question": "A ContactInfo class requires that the email field must contain '@'. Where should this validation be placed?",
+      "options": [
+        "In the main method only",
+        "In the getter method only",
+        "In both the constructor and the setter method",
+        "In the toString() method"
+      ],
+      "answer": "In both the constructor and the setter method"
+    },
+    {
+      "id": 7,
+      "question": "What is the purpose of a no-arg constructor that sets fields to placeholder values?",
+      "options": [
+        "To prevent the class from being instantiated",
+        "To allow object creation when specific data is not yet available",
+        "To make all fields public",
+        "To override the parent class constructor"
+      ],
+      "answer": "To allow object creation when specific data is not yet available"
+    },
+    {
+      "id": 8,
+      "question": "In a Playlist class, 'private ArrayList<MusicTrack> tracks' is an example of:",
+      "options": [
+        "Inheritance with a collection",
+        "Composition with a collection of objects",
+        "A static field",
+        "An abstract data type"
+      ],
+      "answer": "Composition with a collection of objects"
+    },
+    {
+      "id": 9,
+      "question": "What does the following constructor demonstrate?\n\npublic Person(String name, int age) {\n    this(name, age, new Address(), new ContactInfo());\n}",
+      "options": [
+        "Method overriding",
+        "Constructor chaining using this()",
+        "Recursive constructor call",
+        "Static factory method"
+      ],
+      "answer": "Constructor chaining using this()"
+    },
+    {
+      "id": 10,
+      "question": "A MusicTrack class has a setRating(double rating) method that only accepts values between 0.0 and 5.0. What should happen if the value 6.5 is passed?",
+      "options": [
+        "The rating should be set to 6.5 without any check",
+        "The method should silently ignore the call or set a default value",
+        "The field should be set to null",
+        "The program should always terminate immediately"
+      ],
+      "answer": "The method should silently ignore the call or set a default value"
+    },
+    {
+      "id": 11,
+      "question": "What is the purpose of a static field 'totalPlaylists' in a Playlist class?",
+      "options": [
+        "To store the number of tracks in each playlist",
+        "To track how many Playlist objects have been created across all instances",
+        "To limit the number of tracks a playlist can hold",
+        "To store the name of the most recent playlist"
+      ],
+      "answer": "To track how many Playlist objects have been created across all instances"
+    },
+    {
+      "id": 12,
+      "question": "Which principle of good class design ensures that fields are not directly accessible from outside the class?",
+      "options": [
+        "Polymorphism",
+        "Encapsulation using private fields with public getters and setters",
+        "Abstraction through interfaces",
+        "Inheritance through extends"
+      ],
+      "answer": "Encapsulation using private fields with public getters and setters"
+    },
+    {
+      "id": 13,
+      "question": "In a LibraryBook class, the checkOut() method decreases availableCopies. What validation should it perform?",
+      "options": [
+        "Check that the book title is not empty",
+        "Check that availableCopies is greater than 0 before decrementing",
+        "Check that the ISBN is valid",
+        "Check that the author is not null"
+      ],
+      "answer": "Check that availableCopies is greater than 0 before decrementing"
+    },
+    {
+      "id": 14,
+      "question": "What does System.out.println(myObject) call on myObject if toString() has been overridden?",
+      "options": [
+        "The hashCode() method",
+        "The equals() method",
+        "The overridden toString() method",
+        "The getClass() method"
+      ],
+      "answer": "The overridden toString() method"
+    },
+    {
+      "id": 15,
+      "question": "A LibraryMember has a field 'private int memberId' that is auto-assigned from a static counter. Which approach correctly implements this?",
+      "options": [
+        "Setting memberId in the getter method",
+        "Incrementing a static counter in the constructor and assigning it to memberId",
+        "Using a random number generator in the setter",
+        "Declaring memberId as a static field"
+      ],
+      "answer": "Incrementing a static counter in the constructor and assigning it to memberId"
+    },
+    {
+      "id": 16,
+      "question": "What is the difference between composition and inheritance?",
+      "options": [
+        "Composition uses 'extends', inheritance uses 'has-a'",
+        "Composition models 'has-a' relationships, inheritance models 'is-a' relationships",
+        "Composition requires abstract classes, inheritance does not",
+        "There is no difference; they are interchangeable"
+      ],
+      "answer": "Composition models 'has-a' relationships, inheritance models 'is-a' relationships"
+    },
+    {
+      "id": 17,
+      "question": "A method addTrack(MusicTrack track) should only add a track if it is not already in the playlist. What should be checked?",
+      "options": [
+        "Whether the track's duration is positive",
+        "Whether a track with the same title and artist already exists in the list",
+        "Whether the playlist name matches the track's album",
+        "Whether the track's rating is above 3.0"
+      ],
+      "answer": "Whether a track with the same title and artist already exists in the list"
+    },
+    {
+      "id": 18,
+      "question": "Given:\npublic class Address {\n    private String street;\n    private String city;\n    public Address(String city, String state) {\n        this.street = \"Unknown\";\n        // ...\n    }\n}\n\nWhat design pattern does this two-arg constructor demonstrate?",
+      "options": [
+        "The Singleton pattern",
+        "Providing a convenience constructor with sensible default values",
+        "The Factory pattern",
+        "The Observer pattern"
+      ],
+      "answer": "Providing a convenience constructor with sensible default values"
+    },
+    {
+      "id": 19,
+      "question": "In the expression person.getAddress().setCity(\"Seattle\"), how many objects are involved?",
+      "options": [
+        "One — only the person object",
+        "Two — the person object and the Address object returned by getAddress()",
+        "Three — person, Address, and String",
+        "Zero — this is a static method call"
+      ],
+      "answer": "Two — the person object and the Address object returned by getAddress()"
+    },
+    {
+      "id": 20,
+      "question": "Which of the following best describes why a returnBook() method should validate that availableCopies does not exceed totalCopies?",
+      "options": [
+        "To ensure the program runs faster",
+        "To maintain data integrity and prevent logically impossible states",
+        "To satisfy the Java compiler's requirements",
+        "To allow multiple returns of the same book"
+      ],
+      "answer": "To maintain data integrity and prevent logically impossible states"
+    },
+    {
+      "id": 21,
+      "question": "A Playlist class has a method getMostPlayed() that returns the MusicTrack with the highest playCount. If the playlist is empty, what should this method do?",
+      "options": [
+        "Return a new MusicTrack with default values",
+        "Return null or handle the empty case gracefully",
+        "Throw an unchecked exception without any message",
+        "Return the last track added to the playlist"
+      ],
+      "answer": "Return null or handle the empty case gracefully"
+    },
+    {
+      "id": 22,
+      "question": "What is the benefit of a displayFullProfile() method in a Person class that calls toString() on its composed Address and ContactInfo objects?",
+      "options": [
+        "It eliminates the need for getters entirely",
+        "It delegates formatting responsibility to each composed object, following good OOP design",
+        "It makes the fields of Address and ContactInfo public",
+        "It prevents the Person class from being instantiated"
+      ],
+      "answer": "It delegates formatting responsibility to each composed object, following good OOP design"
+    },
+    {
+      "id": 23,
+      "question": "Which keyword is used in a constructor to call another constructor in the same class?",
+      "options": [
+        "super",
+        "this",
+        "new",
+        "self"
+      ],
+      "answer": "this"
+    },
+    {
+      "id": 24,
+      "question": "A Library class has methods searchByTitle(), searchByAuthor(), and searchByGenre() that each return an ArrayList. Why is ArrayList the appropriate return type?",
+      "options": [
+        "Because a search could match zero, one, or multiple books",
+        "Because ArrayList is the only collection type in Java",
+        "Because the method must return exactly one book",
+        "Because arrays cannot store objects in Java"
+      ],
+      "answer": "Because a search could match zero, one, or multiple books"
+    },
+    {
+      "id": 25,
+      "question": "A LibraryMember has a field 'private int maxBooks = 5' and a checkOutBook() method. What should checkOutBook() do if the member already has 5 books checked out?",
+      "options": [
+        "Allow the checkout and increase maxBooks",
+        "Refuse the checkout and inform the user that the limit has been reached",
+        "Remove the oldest book to make room",
+        "Set maxBooks to 0"
+      ],
+      "answer": "Refuse the checkout and inform the user that the limit has been reached"
+    }
+  ]
+}
