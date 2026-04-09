@@ -119,31 +119,282 @@
             list-style: none;
         }
 
-        .sidebar-toc li a {
+        /* Page group — visual container for each page's headings */
+        .toc-page-group {
+            margin: 0.25rem 0.5rem;
+            padding: 0;
+            border-radius: 6px;
+            border-left: 3px solid var(--border);
+            background: transparent;
+            transition: all 0.2s ease;
+        }
+
+        .toc-page-group.active-group {
+            border-left-color: var(--accent);
+            background: rgba(231, 111, 81, 0.05);
+        }
+
+        [data-theme="dark"] .toc-page-group.active-group {
+            background: rgba(231, 111, 81, 0.08);
+        }
+
+        /* H2 link — the page title */
+        .toc-page-group .toc-h2-link {
             display: block;
-            padding: 0.4rem 1.25rem;
+            padding: 0.5rem 0.75rem;
             font-size: 0.88rem;
+            font-weight: 600;
             color: var(--text);
             text-decoration: none;
-            border-left: 3px solid transparent;
             transition: all 0.2s ease;
             line-height: 1.4;
         }
 
-        .sidebar-toc li a:hover {
-            background: rgba(0, 0, 0, 0.04);
+        .toc-page-group .toc-h2-link:hover {
             color: var(--accent);
         }
 
-        [data-theme="dark"] .sidebar-toc li a:hover {
+        .toc-page-group.active-group .toc-h2-link {
+            color: var(--accent);
+        }
+
+        /* H3 subsection links — indented under their H2 */
+        .toc-subsections {
+            list-style: none;
+            padding: 0 0 0.35rem 0;
+        }
+
+        .toc-subsections li a {
+            display: block;
+            padding: 0.2rem 0.75rem 0.2rem 1.5rem;
+            font-size: 0.82rem;
+            color: var(--text);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            line-height: 1.4;
+        }
+
+        .toc-subsections li a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        .toc-page-group.active-group .toc-subsections li a {
+            opacity: 0.85;
+        }
+
+        /* Active individual link within a group */
+        .toc-page-group a.active {
+            color: var(--accent) !important;
+            opacity: 1 !important;
+            font-weight: 600;
+        }
+
+        /* ===== Quiz ===== */
+        .quiz-container {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-header h2 {
+            margin-bottom: 0.5rem;
+        }
+
+        .quiz-header .quiz-meta {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .quiz-question {
+            background: var(--card-bg, var(--sidebar-bg));
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .quiz-question.correct {
+            border-color: #2ecc71;
+            background: rgba(46, 204, 113, 0.06);
+        }
+
+        .quiz-question.incorrect {
+            border-color: #e74c3c;
+            background: rgba(231, 76, 60, 0.06);
+        }
+
+        [data-theme="dark"] .quiz-question.correct {
+            background: rgba(46, 204, 113, 0.1);
+        }
+
+        [data-theme="dark"] .quiz-question.incorrect {
+            background: rgba(231, 76, 60, 0.1);
+        }
+
+        .quiz-question-text {
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+
+        .quiz-question-number {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .quiz-options {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quiz-options li {
+            margin-bottom: 0.4rem;
+        }
+
+        .quiz-options label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.15s ease;
+            line-height: 1.5;
+            font-size: 0.92rem;
+        }
+
+        .quiz-options label:hover {
+            background: rgba(0, 0, 0, 0.04);
+        }
+
+        [data-theme="dark"] .quiz-options label:hover {
             background: rgba(255, 255, 255, 0.04);
         }
 
-        .sidebar-toc li a.active {
-            border-left-color: var(--accent);
-            color: var(--accent);
+        .quiz-options input[type="radio"] {
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+            accent-color: var(--accent);
+        }
+
+        .quiz-options label.selected-correct {
+            background: rgba(46, 204, 113, 0.15);
             font-weight: 600;
-            background: rgba(231, 111, 81, 0.08);
+        }
+
+        .quiz-options label.selected-incorrect {
+            background: rgba(231, 76, 60, 0.15);
+            text-decoration: line-through;
+            opacity: 0.8;
+        }
+
+        .quiz-options label.show-correct {
+            background: rgba(46, 204, 113, 0.1);
+            font-weight: 600;
+        }
+
+        .quiz-feedback {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: none;
+        }
+
+        .quiz-feedback.correct { color: #2ecc71; display: block; }
+        .quiz-feedback.incorrect { color: #e74c3c; display: block; }
+
+        .quiz-submit-area {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .quiz-submit-btn {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 0.8rem 2.5rem;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: opacity 0.2s ease, transform 0.15s ease;
+        }
+
+        .quiz-submit-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .quiz-submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .quiz-results {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            display: none;
+        }
+
+        .quiz-results.visible { display: block; }
+
+        .quiz-results.passed {
+            background: rgba(46, 204, 113, 0.1);
+            border: 2px solid #2ecc71;
+        }
+
+        .quiz-results.failed {
+            background: rgba(231, 76, 60, 0.1);
+            border: 2px solid #e74c3c;
+        }
+
+        .quiz-score {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .quiz-results.passed .quiz-score { color: #2ecc71; }
+        .quiz-results.failed .quiz-score { color: #e74c3c; }
+
+        .quiz-results .quiz-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .quiz-results .quiz-detail {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .quiz-retry-btn {
+            margin-top: 1rem;
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            padding: 0.5rem 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .quiz-retry-btn:hover {
+            background: var(--accent);
+            color: #fff;
         }
 
         /* ===== Hamburger (mobile) ===== */
@@ -830,7 +1081,7 @@
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <h2>1Z0-811 Java Foundations</h2>
-                <a href="index.html" class="back-link">&larr; Back to Index</a>
+                <a href="../index.html" class="back-link">&larr; Back to Index</a>
             </div>
             <nav class="sidebar-toc" id="toc">
                 ${toc}
@@ -895,7 +1146,7 @@
         'use strict';
 
         /* ----- State ----- */
-        var currentPage = 1;
+        var currentPage = 0;  /* Start at 0 so first showPage(1) is treated as a page transition */
         var totalPages = parseInt('${total_pages}', 10) || 1;
 
         /* ----- DOM refs ----- */
@@ -965,10 +1216,16 @@
         }
 
         /* ----- Pagination ----- */
-        function showPage(num) {
+        function showPage(num, skipAudio) {
             if (num < 1 || num > totalPages) return;
 
-            stopAllAudio();
+            var isNewPage = (num !== currentPage);
+
+            if (isNewPage) {
+                /* Only stop audio when actually changing pages */
+                stopAllAudio();
+            }
+
             currentPage = num;
 
             for (var i = 0; i < pages.length; i++) {
@@ -984,14 +1241,16 @@
             prevBtn.disabled = currentPage <= 1;
             nextBtn.disabled = currentPage >= totalPages;
 
-            // Scroll to top of content
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (isNewPage) {
+                // Scroll to top only on actual page change
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
 
             // Update TOC active state
             updateTocActive();
 
-            // Auto-play narration if not muted
-            if (!isMuted) {
+            // Auto-play narration only on new page, if not muted, and not already played
+            if (isNewPage && !isMuted && !skipAudio) {
                 autoPlayNarration();
             }
         }
@@ -1018,14 +1277,19 @@
             var activePage = document.querySelector('.page.active');
             if (!activePage) return;
 
-            // Find headings on the active page
-            var headings = activePage.querySelectorAll('h1, h2, h3');
             var tocLinks = document.querySelectorAll('#toc a');
+            var pageGroups = document.querySelectorAll('.toc-page-group');
 
             // Remove all active classes
             for (var i = 0; i < tocLinks.length; i++) {
                 tocLinks[i].classList.remove('active');
             }
+            for (var g = 0; g < pageGroups.length; g++) {
+                pageGroups[g].classList.remove('active-group');
+            }
+
+            // Find headings on the active page
+            var headings = activePage.querySelectorAll('h1, h2, h3');
 
             // Find matching TOC entries for headings on this page
             for (var j = 0; j < headings.length; j++) {
@@ -1034,14 +1298,21 @@
                     for (var k = 0; k < tocLinks.length; k++) {
                         if (tocLinks[k].getAttribute('href') === '#' + id) {
                             tocLinks[k].classList.add('active');
+                            // Also highlight the parent page group
+                            var group = tocLinks[k].closest('.toc-page-group');
+                            if (group) {
+                                group.classList.add('active-group');
+                            }
                         }
                     }
                 }
             }
 
-            // If none are active, try to activate the first one
-            if (!document.querySelector('#toc a.active') && tocLinks.length > 0) {
-                tocLinks[0].classList.add('active');
+            // If none are active, try to activate the first group
+            if (!document.querySelector('#toc a.active') && pageGroups.length > 0) {
+                pageGroups[0].classList.add('active-group');
+                var firstLink = pageGroups[0].querySelector('a');
+                if (firstLink) firstLink.classList.add('active');
             }
         }
 
@@ -1062,12 +1333,18 @@
             var parentPage = targetEl.closest('.page[data-page]');
             if (parentPage) {
                 var pageNum = parseInt(parentPage.getAttribute('data-page'), 10);
-                showPage(pageNum);
+                var isSamePage = (pageNum === currentPage);
 
-                // Scroll to the element after a short delay
-                setTimeout(function() {
+                if (isSamePage) {
+                    /* Same page — just scroll, don't touch audio */
                     targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 100);
+                } else {
+                    /* Different page — navigate (audio auto-plays if not already played) */
+                    showPage(pageNum);
+                    setTimeout(function() {
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                }
             }
 
             // Close sidebar on mobile
@@ -1077,6 +1354,14 @@
         });
 
         /* ----- Narration ----- */
+        function isAnyAudioPlaying() {
+            var audios = document.querySelectorAll('.narration-block audio');
+            for (var i = 0; i < audios.length; i++) {
+                if (!audios[i].paused) return true;
+            }
+            return false;
+        }
+
         function autoPlayNarration() {
             var activePage = document.querySelector('.page.active');
             if (!activePage) return;
@@ -1179,8 +1464,138 @@
             // localStorage unavailable
         }
 
+        /* ----- Quiz ----- */
+        function initQuiz() {
+            var quizForm = document.getElementById('quizForm');
+            if (!quizForm) return;
+
+            var submitBtn = document.getElementById('quizSubmitBtn');
+            var resultsDiv = document.getElementById('quizResults');
+            var scoreEl = document.getElementById('quizScoreValue');
+            var labelEl = document.getElementById('quizResultLabel');
+            var detailEl = document.getElementById('quizResultDetail');
+            var retryBtn = document.getElementById('quizRetryBtn');
+            var quizData = JSON.parse(document.getElementById('quizData').textContent);
+            var moduleSlug = quizData.moduleSlug;
+            var passingScore = quizData.passingScore;
+            var totalQuestions = quizData.totalQuestions;
+
+            submitBtn.addEventListener('click', function() {
+                var score = 0;
+                var questions = quizForm.querySelectorAll('.quiz-question');
+
+                for (var i = 0; i < questions.length; i++) {
+                    var q = questions[i];
+                    var correctAnswer = q.getAttribute('data-answer');
+                    var selected = q.querySelector('input[type="radio"]:checked');
+                    var feedback = q.querySelector('.quiz-feedback');
+                    var labels = q.querySelectorAll('.quiz-options label');
+
+                    /* Reset labels */
+                    for (var l = 0; l < labels.length; l++) {
+                        labels[l].classList.remove('selected-correct', 'selected-incorrect', 'show-correct');
+                    }
+
+                    if (selected) {
+                        var selectedLabel = selected.closest('label');
+                        if (selected.value === correctAnswer) {
+                            score++;
+                            q.classList.add('correct');
+                            q.classList.remove('incorrect');
+                            selectedLabel.classList.add('selected-correct');
+                            feedback.className = 'quiz-feedback correct';
+                            feedback.textContent = 'Correct!';
+                        } else {
+                            q.classList.add('incorrect');
+                            q.classList.remove('correct');
+                            selectedLabel.classList.add('selected-incorrect');
+                            feedback.className = 'quiz-feedback incorrect';
+                            feedback.textContent = 'Incorrect';
+                            /* Highlight the correct answer */
+                            for (var m = 0; m < labels.length; m++) {
+                                var radio = labels[m].querySelector('input[type="radio"]');
+                                if (radio && radio.value === correctAnswer) {
+                                    labels[m].classList.add('show-correct');
+                                }
+                            }
+                        }
+                    } else {
+                        q.classList.add('incorrect');
+                        q.classList.remove('correct');
+                        feedback.className = 'quiz-feedback incorrect';
+                        feedback.textContent = 'No answer selected';
+                        /* Highlight the correct answer */
+                        for (var n = 0; n < labels.length; n++) {
+                            var r = labels[n].querySelector('input[type="radio"]');
+                            if (r && r.value === correctAnswer) {
+                                labels[n].classList.add('show-correct');
+                            }
+                        }
+                    }
+
+                    /* Disable radio buttons after submit */
+                    var radios = q.querySelectorAll('input[type="radio"]');
+                    for (var d = 0; d < radios.length; d++) {
+                        radios[d].disabled = true;
+                    }
+                }
+
+                /* Show results */
+                var passed = score >= passingScore;
+                resultsDiv.className = 'quiz-results visible ' + (passed ? 'passed' : 'failed');
+                scoreEl.textContent = score + ' / ' + totalQuestions;
+                labelEl.textContent = passed ? 'Passed!' : 'Not yet — keep studying!';
+                detailEl.textContent = 'Passing score: ' + passingScore + ' of ' + totalQuestions;
+
+                submitBtn.disabled = true;
+
+                /* Save to localStorage */
+                try {
+                    var quizResults = JSON.parse(localStorage.getItem('java-foundations-quiz-results') || '{}');
+                    var prevBest = quizResults[moduleSlug] ? quizResults[moduleSlug].score : 0;
+                    if (score > prevBest || !quizResults[moduleSlug]) {
+                        quizResults[moduleSlug] = {
+                            score: score,
+                            total: totalQuestions,
+                            passing: passingScore,
+                            passed: passed,
+                            date: new Date().toISOString().split('T')[0]
+                        };
+                        localStorage.setItem('java-foundations-quiz-results', JSON.stringify(quizResults));
+                    }
+                } catch (e) {}
+
+                /* Scroll to results */
+                resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+
+            retryBtn.addEventListener('click', function() {
+                /* Reset everything */
+                var questions = quizForm.querySelectorAll('.quiz-question');
+                for (var i = 0; i < questions.length; i++) {
+                    questions[i].classList.remove('correct', 'incorrect');
+                    var radios = questions[i].querySelectorAll('input[type="radio"]');
+                    for (var j = 0; j < radios.length; j++) {
+                        radios[j].checked = false;
+                        radios[j].disabled = false;
+                    }
+                    var labels = questions[i].querySelectorAll('.quiz-options label');
+                    for (var k = 0; k < labels.length; k++) {
+                        labels[k].classList.remove('selected-correct', 'selected-incorrect', 'show-correct');
+                    }
+                    var feedback = questions[i].querySelector('.quiz-feedback');
+                    feedback.className = 'quiz-feedback';
+                    feedback.textContent = '';
+                }
+                resultsDiv.className = 'quiz-results';
+                submitBtn.disabled = false;
+                quizForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        }
+
         /* ----- Initialize ----- */
         showPage(1);
+        initQuiz();
     })();
     </script>
 </body>
