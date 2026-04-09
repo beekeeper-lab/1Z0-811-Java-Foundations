@@ -32,6 +32,7 @@ SOURCE_DIR = ROOT / "source"
 HTML_DIR = ROOT / "html"
 IMAGES_DIR = ROOT / "images"
 AUDIO_DIR = ROOT / "audio"
+QUIZ_DIR = ROOT / "Quiz"
 TEMPLATE_PATH = ROOT / "scripts" / "module_template.html"
 
 COURSE_TITLE = "1Z0-811 Java Foundations"
@@ -307,6 +308,72 @@ def paginate(html: str) -> tuple[str, int]:
     return result, len(pages)
 
 
+# ── Quiz generation ────────────────────────────────────────────────────────────
+
+def generate_quiz_html(module_num: int, module_slug: str) -> str:
+    """Generate interactive quiz HTML from the quiz JSON file for a given day."""
+    quiz_path = QUIZ_DIR / f"Day_{module_num:02d}_Quiz_File" / f"day_{module_num:02d}_quiz.json"
+    if not quiz_path.exists():
+        return ""
+
+    with open(quiz_path) as f:
+        quiz = json.load(f)
+
+    questions = quiz["questions"]
+    passing = quiz.get("passing_score", 20)
+    total = quiz.get("total_questions", len(questions))
+    title = quiz.get("quiz_title", f"Day {module_num} Quiz")
+
+    # Build quiz data JSON for the JS
+    quiz_data = json.dumps({
+        "moduleSlug": module_slug,
+        "passingScore": passing,
+        "totalQuestions": total,
+    })
+
+    # Build question HTML
+    questions_html = ""
+    for q in questions:
+        qid = q["id"]
+        options_html = ""
+        for opt in q["options"]:
+            safe_opt = opt.replace('"', '&quot;').replace("'", "&#39;")
+            display_opt = opt.replace("<", "&lt;").replace(">", "&gt;")
+            options_html += f'''<li>
+                <label><input type="radio" name="q{qid}" value="{safe_opt}"> {display_opt}</label>
+            </li>\n'''
+
+        safe_answer = q["answer"].replace('"', '&quot;').replace("'", "&#39;")
+        question_text = q["question"].replace("<", "&lt;").replace(">", "&gt;")
+
+        questions_html += f'''<div class="quiz-question" data-answer="{safe_answer}">
+            <div class="quiz-question-number">Question {qid}</div>
+            <div class="quiz-question-text">{question_text}</div>
+            <ul class="quiz-options">{options_html}</ul>
+            <div class="quiz-feedback"></div>
+        </div>\n'''
+
+    return f'''<h2 id="quiz">Knowledge Check: {title}</h2>
+<div class="quiz-container">
+    <div class="quiz-header">
+        <p class="quiz-meta">{total} questions &middot; {passing} correct to pass</p>
+    </div>
+    <script type="application/json" id="quizData">{quiz_data}</script>
+    <div id="quizForm">
+        {questions_html}
+        <div class="quiz-submit-area">
+            <button class="quiz-submit-btn" id="quizSubmitBtn">Submit Quiz</button>
+        </div>
+        <div class="quiz-results" id="quizResults">
+            <div class="quiz-score" id="quizScoreValue"></div>
+            <div class="quiz-label" id="quizResultLabel"></div>
+            <div class="quiz-detail" id="quizResultDetail"></div>
+            <button class="quiz-retry-btn" id="quizRetryBtn">Try Again</button>
+        </div>
+    </div>
+</div>'''
+
+
 # ── TOC generation ─────────────────────────────────────────────────────────────
 
 def generate_toc(html: str) -> str:
@@ -413,6 +480,14 @@ def build_module(mod: dict, idx: int, all_modules: list, template: str, embed: b
 
     # Embed images
     html = embed_images(html, embed)
+
+    # Append quiz as the last section (before pagination splits it into a page)
+    module_num_match = re.search(r'module-(\d+)', module_slug)
+    if module_num_match:
+        module_num = int(module_num_match.group(1))
+        quiz_html = generate_quiz_html(module_num, module_slug)
+        if quiz_html:
+            html += quiz_html
 
     # Generate TOC before pagination
     toc = generate_toc(html)
@@ -570,6 +645,25 @@ body {
 .stat { text-align: center; }
 .stat .num { font-size: 2em; font-weight: 700; color: var(--accent); }
 .stat .label { font-size: 0.9em; opacity: 0.7; }
+.card .quiz-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.75em;
+  font-weight: 600;
+  margin-left: 6px;
+}
+.quiz-badge.passed { background: #d4edda; color: #155724; }
+.quiz-badge.failed { background: #f8d7da; color: #721c24; }
+.quiz-badge.not-taken { background: #e2e3e5; color: #6c757d; }
+[data-theme="dark"] .quiz-badge.passed { background: #1a3a2a; color: #7dcea0; }
+[data-theme="dark"] .quiz-badge.failed { background: #3a1a1a; color: #e07070; }
+[data-theme="dark"] .quiz-badge.not-taken { background: #2a2a2a; color: #888; }
+.card .quiz-score-line {
+  font-size: 0.8em;
+  opacity: 0.6;
+  margin-top: 6px;
+}
 footer {
   text-align: center;
   padding: 40px 20px;
@@ -612,6 +706,32 @@ function toggleTheme() {
   const saved = localStorage.getItem('java-foundations-theme');
   if (saved) document.documentElement.setAttribute('data-theme', saved);
 })();
+/* Populate quiz badges from localStorage */
+(function() {
+  try {
+    var results = JSON.parse(localStorage.getItem('java-foundations-quiz-results') || '{}');
+    var cards = document.querySelectorAll('.card[data-module-slug]');
+    for (var i = 0; i < cards.length; i++) {
+      var slug = cards[i].getAttribute('data-module-slug');
+      var badge = cards[i].querySelector('[data-quiz-badge]');
+      var scoreLine = cards[i].querySelector('[data-quiz-score]');
+      if (!badge) continue;
+      var r = results[slug];
+      if (r) {
+        if (r.passed) {
+          badge.className = 'quiz-badge passed';
+          badge.textContent = 'Passed';
+        } else {
+          badge.className = 'quiz-badge failed';
+          badge.textContent = 'Retry';
+        }
+        if (scoreLine) {
+          scoreLine.textContent = r.score + '/' + r.total + ' on ' + r.date;
+        }
+      }
+    }
+  } catch(e) {}
+})();
 </script>
 </body>
 </html>"""
@@ -635,10 +755,14 @@ def build_index(all_modules: list):
         cards = ""
         for mod in mods:
             slug = mod["file"].replace(".md", "")
-            cards += f'''<a href="html/{slug}.html" class="card">
+            cards += f'''<a href="html/{slug}.html" class="card" data-module-slug="{slug}">
                 <div class="day-label">{mod["short"]}</div>
                 <h3>{mod["title"]}</h3>
-                <span class="tier-badge {mod.get('tier_css', '')}">{tier}</span>
+                <div>
+                    <span class="tier-badge {mod.get('tier_css', '')}">{tier}</span>
+                    <span class="quiz-badge not-taken" data-quiz-badge>Quiz</span>
+                </div>
+                <div class="quiz-score-line" data-quiz-score></div>
             </a>\n'''
         sections_html += f'''<div class="tier-section">
             <h2>{tier}</h2>
