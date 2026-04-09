@@ -875,7 +875,7 @@
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <h2>1Z0-811 Java Foundations</h2>
-                <a href="index.html" class="back-link">&larr; Back to Index</a>
+                <a href="../index.html" class="back-link">&larr; Back to Index</a>
             </div>
             <nav class="sidebar-toc" id="toc">
                 ${toc}
@@ -940,9 +940,8 @@
         'use strict';
 
         /* ----- State ----- */
-        var currentPage = 1;
+        var currentPage = 0;  /* Start at 0 so first showPage(1) is treated as a page transition */
         var totalPages = parseInt('${total_pages}', 10) || 1;
-        /* Audio auto-plays on every page transition (not same-page sidebar clicks) */
 
         /* ----- DOM refs ----- */
         var pages = document.querySelectorAll('.page[data-page]');
