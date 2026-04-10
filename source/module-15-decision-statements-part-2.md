@@ -10,6 +10,8 @@
 
 > 🎙️ If-else chains are great for ranges and complex conditions, but when you are matching a single value against a list of exact options, switch is the cleaner tool. Think of it like a phone menu -- press one for sales, press two for support. That is exactly what switch was designed for.
 
+![Phone menu as a switch statement](../images/module-15/phone-menu-switch.png)
+
 ## Research: The Switch Statement
 
 > 🎯 **Teach:** How switch statements work with case, break, default, and fall-through, and when to choose switch over if-else.
@@ -153,6 +155,8 @@ Write a program that demonstrates the basic forms of switch statements:
 
 ### Part 2: Fall-Through Behavior
 
+![Waterfall fall-through behavior](../images/module-15/waterfall-fall-through.png)
+
 #### Program B: `FallThroughDemo.java`
 
 Write a program that demonstrates fall-through — both accidental and intentional:
@@ -217,6 +221,8 @@ Write a program that demonstrates fall-through — both accidental and intention
 
 ### Part 3: Switch vs. If-Else-If
 
+![Switch vs if-else-if comparison](../images/module-15/switch-vs-if-else.png)
+
 #### Program C: `SwitchVsIfElse.java`
 
 Write a program that solves the same problems using both switch and if-else-if, so Campbell can see when each is better:
@@ -241,6 +247,8 @@ Write a program that solves the same problems using both switch and if-else-if, 
 ---
 
 ### Part 4: Practical Application
+
+![Vending machine simulator](../images/module-15/vending-machine.png)
 
 #### Program D: `VendingMachine.java`
 

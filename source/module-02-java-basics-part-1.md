@@ -10,6 +10,8 @@
 
 > 🎙️ A lot of beginners skip over the JDK and JRE because they just want to write code. But understanding the platform is what separates someone who can code from someone who truly understands Java. The exam tests this, and it will make debugging much easier later.
 
+![Under the hood of Java](../images/module-02/under-the-hood.png)
+
 ## Research: The Java Platform
 
 > 🎯 **Teach:** What the JDK, JRE, and JVM are, how they nest inside each other, and what role each plays in compiling and running Java programs.
@@ -48,6 +50,8 @@ Save your completed essay as `Response_01_Java_Platform_Research.md` in this fol
 
 > 🎙️ Here is a quick way to remember the three layers. The JDK contains the JRE, and the JRE contains the JVM. Think of it like a set of nesting boxes -- the JDK is the biggest box with all the developer tools, the JRE is the middle box with everything needed to run programs, and the JVM is the innermost box that actually executes your bytecode.
 
+![JDK, JRE, and JVM nesting](../images/module-02/jdk-jre-jvm-nesting.png)
+
 ## Hands-On: Anatomy of a Java Program
 
 > 🎯 **Teach:** How to read Java compiler errors, fix broken programs, and write complete programs from scratch including ones that accept command-line arguments.
@@ -80,6 +84,8 @@ Each keyword matters:
 - `String[] args` — an array of command-line arguments
 
 > 🎙️ Pay close attention to that main method signature. Every single keyword matters -- public, static, void, main, String array args. If any piece is wrong or missing, the JVM will not find your entry point and your program will not run. The exam loves to test variations of this.
+
+![Anatomy of the main method](../images/module-02/main-method-anatomy.png)
 
 ---
 
@@ -127,6 +133,8 @@ public class AboutMe
 > **Hint:** There are two syntax errors to find.
 
 > 🎙️ When you hit a compiler error, do not panic. Read the error message carefully -- it tells you the line number and what went wrong. Learning to read error messages is one of the most valuable skills you will develop as a programmer. The compiler is trying to help you.
+
+![The friendly compiler](../images/module-02/friendly-compiler.png)
 
 #### Deliverable
 

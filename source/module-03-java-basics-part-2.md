@@ -10,6 +10,8 @@
 
 > 🎙️ Object-oriented programming is not just a technique -- it is the way Java thinks about everything. Once you understand classes and objects, every topic from here forward will make more sense. This is one of those days where a lightbulb goes on.
 
+![OOP lightbulb moment](../images/module-03/oop-lightbulb.png)
+
 ## Research: Object-Oriented Programming Concepts
 
 > 🎯 **Teach:** What object-oriented programming is and the four pillars -- encapsulation, inheritance, polymorphism, and abstraction.
@@ -51,6 +53,8 @@ Save your completed essay as `Response_01_OOP_Concepts_Research.md` in this fold
 > 💡 **Remember this one thing:** The four pillars of OOP are encapsulation, inheritance, polymorphism, and abstraction — Java is built around all four, and the 1Z0-811 exam expects you to know what each one means.
 
 > 🎙️ You do not need to master all four pillars today. Right now, focus on understanding what each one means at a high level. You will practice encapsulation and inheritance in depth later in the curriculum. For the exam, being able to define each pillar in your own words is what matters.
+
+![The four pillars of OOP](../images/module-03/four-pillars-temple.png)
 
 ## Hands-On: Objects and Classes in Practice
 
@@ -109,7 +113,11 @@ public class DogMain {
 }
 ```
 
+![Class as a cookie-cutter blueprint](../images/module-03/cookie-cutter-blueprint.png)
+
 > 🎙️ Study this Dog example carefully -- it is the pattern you are about to follow for every exercise. Notice the two separate files. The Dog class defines the blueprint with fields and methods. The DogMain class creates an actual Dog object using the new keyword and then calls methods on it. This two-file pattern is standard in Java.
+
+![The two-file pattern](../images/module-03/two-file-pattern.png)
 
 ---
 

@@ -10,6 +10,8 @@
 
 > 🎙️ Data types are one of the most heavily tested topics on the 1Z0-811 exam. This is not a day to rush through. Understanding the difference between byte, short, int, and long -- and knowing when to use each one -- will pay off on the exam and in every program you write.
 
+![Container sizes for data types](../images/module-06/container-sizes.png)
+
 ## Research: Variables and Primitive Data Types
 
 > 🎯 **Teach:** What variables are, the difference between declaration and initialization, all eight primitive data types with their sizes and ranges, and the purpose of the final keyword.
@@ -47,6 +49,8 @@ Save your completed essay as `Response_01_Variables_and_Primitives_Research.md` 
 > 💡 **Remember this one thing:** Java has eight primitive types — byte, short, int, long, float, double, char, and boolean — and the exam expects you to know the size and range of each one.
 
 > 🎙️ A good trick for remembering the integer types is to think about their sizes doubling -- byte is 8 bits, short is 16, int is 32, long is 64. Each step up doubles the storage and massively increases the range. For most everyday programming, int is the default choice.
+
+![Doubling nesting dolls](../images/module-06/doubling-nesting-dolls.png)
 
 ## Hands-On: Variables and Primitive Data Types in Practice
 
@@ -149,6 +153,8 @@ Write a program that models a simple physics calculation using constants. The pr
 
 > 🎙️ The final keyword is simple but powerful -- once you assign a value to a final variable, it can never change. That is exactly what you want for constants like the speed of light or pi. If someone accidentally tries to reassign a final variable, the compiler catches it immediately.
 
+![Final keyword padlock](../images/module-06/final-padlock.png)
+
 ---
 
 ### Part 3: Default Values and Boundaries
@@ -183,6 +189,8 @@ Write a program that explores the **boundaries** of Java's numeric types. This i
 4. Show what happens when you try to store a `double` value in an `int` variable without casting (comment out the line and record the error).
 
 > 🎙️ The overflow behavior is one of the most important things you will learn today. When a byte hits 127 and you add 1, it wraps around to negative 128. Java does not warn you about this at runtime -- it just silently gives you the wrong answer. This is why knowing your type boundaries matters.
+
+![Overflow speedometer](../images/module-06/overflow-speedometer.png)
 
 ---
 

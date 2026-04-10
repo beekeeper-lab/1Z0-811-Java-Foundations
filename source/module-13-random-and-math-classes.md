@@ -10,6 +10,8 @@
 
 > 🎙️ Until now your programs have only worked with data you typed in or hardcoded. The Math and Random classes change that -- they let your programs calculate and surprise. After today, your programs will be able to compute square roots, round numbers, and generate values that even you cannot predict.
 
+![Professor Math and the wild Random](../images/module-13/professor-math-wild-random.png)
+
 ## Research: The Random and Math Classes
 
 > 🎯 **Teach:** What the Math and Random classes provide, why Math methods are static, and how seeds create reproducible sequences.
@@ -55,6 +57,8 @@ Save your completed essay as `Response_01_Random_and_Math_Research.md` in this f
 | **Total** | **100** |
 
 > 🎙️ Here is a key distinction to nail in your research -- the Math class does not need to be imported because it lives in java.lang, but the Random class does need an import because it lives in java.util. The exam will test whether you know which classes require an import statement.
+
+![Static methods work like a vending machine](../images/module-13/static-vending-machine.png)
 
 > 💡 **Remember this one thing:** All Math methods are static because the Math class is a utility, not a blueprint for objects. You call Math.sqrt(25) on the class itself, never on an instance.
 
@@ -157,6 +161,8 @@ Write a program that demonstrates every `Math` method and constant from the tabl
    ```
    Use `printf` to format this as a clean table. Add a comment noting the surprising behavior of `round()` with negative numbers.
 
+![Round, floor, and ceil compared](../images/module-13/round-floor-ceil.png)
+
 5. **Constants:** Use `Math.PI` and `Math.E` in calculations:
    - Area and circumference of a circle with radius 7
    - Volume of a sphere with radius 5: `(4.0/3.0) * Math.PI * Math.pow(r, 3)`
@@ -201,6 +207,8 @@ Write a program that demonstrates the `Random` class:
 ---
 
 ### Part 3: Practical Applications
+
+![Dice probability and randomness](../images/module-13/dice-probability.png)
 
 #### Program C: `DiceSimulator.java`
 

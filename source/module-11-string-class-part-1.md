@@ -10,6 +10,8 @@
 
 > 🎙️ Strings might seem simple at first -- they are just text, right? But the String class has more methods than almost any other class you will encounter. Once you master them, you will find yourself reaching for these tools in every single program you write.
 
+![Your String method toolbox](../images/module-11/string-toolbox.png)
+
 ## Research: String Methods in Java
 
 > 🎯 **Teach:** What the most commonly used String methods are, why they return new strings, and how method chaining works.
@@ -32,6 +34,8 @@ Write a short research essay addressing the following:
    - Methods that produce a new string (`toUpperCase()`, `toLowerCase()`, `trim()`, `substring()`, `replace()`, `concat()`)
 
 2. **Why do String methods return new strings instead of modifying the original?** Connect this back to string immutability (Day 8). Why is this design choice important for how Java handles strings?
+
+![Strings are immutable like stone tablets](../images/module-11/immutability-stone-tablet.png)
 
 3. **What is method chaining with strings?** Show how multiple String methods can be called in sequence (e.g., `str.trim().toUpperCase().substring(0, 5)`) and explain why this works.
 
@@ -148,6 +152,8 @@ concat(" Goodbye!"):   "  Hello, World!   Goodbye!"
 
 ### Part 2: Substring Deep Dive
 
+![Cutting strings with substring](../images/module-11/substring-scissors.png)
+
 #### Program B: `SubstringPractice.java`
 
 `substring()` is heavily tested on the exam. Write a program that drills this method:
@@ -176,6 +182,8 @@ concat(" Goodbye!"):   "  Hello, World!   Goodbye!"
 ---
 
 ### Part 3: Method Chaining
+
+![Method chaining as a pipeline](../images/module-11/method-chaining-pipeline.png)
 
 #### Program C: `MethodChaining.java`
 

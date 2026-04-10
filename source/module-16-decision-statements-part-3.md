@@ -10,6 +10,8 @@
 
 > 🎙️ The double-equals versus equals distinction is the number one source of bugs for new Java programmers. It works fine with numbers, so you think it works fine with strings -- but it does not. Understanding why is essential for both the exam and for writing correct programs.
 
+![Twin detectives investigating equality](../images/module-16/twin-detectives.png)
+
 ## Research: Equality, Comparison, and Choosing the Right Decision Structure
 
 > 🎯 **Teach:** How == differs from .equals() for primitives vs. objects, how compareTo() orders strings, and how to pick the right decision structure.
@@ -125,6 +127,8 @@ a.compareTo(c);  // 0 — they are equal
 
 ### Part 1: == vs .equals() Deep Dive
 
+![String Pool visualization](../images/module-16/string-pool-visualization.png)
+
 #### Program A: `EqualityExplorer.java`
 
 Write a program that covers every scenario tested on the exam:
@@ -178,6 +182,8 @@ Write a program that covers every scenario tested on the exam:
 ---
 
 ### Part 2: compareTo() in Action
+
+![compareTo as a bookshelf ordering](../images/module-16/compare-to-bookshelf.png)
 
 #### Program B: `CompareToExplorer.java`
 
@@ -264,6 +270,8 @@ For each one, implement the solution and add a brief comment explaining your str
 ---
 
 ### Part 4: Decision Statements Capstone
+
+![Command center capstone project](../images/module-16/command-center-capstone.png)
 
 #### Program D: `BankAccountSimulator.java`
 

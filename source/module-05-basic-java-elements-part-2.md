@@ -10,6 +10,8 @@
 
 > 🎙️ Up to now, all your files have just been sitting in one folder with no package statement. That works fine for small exercises, but real Java projects have hundreds or thousands of classes. Packages are how you keep that organized, and understanding them is essential for the exam.
 
+![Library of packages](../images/module-05/library-of-packages.png)
+
 ## Research: Java Packages and the java.lang Package
 
 > 🎯 **Teach:** How Java organizes code into packages that map to folder structures, the difference between specific and wildcard imports, and why java.lang is automatically available.
@@ -78,6 +80,8 @@ myproject/
         Main.java          ← package com.example.app;
 ```
 
+![Package to folder mapping](../images/module-05/package-folder-mapping.png)
+
 The first line of `MathHelper.java` would be:
 ```java
 package com.example.utils;
@@ -101,6 +105,8 @@ java com.example.app.Main
 > Notice: you compile with file paths (using `/`) but run with package names (using `.`).
 
 > 🎙️ That difference between compiling with file paths and running with package names trips up a lot of students. Think of it this way -- javac deals with files on your hard drive, so it uses slashes. The java command deals with classes in the Java runtime, so it uses dots. Keep that straight and you will avoid a common source of frustration.
+
+![Compile vs run paths](../images/module-05/compile-vs-run-paths.png)
 
 ---
 
@@ -229,6 +235,8 @@ java com.internship.app.EmployeeApp
 Save all files in the package structure described above. Record the exact compile and run commands you used in your response file.
 
 ---
+
+![Import detective](../images/module-05/import-detective.png)
 
 ### Part 4: Import Detective
 

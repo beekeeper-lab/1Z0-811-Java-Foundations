@@ -10,6 +10,8 @@
 
 > 🎙️ Without loops, if you wanted to print numbers one through a thousand, you would need a thousand println statements. With a for loop, you need three lines. That is the power of iteration -- it lets you write a small amount of code that does a massive amount of work.
 
+![Hamster wheel of repetition](../images/module-17/hamster-wheel.png)
+
 ## Research: The for Loop
 
 > 🎯 **Teach:** How standard for loops and enhanced for-each loops work, including the three-part header and for-each limitations.

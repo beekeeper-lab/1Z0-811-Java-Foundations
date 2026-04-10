@@ -10,6 +10,8 @@
 
 > 🎙️ Think about the difference between scribbling a number on a napkin and presenting it in a polished spreadsheet. That is the difference between println and printf. Formatting is what separates quick debugging output from professional, readable programs.
 
+![Napkin vs spreadsheet output](../images/module-12/napkin-vs-spreadsheet.png)
+
 ## Research: String Formatting and Escape Sequences
 
 > 🎯 **Teach:** How printf and String.format() use format specifiers, and how escape sequences embed special characters in strings.
@@ -126,6 +128,8 @@ String formatted = String.format("Hello, %s!", name);
 
 > 🎙️ Look at that format specifier table carefully. The width and alignment modifiers are where the real power lives. A plain percent-d just prints a number, but percent-ten-d right-aligns it in a ten-character-wide column. That is how you build clean tables where everything lines up perfectly.
 
+![printf sorting values into formatted slots](../images/module-12/printf-mail-sorter.png)
+
 ---
 
 ### Part 1: Format Specifier Basics
@@ -166,6 +170,8 @@ Write a program that demonstrates every format specifier from the table above:
 ---
 
 ### Part 2: Escape Sequences
+
+![Escape sequences breaking free](../images/module-12/escape-sequences-jailbreak.png)
 
 #### Program B: `EscapeSequences.java`
 
@@ -291,6 +297,8 @@ Add comments explaining which approach is clearest and most maintainable for eac
 ---
 
 ### Part 5: String Class Capstone
+
+![Capstone project workbench](../images/module-12/capstone-workbench.png)
 
 #### Program E: `ReportCardGenerator.java`
 
