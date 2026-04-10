@@ -10,6 +10,8 @@
 
 > 🎙️ Getters, setters, and static methods are the workhorses of Java classes. Nearly every class you encounter in professional Java code uses these patterns, and the exam tests them directly. Today you will go from knowing the basics to truly mastering them -- including validation logic that makes your objects bulletproof.
 
+![Bouncer and concierge guarding class access](../images/module-29/bouncer-concierge.png)
+
 ## Research: Accessor Methods, Mutator Methods, and Static Methods
 
 > 🎯 **Teach:** What getters and setters are, how static methods differ from instance methods, and when to use each.
@@ -110,6 +112,8 @@ int sum = MathUtils.add(5, 3);
 
 > 🎙️ That table is your quick reference for static versus instance. The critical rules are that static methods cannot access instance fields and cannot use the this keyword. Why? Because a static method belongs to the class itself -- there is no specific object, so there is no this to refer to and no instance fields to read. The exam will show you code that tries to do this and ask if it compiles.
 
+![Classroom analogy for static vs instance methods](../images/module-29/classroom-static-vs-instance.png)
+
 ---
 
 ### Part 1: Getters and Setters with Validation
@@ -198,6 +202,8 @@ private StringUtils() {
 ```
 Add a comment explaining why utility classes have private constructors.
 
+![Utility toolbox of static helper methods](../images/module-29/utility-toolbox.png)
+
 **`ArrayUtils.java`** — another static utility class:
 
 1. `public static int sum(int[] arr)` — returns the sum
@@ -225,6 +231,8 @@ Show that you CANNOT create an instance: `// new StringUtils()` → error.
 ---
 
 ### Part 3: Static vs. Instance
+
+![Game arena with static and instance method zones](../images/module-29/game-arena.png)
 
 #### Create `GameCharacter.java` and `GameMain.java`
 

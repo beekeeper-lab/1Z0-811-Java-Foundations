@@ -10,6 +10,8 @@
 
 > 🎙️ ArrayList is one of the most heavily tested topics on the 1Z0-811 exam. You need to know every method, the autoboxing rules, and the gotchas around removing elements. Today is packed, but every piece of it is directly useful for the exam.
 
+![Fixed-size array vs dynamic ArrayList containers](../images/module-23/fixed-vs-dynamic-containers.png)
+
 ## Research: The ArrayList Class
 
 > 🎯 **Teach:** What ArrayList is, how it differs from arrays, and how autoboxing with wrapper classes works.
@@ -160,6 +162,8 @@ Write a program that demonstrates every core ArrayList method:
 
 ### Part 2: Autoboxing and Wrapper Classes
 
+![Autoboxing as wrapping a gift box around a primitive](../images/module-23/autoboxing-gift-box.png)
+
 #### Program B: `AutoboxingDemo.java`
 
 Write a program that demonstrates autoboxing, unboxing, and the wrapper classes:
@@ -194,6 +198,8 @@ Write a program that demonstrates autoboxing, unboxing, and the wrapper classes:
    // nums.remove(Integer.valueOf(10)); // Removes the VALUE 10
    ```
    Demonstrate both forms and add comments explaining the ambiguity. Show how `Integer.valueOf()` forces removal by value.
+
+![The remove() trap: index vs value fork in the road](../images/module-23/remove-trap-fork.png)
 
 4. **Null in an ArrayList:** Unlike arrays of primitives (which have default values), an ArrayList can hold `null`:
    ```java
@@ -254,6 +260,8 @@ Write a program that demonstrates all the ways to iterate over an ArrayList:
    }
    ```
    Add a comment explaining why backwards iteration avoids index shifting problems.
+
+![Backwards iteration avoiding the index shift problem](../images/module-23/backwards-iteration.png)
 
 4. **Building a new list from an old one:** Filter an ArrayList of integers to create a new ArrayList containing only even numbers. Use an enhanced for loop to read, and `add()` to build the new list.
 

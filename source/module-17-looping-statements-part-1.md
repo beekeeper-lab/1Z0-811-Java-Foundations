@@ -91,6 +91,8 @@ Execution order:
 4. **Update** runs AFTER the body
 5. Go back to step 2
 
+![Three-station execution order of a for loop](../images/module-17/three-station-track.png)
+
 ```java
 for (int i = 0; i < 5; i++) {
     System.out.println(i);  // Prints 0, 1, 2, 3, 4
@@ -194,6 +196,8 @@ For each tricky example, write your prediction as a comment BEFORE the code, the
 
 ### Part 3: Enhanced for Loop
 
+![Enhanced for-each loop as a buffet line](../images/module-17/for-each-buffet.png)
+
 #### Program C: `EnhancedForLoop.java`
 
 Write a program that demonstrates the enhanced for loop:
@@ -238,6 +242,8 @@ Write a program that demonstrates the enhanced for loop:
 ---
 
 ### Part 4: Loop Patterns
+
+![Robot stamping out loop patterns](../images/module-17/robot-stamp-patterns.png)
 
 #### Program D: `LoopPatterns.java`
 

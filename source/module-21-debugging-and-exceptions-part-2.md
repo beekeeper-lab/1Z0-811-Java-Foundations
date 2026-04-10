@@ -309,6 +309,8 @@ Write a program that demonstrates handling different exceptions differently:
 
 ### Part 4: Practical Application
 
+![Crash-proof workbench for robust input handling](../images/module-21/crash-proof-workbench.png)
+
 #### Program D: `RobustInputReader.java`
 
 Write a utility program that demonstrates how exception handling makes programs **robust** — they handle bad input gracefully instead of crashing.

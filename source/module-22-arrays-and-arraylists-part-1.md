@@ -10,6 +10,8 @@
 
 > 🎙️ Arrays are a turning point in the course. Before today, every variable held a single value. After today, you will be able to store and process entire collections of data. This is also the start of the exam's data structures section, so the patterns you learn here will show up on multiple certification questions.
 
+![Juggling individual variables vs using an array](../images/module-22/variable-juggling-vs-array.png)
+
 ## Research: Arrays in Java
 
 > 🎯 **Teach:** What arrays are, how to declare and initialize them, and how zero-based indexing and the length property work.
@@ -81,6 +83,8 @@ double[] prices = new double[2];   // [0.0, 0.0]
 int[] scores = {88, 92, 76, 95, 83};
 String[] names = {"Alice", "Bob", "Charlie"};
 ```
+
+![Mailbox-style memory layout of array elements](../images/module-22/mailbox-memory-layout.png)
 
 #### Accessing and modifying
 
@@ -184,6 +188,8 @@ Write a program that demonstrates the most common array processing patterns:
    - `Arrays.copyOf()` (import `java.util.Arrays`)
    - Assigning one array variable to another — show that this does NOT copy (both variables point to the same array). Modify one and show the other changes too.
 
+![Reference copy vs true copy with dog arrays](../images/module-22/reference-copy-dogs.png)
+
 > 🎙️ The processing patterns in Part 2 -- sum, max, min, search, reverse -- are the bread and butter of array programming. You will use these patterns over and over again, so take the time to write them yourself without copying. Once you can write a max-finding loop from memory, you are in great shape for the exam.
 
 ---
@@ -256,6 +262,8 @@ Write a program that analyzes exam grades and produces a distribution report:
 4. Use `printf` for all formatted output.
 
 #### Program E: `ArraySorter.java`
+
+![Bubble sort with bubbles rising into place](../images/module-22/bubble-sort-bubbles.png)
 
 Write a program that implements **bubble sort** — a simple sorting algorithm:
 

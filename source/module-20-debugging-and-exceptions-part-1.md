@@ -91,6 +91,8 @@ Save your completed essay as `Response_01_Errors_and_Debugging_Research.md` in t
 | **Runtime error** | During execution — program crashes | Division by zero, ArrayIndexOutOfBoundsException |
 | **Logic error** | Never detected automatically — wrong output | Using `>` instead of `>=`, off-by-one errors |
 
+![Three types of errors: syntax, runtime, and logic](../images/module-20/three-error-types.png)
+
 #### Reading a stack trace
 
 ```
@@ -106,9 +108,13 @@ Read from bottom to top:
 
 > 🎙️ Reading stack traces from bottom to top is a skill that will save you hours of frustration. The bottom line tells you where the chain started, and each line above shows the next method call until you reach the line that actually crashed. Once you get comfortable reading these, error messages become helpful friends instead of scary walls of text.
 
+![Stack trace as building blocks](../images/module-20/stack-trace-blocks.png)
+
 ---
 
 ### Part 1: Syntax Error Hunt
+
+![Bug hunt safari through broken code](../images/module-20/bug-hunt-safari.png)
 
 #### Program A: `SyntaxErrors.java`
 

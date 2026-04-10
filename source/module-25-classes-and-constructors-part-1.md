@@ -10,6 +10,8 @@
 
 > 🎙️ This is a big milestone in the course. Up until now you have been using classes that other people wrote -- String, Scanner, ArrayList. Starting today, you design your own. This is where programming shifts from following recipes to actually creating things, and it is the largest topic area on the 1Z0-811 exam.
 
+![Architect with class blueprints](../images/module-25/blueprint-architect.png)
+
 ## Research: Classes, Objects, and Fields
 
 > 🎯 **Teach:** The relationship between classes and objects, the three variable types (instance, class, local), and why the private modifier matters.
@@ -91,6 +93,8 @@ public class Person {
 
 > 🎙️ That table is worth memorizing. The exam will give you code with variables declared in different places and ask about their scope, defaults, or lifetime. The biggest trap is local variables having no default value -- if you try to use one before assigning it, the compiler rejects your code. Instance variables do not have this problem because Java initializes them automatically.
 
+![Three variable types: instance, class, and local](../images/module-25/three-variable-types.png)
+
 #### Access with private
 
 ```java
@@ -110,6 +114,8 @@ BankAccount acct = new BankAccount();
 // double b = acct.balance;  // ERROR — balance is private
 double b = acct.getBalance(); // OK — using the public method
 ```
+
+![Encapsulation as a vault protecting private fields](../images/module-25/encapsulation-vault.png)
 
 ---
 
@@ -278,6 +284,8 @@ Add methods:
 - `displayReport()` — print a formatted student report
 
 The ID should be auto-assigned — each new Student gets the next ID automatically using the static `nextId` field. This demonstrates a practical use of class variables.
+
+![Static ID counter shared across all Student objects](../images/module-25/static-id-counter.png)
 
 > 🎙️ The auto-incrementing ID is a perfect example of why static variables exist. Every Student needs a unique ID, and the static nextId field keeps track of the next one to assign. Since it is shared across all Student objects, each new Student gets the next number in sequence without any coordination. This pattern is used constantly in real applications -- databases, user accounts, order numbers.
 
