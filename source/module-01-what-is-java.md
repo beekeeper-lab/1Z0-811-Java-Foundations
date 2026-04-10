@@ -10,6 +10,8 @@
 
 > 🎙️ Before you write any code today, you are going to do some research. Understanding the origins and design goals of Java will make every future lesson click faster -- it is not just trivia, it is context that helps you think like a Java developer.
 
+![Java runs everywhere](../images/module-01/java-everywhere.png)
+
 ## Research: What Is Java?
 
 > 🎯 **Teach:** Java is a platform-independent, object-oriented language that compiles to bytecode running on any JVM.
@@ -42,6 +44,8 @@ Write a short research essay addressing the following questions:
 
 > 🎙️ Take your time with this research. When you are writing about what Java is, think about what makes it different from languages like Python or C. The key phrase to understand is "write once, run anywhere" -- that single idea shaped almost every design decision in the language.
 
+![Write once, run anywhere](../images/module-01/write-once-run-anywhere.png)
+
 ### Submission
 
 Save your completed essay as `Response_01_What_Is_Java.md` in this folder.
@@ -55,6 +59,8 @@ Save your completed essay as `Response_01_What_Is_Java.md` in this folder.
 > **Feel:** The thrill of seeing your very first Java program produce real output on screen.
 
 > 🎙️ Now that you know what Java is, it is time to get your hands on the keyboard. You are going to learn essential terminal commands and then use them to create, compile, and run a real Java program.
+
+![Terminal hands-on exercise](../images/module-01/terminal-hands-on.png)
 
 ### Overview
 
@@ -130,6 +136,8 @@ public class HelloWorld {
 > You should see three lines of output printed to the terminal.
 
 > 🎙️ This is the moment it all becomes real. When you see your three lines of output in the terminal, you have just completed the full Java workflow -- write source code, compile it with javac, and run the bytecode with java. Every Java program you ever write follows this same pattern.
+
+![The javac and java workflow](../images/module-01/javac-java-workflow.png)
 
 #### Exercise C: Moving Files Around
 

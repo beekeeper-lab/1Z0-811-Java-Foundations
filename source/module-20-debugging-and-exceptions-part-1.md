@@ -10,6 +10,8 @@
 
 > 🎙️ Every programmer, no matter how experienced, writes bugs. The difference between a beginner and a professional is not that the professional writes perfect code -- it is that the professional knows how to find and fix problems quickly. That is what today is all about.
 
+![Detective hunting for bugs](../images/module-20/detective-with-bugs.png)
+
 ## Research: Syntax Errors, Logic Errors, and Debugging
 
 > 🎯 **Teach:** How to distinguish syntax errors, logic errors, and runtime errors, and what debugging strategies work best for each type.

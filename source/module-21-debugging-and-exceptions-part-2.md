@@ -10,6 +10,8 @@
 
 > 🎙️ Exception handling is one of the most tested topics on the 1Z0-811 exam. The exam loves to give you code with a try-catch block and ask what prints -- or whether the program compiles at all. Pay close attention to the flow of execution today, because those questions will feel easy once you understand how Java jumps from the try block to the catch block.
 
+![Safety net of try-catch](../images/module-21/safety-net-trycatch.png)
+
 ## Research: Exception Handling in Java
 
 > 🎯 **Teach:** What exceptions are, how try-catch-finally controls the flow of execution, and which six common exceptions appear on the 1Z0-811 exam.
@@ -127,6 +129,8 @@ try {
 
 > 🎙️ Memorize that table. The exam will show you a line of code and ask which exception it throws. The most common ones to watch for are NullPointerException and ArrayIndexOutOfBoundsException -- you will see them constantly in real-world Java code, not just on the exam.
 
+![Catalog of common exceptions](../images/module-21/exception-catalog.png)
+
 ---
 
 ### Part 1: Triggering and Catching Every Common Exception
@@ -168,6 +172,8 @@ After all 6, print: `"Program completed — all exceptions were handled!"` to pr
 ---
 
 ### Part 2: try-catch Flow of Execution
+
+![try-catch flow of execution](../images/module-21/try-catch-flow.png)
 
 #### Program B: `FlowOfExecution.java`
 

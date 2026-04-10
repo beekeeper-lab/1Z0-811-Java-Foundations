@@ -10,6 +10,8 @@
 
 > 🎙️ After yesterday's arithmetic operators, today you learn how to ask questions in code. Is this value greater than that one? Are both conditions true? Should I pick option A or option B? These operators are the building blocks of every decision your program will ever make.
 
+![Courtroom comparison](../images/module-10/courtroom-comparison.png)
+
 ## Research: Relational, Conditional, and Ternary Operators
 
 > 🎯 **Teach:** All six relational operators with the == vs = distinction, logical AND/OR/NOT with short-circuit evaluation, the ternary operator syntax, and why operator precedence determines expression outcomes.
@@ -109,6 +111,8 @@ String result = (score >= 60) ? "Pass" : "Fail";
 ```
 
 > 🎙️ You do not need to memorize every level of that precedence table. The key takeaways are that multiplication and division happen before addition and subtraction, that relational operators happen before logical operators, and that AND has higher precedence than OR. When in doubt, use parentheses to make your intent clear.
+
+![Precedence tower](../images/module-10/precedence-tower.png)
 
 ---
 
@@ -214,6 +218,8 @@ Write a program that demonstrates `&&`, `||`, and `!`:
 
 > 🎙️ The side effects exercise in Part 2 is a favorite exam trick. When short-circuit evaluation skips the right side of an expression, any increment or method call on that side never executes. So if you write a greater than 10 AND plus plus a greater than 5, and a is not greater than 10, the plus plus never happens. The variable does not change. Trace through it carefully.
 
+![Short-circuit dominoes](../images/module-10/short-circuit-dominoes.png)
+
 ---
 
 ### Part 3: The Ternary Operator
@@ -260,6 +266,8 @@ Write a program that demonstrates the ternary operator in various situations:
    - Determine AM or PM from a 24-hour value
 
 > 🎙️ The ternary operator is a compact way to write a simple if/else, but do not overuse it. A single ternary expression is clean and readable. Nested ternaries quickly become hard to follow. The rule of thumb is -- if you need more than one level of nesting, switch back to an if/else chain.
+
+![Ternary fork in the road](../images/module-10/ternary-fork-road.png)
 
 ---
 

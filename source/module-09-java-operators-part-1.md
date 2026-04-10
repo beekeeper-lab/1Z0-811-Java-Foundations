@@ -10,6 +10,8 @@
 
 > 🎙️ You might think arithmetic in Java is just basic math. And for addition and multiplication, it is. But integer division, prefix versus postfix, and the implicit cast in compound assignment are all behaviors that trip up experienced programmers, not just beginners. The exam knows this and tests it hard.
 
+![Operator workshop](../images/module-09/operator-workshop.png)
+
 ## Research: Arithmetic and Assignment Operators
 
 > 🎯 **Teach:** The five arithmetic operators with special attention to integer vs floating-point division, the critical prefix vs postfix distinction for increment/decrement, and compound assignment operators with their hidden implicit cast.
@@ -83,6 +85,8 @@ Save your completed essay as `Response_01_Arithmetic_and_Assignment_Operators_Re
 | `--x` | Pre-decrement | Decrements **before** the value is used |
 | `x--` | Post-decrement | Uses the value **then** decrements |
 
+![Prefix and postfix turnstiles](../images/module-09/prefix-postfix-turnstiles.png)
+
 #### Compound Assignment
 
 | Operator | Equivalent | Bonus |
@@ -94,6 +98,8 @@ Save your completed essay as `Response_01_Arithmetic_and_Assignment_Operators_Re
 | `x %= 5` | `x = x % 5` | Includes implicit cast |
 
 > 🎙️ Look at the integer division row in that arithmetic table. Ten divided by three gives you three, not three point three. Java drops the decimal entirely when both operands are integers. This is not rounding -- it is truncation. To get the decimal result, at least one operand must be a floating-point type.
+
+![Pizza integer division](../images/module-09/pizza-integer-division.png)
 
 ---
 
@@ -232,6 +238,8 @@ Write a program that demonstrates all five compound assignment operators:
    b += 5;          // WORKS! Compound assignment includes implicit cast
    ```
    Demonstrate this with `byte`, `short`, and `char`. Comment out the failing line and explain the error, then show the compound assignment working.
+
+![Compound assignment shrink ray](../images/module-09/compound-assignment-shrinkray.png)
 
 3. **String concatenation with `+=`:**
    ```java

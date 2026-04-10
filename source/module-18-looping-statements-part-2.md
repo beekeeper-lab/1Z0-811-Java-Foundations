@@ -10,6 +10,8 @@
 
 > 🎙️ The for loop is perfect when you know you need exactly ten iterations. But what about a login screen where you keep asking until the password is correct? You have no idea how many attempts it will take. That is where while and do-while loops come in -- they repeat based on conditions, not counts.
 
+![Bouncer vs turnstile loop comparison](../images/module-18/bouncer-vs-turnstile.png)
+
 ## Research: while and do-while Loops
 
 > 🎯 **Teach:** How while loops check conditions before executing and do-while loops guarantee at least one execution, plus how sentinel values control termination.
@@ -119,6 +121,8 @@ while (number != -1) {   // -1 is the sentinel
 
 > 🎙️ That table comparing when to use each loop type is your decision guide. For loops when you know the count, while loops when you do not, and do-while when you need at least one execution. Keep this mental model and you will always pick the right loop.
 
+![Race track with loop type gates](../images/module-18/race-track-gates.png)
+
 ---
 
 ### Part 1: while Loop Fundamentals
@@ -209,6 +213,8 @@ Write a program that demonstrates the do-while loop:
 ---
 
 ### Part 3: Sentinel-Controlled Loops
+
+![Sentinel value on a conveyor belt](../images/module-18/sentinel-conveyor.png)
 
 #### Program C: `SentinelLoops.java`
 

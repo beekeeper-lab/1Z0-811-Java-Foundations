@@ -10,6 +10,8 @@
 
 > 🎙️ You have been using strings since Day 1, but here is what most beginners do not realize -- String is not a primitive type like int or double. It is a full class from java.lang. That distinction matters because strings behave differently from primitives in ways the exam specifically tests.
 
+![Immutability is like carving in stone](../images/module-08/immutability-stone-carving.png)
+
 ## Research: Strings in Java
 
 > 🎯 **Teach:** Why String is a class and not a primitive, what immutability means for every string operation, and how the String Pool optimizes memory for string literals.
@@ -48,6 +50,8 @@ Save your completed essay as `Response_01_Strings_Research.md` in this folder.
 
 > 🎙️ Immutability is the single most important concept about strings in Java. When you call toUpperCase on a string, the original string does not change. A brand new string is created and returned. If you do not capture that return value, the uppercase version is lost. This trips up beginners constantly.
 
+![String Pool swimming](../images/module-08/string-pool-swimming.png)
+
 ## Hands-On: Strings and Type Conversions in Practice
 
 > 🎯 **Teach:** How to prove string immutability in code, the critical difference between == and .equals() for string comparison, and how to convert between strings and primitives using parse and valueOf methods.
@@ -83,6 +87,8 @@ System.out.println(a.equals(c)); // true  (same content)
 ```
 
 > 🎙️ This is the trap -- the double equals operator checks whether two variables point to the same object in memory. The equals method checks whether the content is the same. For strings, you almost always want equals. Get this wrong on the exam and you lose easy points.
+
+![== vs .equals()](../images/module-08/equals-vs-double-equals.png)
 
 #### Converting Between Strings and Primitives
 
@@ -212,6 +218,8 @@ Write a program that demonstrates all common conversions between strings and pri
 10. What happens with `Integer.parseInt("3.14")`? Try it and explain.
 
 > 🎙️ The type conversion methods you are learning here -- parseInt, parseDouble, valueOf -- are the bridge between strings and primitives. You will use them constantly whenever you read user input, because Scanner gives you strings and your program needs numbers. Knowing which method to call for which type is an essential skill.
+
+![Type conversion bridge](../images/module-08/type-conversion-bridge.png)
 
 ---
 

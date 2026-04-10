@@ -10,6 +10,8 @@
 
 > 🎙️ Think of it this way -- pouring water from a small cup into a big bucket is safe, that is widening. Pouring from a big bucket into a small cup will spill, that is narrowing. Java lets the safe direction happen automatically but makes you explicitly say "I know this might spill" for the dangerous direction.
 
+![Cup and bucket analogy](../images/module-07/cup-and-bucket.png)
+
 ## Research: Type Casting and Promotion
 
 > 🎯 **Teach:** What type casting is, the widening promotion hierarchy from byte to double, why narrowing requires an explicit cast, and the risks of data loss when narrowing.
@@ -47,6 +49,8 @@ Save your completed essay as `Response_01_Type_Casting_Research.md` in this fold
 > 💡 **Remember this one thing:** Java automatically widens from smaller to larger types (byte to int to double) but requires an explicit cast to narrow, because narrowing can lose data.
 
 > 🎙️ When you research the widening chain, memorize this order -- byte, short, int, long, float, double. Any type can automatically become any type to its right. Going left requires a cast. The exam will absolutely test whether you know which direction is automatic and which is not.
+
+![Widening stepping stones](../images/module-07/widening-stepping-stones.png)
 
 ## Hands-On: Type Casting and Promotion in Practice
 
@@ -107,6 +111,8 @@ byte d = (byte)(a + b);  // Also correct — explicit cast back
 ```
 
 > 🎙️ That automatic promotion rule is the one that catches the most students. Even though both a and b are bytes, the moment you add them together Java promotes the result to int. You cannot store it back in a byte without a cast. This is a top exam question -- do not skip over it.
+
+![Byte promotion trap](../images/module-07/byte-promotion-trap.png)
 
 ---
 
@@ -226,6 +232,8 @@ For each scenario, print:
 ---
 
 ### Part 4: Practical Application
+
+![Truncation vs rounding](../images/module-07/truncation-vs-rounding.png)
 
 #### Program D: `TemperatureConverter.java`
 

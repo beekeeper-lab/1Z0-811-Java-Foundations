@@ -10,6 +10,8 @@
 
 > 🎙️ This is a turning point in the course. Every program you have written so far has executed every line from top to bottom. After today, your programs will be able to take different paths depending on conditions -- and that is what separates a calculator from a truly intelligent application.
 
+![A fork in the road](../images/module-14/fork-in-the-road.png)
+
 ## Research: If-Then and If-Then-Else Statements
 
 > 🎯 **Teach:** How if-then, if-then-else, else-if chains, and nested if statements control which code runs based on conditions.
@@ -161,11 +163,15 @@ Write a program that demonstrates the fundamental forms of if statements. Use `S
 
    Add a comment explaining why these must be separate `if` statements (not else-if) since a 65-year-old should see "Can vote", "Can rent a car", AND "Senior citizen".
 
+![Else-if vs separate ifs](../images/module-14/else-if-vs-separate-ifs.png)
+
 > 🎙️ The multiple independent ifs exercise in item four is critical to understand. A sixty-five-year-old should see can vote, can rent a car, and senior citizen -- all three. If you used else-if instead of separate ifs, they would only see the first match. Know when you need separate ifs versus a chain.
 
 ---
 
 ### Part 2: The Braces Trap
+
+![The dangling else trap](../images/module-14/dangling-else-trap.png)
 
 #### Program B: `BracesDemo.java`
 
@@ -208,6 +214,8 @@ Write a program that demonstrates why omitting braces is dangerous:
 ---
 
 ### Part 3: Nested Decisions
+
+![Nested decision tree](../images/module-14/nested-decision-tree.png)
 
 #### Program C: `NestedDecisions.java`
 

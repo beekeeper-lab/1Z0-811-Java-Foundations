@@ -10,6 +10,8 @@
 
 > 🎙️ You might be wondering why an entire day is devoted to naming and comments instead of writing more programs. Here is why -- on a real team, other people read your code. If your naming is inconsistent or your code has no comments, nobody can work with it. The exam tests this too, so it is both a professional skill and an exam skill.
 
+![Road rules and conventions](../images/module-04/road-rules-conventions.png)
+
 ## Research: Java Conventions and Reserved Words
 
 > 🎯 **Teach:** Java's naming conventions for classes, methods, variables, and constants, what reserved words are and why they cannot be used as identifiers, and the three types of comments.
@@ -51,6 +53,8 @@ Save your completed essay as `Response_01_Conventions_and_Reserved_Words_Researc
 > 💡 **Remember this one thing:** Java uses PascalCase for classes, camelCase for methods and variables, and UPPER_SNAKE_CASE for constants — following these conventions makes your code instantly readable to any Java developer.
 
 > 🎙️ Here is the quick cheat sheet. Class names start with an uppercase letter and each new word is capitalized -- that is PascalCase. Variable and method names start lowercase with each new word capitalized -- that is camelCase. Constants are all uppercase with underscores. Get these three rules locked in and you will never second-guess a name again.
+
+![Naming before and after](../images/module-04/naming-before-after.png)
 
 ## Hands-On: Conventions, Comments, and Reserved Words in Practice
 
@@ -97,6 +101,8 @@ Java has strong conventions that the community follows to keep code readable and
 ```
 
 > 🎙️ Notice the three different comment styles. Single-line comments are for quick notes. Multi-line comments are for longer explanations. Javadoc comments are special -- they generate documentation that other developers can browse. You will use all three in today's exercises.
+
+![Three comment types](../images/module-04/three-comment-types.png)
 
 ---
 
@@ -182,6 +188,8 @@ Save your commented version as `GradeCalculatorCommented.java` in this folder.
 > 🎙️ The trick with commenting is restraint. Do not comment obvious lines like "set x to 5" -- that adds clutter, not clarity. Instead, comment the why behind a calculation or a decision. Ask yourself: if someone reads this line six months from now, what would they need to know?
 
 ---
+
+![Reserved words museum](../images/module-04/reserved-words-museum.png)
 
 ### Part 3: Reserved Words Exploration
 
