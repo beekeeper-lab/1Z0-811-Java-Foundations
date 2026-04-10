@@ -10,6 +10,8 @@
 
 > 🎙️ Method overloading is the last new concept of the course, and it ties back to constructor overloading from Day 26. The same rules apply -- same name, different parameter lists. Once you understand this, you will see that you have already been using overloaded methods all along, like println which accepts String, int, double, and more.
 
+![Graduation celebration for the final module](../images/module-30/graduation-celebration.png)
+
 ## Research: Method Overloading and Course Review
 
 > 🎯 **Teach:** What method overloading is, how Java resolves which overloaded method to call, and how it connects to constructor overloading.
@@ -100,6 +102,8 @@ add(1, 2, 3);    // Calls three-arg version
 
 > 🎙️ The table above is critical for the exam. The two most common mistakes are thinking that changing only the return type creates a valid overload -- it does not -- and thinking that changing only the parameter names creates a valid overload -- it does not either. The compiler only looks at the number, types, and order of parameters to distinguish overloaded methods.
 
+![Restaurant menu showing overloaded method options](../images/module-30/restaurant-overloading.png)
+
 #### Type promotion in overloading
 
 If there's no exact match, Java promotes the type:
@@ -109,6 +113,8 @@ public static void print(double d) { System.out.println("double: " + d); }
 
 print(5);  // No int version exists → int promoted to double
 ```
+
+![Type promotion escalator from byte to double](../images/module-30/type-promotion-escalator.png)
 
 ---
 
@@ -285,6 +291,8 @@ These patterns appear on the 1Z0-811 exam. Predict the output BEFORE running:
 ---
 
 ### Part 4: Final Capstone — Student Management System
+
+![Final capstone blueprint for the Student Management System](../images/module-30/capstone-blueprint.png)
 
 #### Create a multi-file application that serves as the capstone for the ENTIRE 1Z0-811 course.
 

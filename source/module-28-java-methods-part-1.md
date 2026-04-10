@@ -10,6 +10,8 @@
 
 > 🎙️ Methods are what make your code reusable. Without methods, you would have to copy and paste the same logic everywhere it is needed. With methods, you write it once, name it clearly, and call it wherever you need it. The exam tests method signatures, return types, and pass-by-value heavily, so today is directly exam-relevant.
 
+![Chef with recipe cards representing reusable methods](../images/module-28/chef-recipes.png)
+
 ## Research: Describing and Creating Methods
 
 > 🎯 **Teach:** What methods are, how parameters and return types work, and what pass-by-value means for primitives versus objects.
@@ -75,6 +77,8 @@ public static int add(int a, int b) {
 }
 ```
 
+![Method anatomy poster showing each part of a method signature](../images/module-28/method-anatomy-poster.png)
+
 #### void vs. return type
 
 ```java
@@ -112,6 +116,8 @@ System.out.println(num);  // Still 5!
 ```
 
 > 🎙️ Pass-by-value is one of the trickiest concepts in Java. The key insight is that Java always copies the value being passed. For a primitive, that is the actual data, so the method cannot change the original. For an object reference, it is a copy of the address, so the method can modify the object but cannot make the caller's variable point to a different object. Study the examples carefully.
+
+![Pass-by-value as making a photocopy](../images/module-28/pass-by-value-photocopy.png)
 
 ---
 
@@ -234,6 +240,8 @@ Write a program that proves Java is pass-by-value:
 ---
 
 ### Part 3: Methods That Call Methods
+
+![Layer cake of methods calling methods](../images/module-28/layer-cake-composition.png)
 
 #### Program C: `MethodComposition.java`
 

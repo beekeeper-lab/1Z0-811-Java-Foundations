@@ -10,6 +10,8 @@
 
 > 🎙️ Sometimes you need to exit a loop early because you found what you were searching for, or you need to skip one iteration because the current value is invalid. That is what break and continue give you -- fine-grained control over the flow inside a loop. These two keywords are small but they appear on the exam constantly.
 
+![Break exits the track, continue bounces over an obstacle](../images/module-19/break-continue-track.png)
+
 ## Research: Comparing Loops, break, and continue
 
 > 🎯 **Teach:** How break exits a loop early, how continue skips an iteration, how labeled loops control nested loops, and how for/while/do-while compare.
@@ -172,11 +174,15 @@ Write a program that demonstrates break and continue in all three loop types:
    With continue: 0 1 2 4 5 6 7 8 9
    ```
 
+![Break vs continue side by side comparison](../images/module-19/break-vs-continue-boxes.png)
+
 > 🎙️ The danger case in item four is essential to see firsthand. When continue skips the increment in a while loop, the variable never changes, and the loop runs forever. This is a real bug that happens in production code. Always make sure your loop variable gets updated regardless of whether continue fires.
 
 ---
 
 ### Part 2: Nested Loops with break and continue
+
+![Labeled break as a zipline out of nested loops](../images/module-19/labeled-break-zipline.png)
 
 #### Program B: `NestedLoopControl.java`
 
@@ -328,6 +334,8 @@ These patterns appear on the 1Z0-811 exam. For each one, **predict the output** 
 ---
 
 ### Part 5: Looping Statements Capstone
+
+![Dungeon adventure game capstone](../images/module-19/dungeon-adventure.png)
 
 #### Program E: `TextAdventureGame.java`
 

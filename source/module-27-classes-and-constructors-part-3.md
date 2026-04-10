@@ -10,6 +10,8 @@
 
 > 🎙️ Composition is how professional software is built. Instead of one massive class that tries to do everything, you create small focused classes that work together. This is the design principle the exam tests when it asks about object relationships, and it is the approach you will use in every real Java project.
 
+![Nesting dolls representing composition](../images/module-27/nesting-dolls-composition.png)
+
 ## Research: Object Relationships and Putting It All Together
 
 > 🎯 **Teach:** How composition (the "has-a" relationship) lets objects contain other objects, and what makes a well-designed class.
@@ -165,6 +167,8 @@ Methods:
 - `displayFullProfile()` — prints name, age, full address, and contact info using the composed objects' methods
 - `toString()` — summary line
 
+![Delegation backpack: Person delegates to Address and ContactInfo](../images/module-27/delegation-backpack.png)
+
 **`CompositionMain.java`**
 
 1. Create Address and ContactInfo objects separately
@@ -173,6 +177,8 @@ Methods:
 4. Call `displayFullProfile()` on each
 5. Modify a Person's address through the getter: `person.getAddress().setCity("Seattle")` — show that changes propagate
 6. Demonstrate that two Persons can share the same Address object (roommates) — change the address and show both are affected. Then discuss in a comment whether this is desirable.
+
+![Shared reference between roommates pointing to the same address](../images/module-27/shared-reference-roommates.png)
 
 > 🎙️ That shared reference demonstration is important. When two Person objects point to the same Address, changing the address through one Person changes it for both. This can be a feature -- roommates share an address -- or a bug if you did not intend it. Understanding shared references is essential for avoiding subtle bugs in object-oriented programs.
 
@@ -256,6 +262,8 @@ Methods:
 ---
 
 ### Part 3: Classes and Constructors Capstone
+
+![Library catalog architecture diagram](../images/module-27/library-architecture.png)
 
 #### Create a multi-file application: `LibraryCatalog`
 

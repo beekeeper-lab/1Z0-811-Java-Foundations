@@ -10,6 +10,8 @@
 
 > 🎙️ Constructors are one of the exam's favorite topics. The exam loves to test whether the default constructor exists, what happens when you write your own, and whether this() is in the right place. Today is dense, but if you understand these rules, you will pick up easy points on the certification.
 
+![Assembly line constructor initializing objects](../images/module-26/assembly-line-constructor.png)
+
 ## Research: Constructors in Java
 
 > 🎯 **Teach:** What constructors are, how the default constructor disappears, and how constructor overloading and chaining with this() work.
@@ -91,7 +93,11 @@ Dog d1 = new Dog("Buddy", 3);  // Works
 // Dog d2 = new Dog();          // ERROR — no default constructor anymore!
 ```
 
+![The ghost of the default constructor that disappears](../images/module-26/default-constructor-ghost.png)
+
 #### The `this` keyword
+
+![The this keyword distinguishing twins: field vs parameter](../images/module-26/this-keyword-twins.png)
 
 Inside a constructor or method, `this` refers to the current object:
 
@@ -269,6 +275,8 @@ Employee e2 = new Employee("Bob Smith", "Marketing", 72000);
 Employee e3 = new Employee("Charlie Brown", "Sales");
 Employee e4 = new Employee();
 ```
+
+![Constructor chaining relay race](../images/module-26/constructor-chaining-relay.png)
 
 Print all four to show that defaults were applied correctly and IDs auto-incremented. Show the constructor chaining by adding print statements inside each constructor:
 ```java

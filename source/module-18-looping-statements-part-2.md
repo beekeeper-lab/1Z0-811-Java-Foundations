@@ -308,6 +308,8 @@ Write the SAME program implemented both ways, to clearly show when the behavior 
 
 ### Part 5: Practical Application
 
+![ATM simulator combining while and do-while loops](../images/module-18/atm-simulator.png)
+
 #### Program E: `ATMSimulator.java`
 
 Build an ATM simulator that uses both while and do-while loops appropriately:

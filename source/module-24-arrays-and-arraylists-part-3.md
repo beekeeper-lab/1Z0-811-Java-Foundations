@@ -10,6 +10,8 @@
 
 > 🎙️ Today is about making the right choice. The exam will not always tell you whether to use an array or an ArrayList -- sometimes it just gives you a scenario and asks what code works. If you understand the trade-offs between the two, those questions become straightforward.
 
+![Array vs ArrayList showdown comparison](../images/module-24/array-vs-arraylist-showdown.png)
+
 ## Research: Comparing Arrays and ArrayLists
 
 > 🎯 **Teach:** How arrays and ArrayLists compare in size, syntax, performance, and built-in features, and how to convert between them.
@@ -116,6 +118,8 @@ System.out.println(Arrays.toString(arr));  // [Apple, Banana, Cherry]
 
 ### Part 1: Side-by-Side Comparison
 
+![Syntax comparison between arrays and ArrayLists](../images/module-24/syntax-comparison.png)
+
 #### Program A: `ArrayVsArrayList.java`
 
 Write a program that performs the same operations with BOTH an array and an ArrayList, side by side, highlighting the differences:
@@ -213,6 +217,8 @@ Write a program that demonstrates all conversion patterns:
    ```
    Wrap in try-catch and explain. Show how wrapping in `new ArrayList<>()` solves this.
 
+![Arrays.asList() trap: the imposter ArrayList](../images/module-24/aslist-trap-imposter.png)
+
 > 🎙️ Do not skip the Arrays.asList trap in Part 2. The list it returns looks like an ArrayList but it is not -- you cannot add or remove from it. This is a sneaky exam question where code that looks perfectly fine throws an UnsupportedOperationException at runtime. The fix is simple -- wrap it in new ArrayList -- but you need to know it exists.
 
 ---
@@ -281,6 +287,8 @@ These patterns appear on the 1Z0-811 exam. Predict the output BEFORE running:
 ---
 
 ### Part 4: Arrays and ArrayLists Capstone
+
+![Capstone project blueprints for the Contact Manager](../images/module-24/capstone-blueprints.png)
 
 #### Program D: `ContactManager.java`
 
